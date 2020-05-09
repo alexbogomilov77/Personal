@@ -9,7 +9,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          update one more 22-ori.
+          update one more 22-or
         </p>
         <a
           className="App-link"
