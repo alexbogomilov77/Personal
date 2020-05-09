@@ -1,0 +1,143 @@
+// DEFAULTS
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+.App {
+  text-align: center;
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+.App-logo {
+  height: 20vmin;
+  pointer-events: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// MAIN
+.main {
+  position: absolute;
+  top: 50px;
+}
+.type-form {
+  position: relative;
+  display: flex;
+  margin-bottom: 50px;
+  textarea {
+    background-color: #292c33;
+    margin-right: 40px;
+    color: #62dafb;
+    font-size: 22px;
+    border: none;
+    border-bottom: 2px solid orange;
+    font-weight: bold;
+  }
+}
+
+.comments-list {
+  padding: 0px;
+  list-style-type: none;
+  max-height: 40vh;
+  overflow: scroll;
+  li {
+    text-align: left;
+    margin-bottom: 20px;
+  }
+  span {
+    display: block;
+  }
+  .comment {
+    font-size: 32px;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #292c33;
+  }
+  .comment-edit {
+    color: white;
+    background-color: #292c33;
+    border: none;
+    border-bottom: 2px solid white;
+    font-size: 32px;
+    margin: 0 20px 20px 0;
+  }
+  .date {
+    color: #ffffffa3;
+    font-size: 14px;
+    font-style: italic;
+    margin-bottom: 10px;
+  }
+}
+
+.btn {
+  color: #292c33;
+  font-size: 14px;
+  border-radius: 2.5px;
+  width: 75px;
+  height: 27.5px;
+  border: none;
+  font-weight: bold;
+}
+.delete {
+  background-color: #a43513;
+  &:hover {
+    cursor: pointer;
+    background-color: #bf3f18;
+  }
+  &:disabled {
+    background-color: #b3c7cd;
+    color: #8a8e8f;
+  }
+}
+.edit {
+  background-color: orange;
+  margin-right: 10px;
+  &:hover {
+    cursor: pointer;
+    background-color: #ffcb00;
+  }
+  &:disabled {
+    background-color: #b3c7cd;
+    color: #8a8e8f;
+  }
+}
+.regular {
+  background-color: #62dafb;
+  &.submit {
+    position: absolute;
+    bottom: -40px;
+    right: 40px;
+  }
+  &:hover {
+    cursor: pointer;
+    background-color: #00c8ff;
+  }
+  &:disabled {
+    background-color: #b3c7cd;
+    color: #8a8e8f;
+  }
+}
