@@ -1,4 +1,12 @@
 .header {
     height: 60px;
-    box-shadow: 10px 3px 6px  rgba(#000, 0.3);
+    display: flex;
+    align-items: center;
+    background-color: $white1;
+    box-shadow: 6px 3px 10px  rgba($black-pure, 0.1);
+    .logo {
+        color: $active;
+        padding-left: 87px;
+        font-family: 'Muli-ExtraBoldItalic';
+    }
 }

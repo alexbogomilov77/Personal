@@ -5,27 +5,38 @@ import { connect } from 'react-redux'
 
 class Sidebar extends Component {
 
-//   handleDelete = (el) => {
-//     this.props.deleteComment(el)
-//   }
+  state = {
+    activeLink: null
+  }
+
+  handleClick = id => {
+    this.setState({ activeLink: id });
+  };
 
   render() {
+    const { activeLink } = this.state;
+
     return this.props.cars.length > 0 ? (
-      <div className="sidebar">
-        <button class="btn btn-active">
-          ADD
+      <div className='sidebar'>
+
+        <button class='new btn btn-active'>
+          New
         </button>
-        <ul className="sidebar-list">
+
+        <div className='categories'>
+          <span>active</span>
+          <span className='divide'> / </span>
+          <span>waiting</span>
+        </div>
+
+        <ul className='sidebar-list'>
           {this.props.cars.map((car) => {
             return (
-              <li className="sidebar-item" key={car.id}>
+              <li
+                key={car.id}
+                onClick={() => this.handleClick(car.id)}
+                className={'sidebar-item ' + (car.id === activeLink ? 'active-item': '')}>
                   {car.make}
-                {/* <Comment
-                  id={comment.id}
-                  date={comment.date}
-                  msg={comment.text}
-                  delete={this.handleDelete}
-                /> */}
               </li>
             );
           })}

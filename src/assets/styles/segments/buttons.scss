@@ -1,6 +1,9 @@
 .btn {
     border: 0;
-    border-radius: $main-radius;
+    border-radius: $radius-main;
+    &:hover {
+        cursor: pointer;
+    }
 }
 
 .btn-active {
