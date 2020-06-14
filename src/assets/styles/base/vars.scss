@@ -1,14 +1,22 @@
 //colors
 $black-pure: #000;
 $solid: #39495C;
+$solid2: #39495C;
 $solid-light: #5D7592;
 $active: #EE8572;
 $active1: #fb664c;
 
 //colors-white
-$white: #F5F5F5;
-$white1: #F5F4F4;
+$white: #FFF;
+$white1: #F5F5F5;
+$white2: #F5F4F4;
 
+//innactive
+$inactive: #C4C4C4;
 
 //radius
-$radius-main: 5px;
+$radius: 5px;
+$radius2: 10px;
+
+//shadow
+$shadow: 6px 3px 10px  rgba($black-pure, 0.1);

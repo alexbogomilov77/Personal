@@ -1,14 +1,15 @@
 .sidebar {
     width: 220px;
     height: 100vh;
-    text-align: center;
+    position: absolute;
     padding: 0 5px;
+    text-align: center;
     background-color: $solid;
     .new {
         width: 60px;
         height: 30px;
         font-size: 16px;
-        color: $white;
+        color: $white2;
         transition: ease .2s;
         margin: 50px 0 40px 0;
         font-family: 'Muli-ExtraBold';
@@ -35,14 +36,14 @@
             color: $solid-light;
             transition: ease .2s;
             font-family: 'Muli-SemiBold';
-            border-radius: $radius-main;
+            border-radius: $radius;
             &:hover {
                 cursor: pointer;
                 color: $solid;
                 background-color: $solid-light;
             }
             &.active-item {
-                color: $white;
+                color: $white2;
                 background-color: $active;
                 font-family: 'Muli-ExtraBold';
                 &:hover {

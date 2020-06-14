@@ -6,6 +6,11 @@
 //segments
 @import './segments/buttons.scss';
 
+//global components
+@import './components/global/main.scss';
+@import './components/global/header.scss';
+@import './components/global/sidebar.scss';
+
 //components
-@import './components/header.scss';
-@import './components/sidebar.scss';
+@import './components/dashboard/infobar.scss';
+@import './components/dashboard/dashboard.scss';

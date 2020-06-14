@@ -10,6 +10,24 @@ const initState = {
       make: 'Opel',
       model: 'Insignia'
     }
+  ],
+  listHistory: [
+    {
+      id: '22.09.2019',
+      label: 'Cleaning DPF'
+    },
+    {
+      id: '22.09.2019',
+      label: 'Cleaning DPF'
+    },
+    {
+      id: '22.09.2019',
+      label: 'Cleaning DPF'
+    },
+    {
+      id: '22.09.2019',
+      label: 'Cleaning DPF'
+    },
   ]
 }
 

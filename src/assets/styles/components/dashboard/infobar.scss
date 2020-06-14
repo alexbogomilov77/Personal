@@ -1,0 +1,33 @@
+.infobar {
+    height: 370px;
+    padding: 30px;
+    min-width: 170px;
+    margin-right: 30px;
+    box-shadow: $shadow;
+    border-radius: $radius;
+    background-color: $white;
+    .info {
+        span {
+            display: block;
+        }
+        .id {
+            color: $solid2;
+            font-size: 14px;
+            margin-bottom: 10px;
+            font-family: 'Muli-ExtraBold';
+        }
+        .specification {
+            color: $solid2;
+            font-size: 13px;
+            margin-bottom: 3.5px;
+            font-family: 'Muli-SemiBold';
+        }
+        margin-bottom: 25px;
+    }
+    .divider {
+        height: 2px;
+        width: 170px;
+        margin-bottom: 25px;
+        background-color: $inactive;
+    }
+}
