@@ -1,0 +1,11 @@
+//base
+@import './base/default.scss';
+@import './base/vars.scss';
+@import './base/fonts.scss';
+
+//segments
+@import './segments/buttons.scss';
+
+//components
+@import './components/header.scss';
+@import './components/sidebar.scss';

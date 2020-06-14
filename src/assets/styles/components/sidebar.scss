@@ -1,0 +1,11 @@
+.sidebar {
+    width: 220px;
+    height: 100vh;
+    text-align: center;
+    background-color: $main-solid;
+    .sidebar-list {
+        .sidebar-item {
+            padding: 10px 0;
+        }
+    }
+}
