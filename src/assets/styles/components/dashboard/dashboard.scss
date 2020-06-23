@@ -1,6 +1,7 @@
 .dashboard {
     width: 600px;
-    height: 430px;
-    background-color: $white;
+    min-height: 415px;
     box-shadow: $shadow;
+    border-radius: $radius2;
+    background-color: $white;
 }

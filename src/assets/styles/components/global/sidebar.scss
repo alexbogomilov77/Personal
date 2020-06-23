@@ -30,13 +30,13 @@
     }
     .sidebar-list {
         .sidebar-item {
-            font-size: 16px;
-            padding: 10px 0;
             margin: 5px 0;
+            padding: 10px 0;
+            font-size: 16px;
             color: $solid-light;
+            border-radius: $radius;
             transition: ease .2s;
             font-family: 'Muli-SemiBold';
-            border-radius: $radius;
             &:hover {
                 cursor: pointer;
                 color: $solid;

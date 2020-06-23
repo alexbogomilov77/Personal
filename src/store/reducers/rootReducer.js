@@ -14,18 +14,26 @@ const initState = {
   listHistory: [
     {
       id: '22.09.2019',
+      label: 'Cleaning DPF',
+      request: '',
+      diagnose: '',
+      service: '',
+      bill: ''
+    },
+    {
+      id: '23.09.2019',
       label: 'Cleaning DPF'
     },
     {
-      id: '22.09.2019',
+      id: '24.09.2019',
       label: 'Cleaning DPF'
     },
     {
-      id: '22.09.2019',
+      id: '25.09.2019',
       label: 'Cleaning DPF'
     },
     {
-      id: '22.09.2019',
+      id: '26.09.2019',
       label: 'Cleaning DPF'
     },
   ]
