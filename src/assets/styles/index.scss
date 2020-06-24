@@ -12,5 +12,8 @@
 @import './components/global/sidebar.scss';
 
 //components
-@import './components/dashboard/infobar.scss';
+@import './components/dashboard/info/infobar.scss';
 @import './components/dashboard/dashboard.scss';
+
+@import './components/dashboard/main/header.scss';
+@import './components/dashboard/main/service.scss';

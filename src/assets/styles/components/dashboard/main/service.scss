@@ -1,0 +1,95 @@
+.toggle-action {
+    margin-bottom: 50px;
+}
+
+.action {
+    color: $unnamed;
+    font-size: 20px;
+    font-family: 'Muli-ExtraBold';
+    &.active-action {
+        color: $active;
+    }
+}
+
+.divider-action {
+    color: $active;
+    font-size: 20px;
+    font-family: 'Muli-ExtraBold';
+}
+
+.columns {
+    display: flex;
+    margin-bottom: 35px;
+    .label {
+        display: block;
+        color: $unnamed;
+        font-size: 16px;
+        margin-bottom: 12.5px;
+        font-family: 'Muli-ExtraBoldItalic';
+    }
+    .name, .value {
+        display: flex;
+        margin-bottom: 35px;
+    }
+    .service-list {
+        margin-bottom: 35px;
+        .service-list-item {
+            margin-bottom: 15px;
+            .name, .value {
+                font-size: 14px;
+                padding-left: 3.5px;
+                margin-bottom: 15px;
+                font-family: 'Muli-SemiBold';
+            }
+        }
+    }
+
+    .column-left {
+        margin-right: 50px;
+        text-align: left;
+        #name {
+            height: 25px;
+            width: 150px;
+            border: none;
+            margin-right: 15px;
+            border-radius: $radius;
+            background-color: $unnamed1;
+        }
+    
+    }
+    
+    .column-right {
+        text-align: left;
+        #value {
+            height: 25px;
+            width: 55px;
+            border: none;
+            margin-right: 10px;
+            border-radius: $radius;
+            background-color: $unnamed1;
+        }
+        .add {
+            border: none;
+            width: 35px;
+            height: 27px;
+            color: $white1;
+            font-size: 20px;
+            background-color: $active;
+            font-family: 'Muli-Bold';
+            border-radius: $radius;
+        }
+    }
+}
+
+.dashboard-main-service-footer {
+    .action-btn {
+        border: none;
+        color: $white1;
+        font-size: 12px;
+        padding: 7.5px 25px;
+        font-family: 'Muli-ExtraBold';
+        background-color: $active;
+        text-transform: uppercase;
+        border-radius: $radius1;
+    }
+}

@@ -20,7 +20,7 @@
                 width: 20px;
                 height: 15px;
                 display: inline-block;
-                background-color: #efefef;
+                background-color: $unnamed1;
             }
             .active-step {
                 width: 30px;
@@ -32,16 +32,16 @@
             display: flex;
             #step {
                 width: 105px;
-                height: 27px;
+                height: 25px;
                 border: none;
                 margin-right: 15px;
-                background-color: #efefef;
+                background-color: $unnamed1;
                 border-radius: $radius;
             }
             .add {
                 border: none;
                 width: 35px;
-                height: 30px;
+                height: 27px;
                 color: $active;
                 font-size: 20px;
                 font-family: 'Muli-Bold';
@@ -52,7 +52,7 @@
             .steps-list-item {
                 font-size: 12px;
                 margin: 15px 0;
-                color: #AAAAAA;
+                color: $unnamed;
                 font-family: 'Muli-Bold';
             }
             .active-item {
@@ -61,10 +61,20 @@
             }
         }
     }
-    .vertical-divider {
+    .divider-vertical {
         width: 1px;
         height: 400px;
         margin: 0 55px 0px 25px;
-        background-color: $inactive;
+        background-color: $unnamed1;
+    }
+
+    //Main
+    .dashboard-main-header {
+        text-align: center;
+    }
+
+    .dashboard-main-service {
+        width: 350px;
+        text-align: center;
     }
 }

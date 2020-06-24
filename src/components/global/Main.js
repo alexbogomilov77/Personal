@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
-import InfoBar from '../../components/dashboard/InfoBar'
-import Dashboard from '../../components/dashboard/Dashboard'
+import InfoBar from '../../components/main/info/InfoBar'
+import Dashboard from '../../components/main/dashboard/Dashboard'
 
 class Main extends Component {
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
-import Navigation from '../../components/dashboard/Navigation'
-import Main from '../../components/dashboard/Main'
+import Navigation from './navi/Navigation'
+import Main from './main/Main'
 
 class Dashboard extends Component {
 
@@ -10,7 +10,7 @@ class Dashboard extends Component {
     return (
         <div className="dashboard">
             <Navigation />
-            <div className='vertical-divider'></div>
+            <div className='divider-vertical'></div>
             <Main />
         </div>
     )

@@ -16,7 +16,7 @@ class Navigation extends Component {
         
         <div className="new-step">
           <input type="text" id="step" name="new-step" />
-          <button className="add">+</button>
+          <button className="add"></button>
         </div>
 
         <ul className='steps-list'>
