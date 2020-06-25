@@ -6,12 +6,6 @@ class Service extends Component {
     return (
       <div className="dashboard-main-service">
 
-          <div className="toggle-action">
-            <span className="action active-action">Service</span>
-            <span className="divider-action"> / </span>
-            <span  className="action">Parts</span>
-          </div>
-
           <div className="columns">
             <div className="column-left">
               <label className="label" for="name">Name:</label>

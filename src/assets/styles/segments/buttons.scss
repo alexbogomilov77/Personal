@@ -7,5 +7,31 @@
 }
 
 .btn-active {
-    background-color: $active;
+    background-color: $active !important;
+}
+
+.btn-switch {
+    width: 40px;
+    height: 20px;
+    padding: 5px 15px;
+    display: flex;
+    color: #FFF;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-family: 'Muli-Bold';
+    background-color: $unnamed1;
+    &.btn-switch-left {
+        border-radius: 5px 0px 0px 5px;
+    }
+    &.btn-switch-right {
+        color: #c5c5c5 !important;
+        border-radius: 0px 5px 5px 0px;
+    }
+}
+
+.btn-switch-label {
+    font-size: 14px;
+    color: #c5c5c5;
+    font-family: 'Muli-Bold';
 }

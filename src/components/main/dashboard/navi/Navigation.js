@@ -9,7 +9,6 @@ class Navigation extends Component {
 
         <ul className='steps'>
           <li className="step"></li>
-          <li className="step"></li>
           <li className="step active-step"></li>
           <li className="step"></li>
         </ul>
