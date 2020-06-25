@@ -73,12 +73,13 @@
     }
 
     //Main
-    .dashboard-main-header {
-        text-align: center;
-    }
+    // .dashboard-main-header {
+    //     text-align: center;
+    // }
     //Toggle
     .toggle-action {
-        margin-bottom: 50px;
+        margin-bottom: 20px;
+        text-align: left;
     }
     .action {
         color: $unnamed;
@@ -97,7 +98,7 @@
     //Toggle2
     .toggle-action2 {
         display: flex;
-        justify-content: center;
+        // justify-content: center;
     }
 
     .dashboard-main-service {
