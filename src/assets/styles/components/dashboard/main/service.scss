@@ -1,68 +1,63 @@
-.columns {
+.service-input-fields {
     display: flex;
-    margin-bottom: 35px;
-    .label {
+    align-items: center;
+    margin-bottom: 25px;
+    .input {
+        display: flex;
+    }
+    .input-block {
+        text-align: left;
+    }
+    .input-label  {
         display: block;
-        color: $unnamed;
+        color: #dbdbdb;
         font-size: 12px;
         margin-bottom: 5px;
         font-family: 'Muli-BoldItalic';
     }
-    .input-name, .input-value {
+    #name, #value{
         display: flex;
-        margin-bottom: 35px;
+        height: 20px;
+        width: 100px;
+        width: 100px;
+        border: none;
+        border-radius: $radius0;
+        background-color: $unnamed1;
     }
-    .service-list {
-        // margin-bottom: 35px;
-        min-height: 200px;
-        .service-list-item {
-            font-size: 12px;
-            color: #717171;
-            margin-bottom: 10px;
-            padding: 0 0 8px 3.5px;
-            font-family: 'Muli-ExtraBold';
-            &:nth-child(even) {
-                background-color: $unnamed1;
-            }
-            &.service-value {
-                width: 40% !important;
-            }
-        }
+    #name {
+        margin-right: 50px;
     }
+    #value {
+        margin-right: 15px;
+        width: 55px !important;
+    }
+    .add {
+        border: none;
+        width: 27px;
+        height: 22px;
+        color: $white1;
+        font-size: 20px;
+        background-color: $active;
+        font-family: 'Muli-Bold';
+        border-radius: $radius0;
+    }
+}
 
-    .column-left {
-        margin-right: 25px;
-        text-align: left;
-        #name {
-            height: 20px;
-            width: 100px;
-            border: none;
-            margin-right: 15px;
-            border-radius: $radius0;
+.service-list {
+    text-align: left;
+    min-height: 200px;
+    margin-bottom: 35px;
+    .service-list-item {
+        font-size: 12px;
+        padding: 12px;
+        color: #717171;
+        border-radius: $radius0;
+        font-family: 'Muli-Bold';
+        &:nth-child(even) {
             background-color: $unnamed1;
         }
-    
-    }
-    
-    .column-right {
-        text-align: left;
-        #value {
-            height: 20px;
-            width: 55px;
-            border: none;
-            margin-right: 10px;
-            border-radius: $radius0;
-            background-color: $unnamed1;
-        }
-        .add {
-            border: none;
-            width: 27px;
-            height: 22px;
-            color: $white1;
-            font-size: 20px;
-            background-color: $active;
-            font-family: 'Muli-Bold';
-            border-radius: $radius0;
+        .service-name {
+            margin-right: 50px;
         }
     }
 }

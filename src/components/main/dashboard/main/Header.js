@@ -10,12 +10,12 @@ class Header extends Component {
           <div className="toggle-action2">
             <div className="left">
               <div className="btn-switch btn-switch-left btn-active">
-                ◉
+                service
               </div>
             </div>
             <div className="right">
               <div className="btn-switch btn-switch-right">
-                ◉
+                parts
               </div>
             </div>
           </div>

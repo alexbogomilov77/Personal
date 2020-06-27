@@ -4,7 +4,8 @@
     position: absolute;
     padding: 0 5px;
     text-align: center;
-    background-color: $solid;
+    background: linear-gradient(0deg, rgba(42,53,67,1) 0%, rgba(44,61,82,1) 100%);
+    // background-color: $solid;
     .new {
         width: 60px;
         height: 30px;
@@ -32,7 +33,7 @@
         }
         .divider {
             font-size: 20px;
-            color: $solid-light;
+            color: #95acc6;
             font-family: 'Muli-ExtraBold';
         }
     }

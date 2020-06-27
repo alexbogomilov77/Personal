@@ -19,7 +19,7 @@ class Sidebar extends Component {
     return this.props.cars.length > 0 ? (
       <div className='sidebar'>
 
-        <button class='new btn btn-active'>
+        <button className='new btn btn-active'>
           New
         </button>
 
