@@ -1,13 +1,14 @@
 .dashboard {
-    width: 600px;
+    width: 630px;
     display: flex;
     min-height: 415px;
     box-shadow: $shadow;
     border-radius: $radius1;
     background-color: $white;
-    padding: 30px 110px 45px 35px;
+    padding: 30px 40px 45px 35px;
     .dashboard-navigation {
-        min-width: 90px;
+        // min-width: 90px;
+        width: 40%;
         .steps-label {
             color: $active;
             font-size: 20px;
@@ -37,7 +38,7 @@
                 border: none;
                 margin-right: 15px;
                 background-color: $unnamed1;
-                border-radius: $radius;
+                border-radius: $radius0;
             }
             .add {
                 border: none;
@@ -46,7 +47,7 @@
                 color: $active;
                 font-size: 20px;
                 font-family: 'Muli-Bold';
-                border-radius: $radius;
+                border-radius: $radius0;
             }
         }
         .steps-list {
@@ -65,11 +66,12 @@
     .divider-vertical {
         width: 1px;
         height: 400px;
-        margin: 0 55px 0px 25px;
+        margin: 0 45px 0px 25px;
         background-color: $unnamed1;
     }
     .dashboard-main {
-        max-width: 350px;
+        // max-width: 350px;
+        width: 100%;
     }
 
     //Main
@@ -98,7 +100,7 @@
     //Toggle2
     .toggle-action2 {
         display: flex;
-        // justify-content: center;
+        box-shadow: $shadow;
     }
 
     .dashboard-main-service {

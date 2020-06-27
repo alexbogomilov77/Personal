@@ -10,7 +10,7 @@
         height: 30px;
         font-size: 16px;
         color: $white2;
-        transition: ease .2s;
+        transition: ease .1s;
         margin: 50px 0 40px 0;
         font-family: 'Muli-ExtraBold';
         &:hover {
@@ -19,13 +19,21 @@
     }
     .categories {
         margin-bottom: 30px;
-        span {
+        .category {
             color: $solid-light;
             font-size: 20px;
             font-family: 'Muli-ExtraBold';
             &:hover {
                 cursor: pointer;
             }
+            &.active-category {
+                color: #95acc6;
+            }
+        }
+        .divider {
+            font-size: 20px;
+            color: $solid-light;
+            font-family: 'Muli-ExtraBold';
         }
     }
     .sidebar-list {
@@ -35,7 +43,7 @@
             font-size: 16px;
             color: $solid-light;
             border-radius: $radius;
-            transition: ease .2s;
+            transition: ease .1s;
             font-family: 'Muli-SemiBold';
             &:hover {
                 cursor: pointer;

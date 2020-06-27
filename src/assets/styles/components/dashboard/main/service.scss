@@ -4,36 +4,41 @@
     .label {
         display: block;
         color: $unnamed;
-        font-size: 16px;
-        margin-bottom: 12.5px;
-        font-family: 'Muli-ExtraBoldItalic';
+        font-size: 12px;
+        margin-bottom: 5px;
+        font-family: 'Muli-BoldItalic';
     }
-    .name, .value {
+    .input-name, .input-value {
         display: flex;
         margin-bottom: 35px;
     }
     .service-list {
-        margin-bottom: 35px;
+        // margin-bottom: 35px;
+        min-height: 200px;
         .service-list-item {
-            margin-bottom: 15px;
-            .name, .value {
-                font-size: 14px;
-                padding-left: 3.5px;
-                margin-bottom: 15px;
-                font-family: 'Muli-SemiBold';
+            font-size: 12px;
+            color: #717171;
+            margin-bottom: 10px;
+            padding: 0 0 8px 3.5px;
+            font-family: 'Muli-ExtraBold';
+            &:nth-child(even) {
+                background-color: $unnamed1;
+            }
+            &.service-value {
+                width: 40% !important;
             }
         }
     }
 
     .column-left {
-        margin-right: 50px;
+        margin-right: 25px;
         text-align: left;
         #name {
-            height: 25px;
-            width: 150px;
+            height: 20px;
+            width: 100px;
             border: none;
             margin-right: 15px;
-            border-radius: $radius;
+            border-radius: $radius0;
             background-color: $unnamed1;
         }
     
@@ -42,22 +47,22 @@
     .column-right {
         text-align: left;
         #value {
-            height: 25px;
+            height: 20px;
             width: 55px;
             border: none;
             margin-right: 10px;
-            border-radius: $radius;
+            border-radius: $radius0;
             background-color: $unnamed1;
         }
         .add {
             border: none;
-            width: 35px;
-            height: 27px;
+            width: 27px;
+            height: 22px;
             color: $white1;
             font-size: 20px;
             background-color: $active;
             font-family: 'Muli-Bold';
-            border-radius: $radius;
+            border-radius: $radius0;
         }
     }
 }
@@ -68,9 +73,10 @@
         color: $white1;
         font-size: 12px;
         padding: 7.5px 25px;
-        font-family: 'Muli-ExtraBold';
+        box-shadow: $shadow;
+        border-radius: $radius0;
         background-color: $active;
         text-transform: uppercase;
-        border-radius: $radius1;
+        font-family: 'Muli-ExtraBold';
     }
 }

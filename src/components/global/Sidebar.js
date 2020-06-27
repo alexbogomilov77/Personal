@@ -24,9 +24,9 @@ class Sidebar extends Component {
         </button>
 
         <div className='categories'>
-          <span>active</span>
-          <span className='divide'> / </span>
-          <span>waiting</span>
+          <span className="category">active</span>
+          <span className='divider'> / </span>
+          <span className="category active-category">waiting</span>
         </div>
 
         <ul className='sidebar-list'>
