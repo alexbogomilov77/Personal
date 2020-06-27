@@ -1,11 +1,12 @@
 .service-input-fields {
     display: flex;
     align-items: center;
-    margin-bottom: 25px;
-    .input {
-        display: flex;
-    }
+    margin-bottom: 20px;
+    // .input {
+    //     display: flex;
+    // }
     .input-block {
+        // display: flex;
         text-align: left;
     }
     .input-label  {
@@ -25,11 +26,17 @@
         background-color: $unnamed1;
     }
     #name {
-        margin-right: 50px;
+        width: 250px;
+        margin-right: 20px;
+        // &::placeholder {
+        //     color: #767676;
+        //     font-family: 'Muli-Italic';
+        //     font-size: 12px !important;
+        // }
     }
     #value {
-        margin-right: 15px;
-        width: 55px !important;
+        // margin-right: 15px;
+        width: 69px !important;
     }
     .add {
         border: none;
@@ -37,6 +44,7 @@
         height: 22px;
         color: $white1;
         font-size: 20px;
+        margin: 20px 15px 0 10px;
         background-color: $active;
         font-family: 'Muli-Bold';
         border-radius: $radius0;
@@ -45,19 +53,19 @@
 
 .service-list {
     text-align: left;
-    min-height: 200px;
-    margin-bottom: 35px;
+    min-height: 150px;
+    margin-bottom: 80px;
     .service-list-item {
-        font-size: 12px;
-        padding: 12px;
-        color: #717171;
-        border-radius: $radius0;
+        font-size: 11px;
+        padding: 10px 22px;
+        color: #949494;
+        border-radius: 2.5px;
         font-family: 'Muli-Bold';
         &:nth-child(even) {
             background-color: $unnamed1;
         }
         .service-name {
-            margin-right: 50px;
+            margin-right: 180px;
         }
     }
 }

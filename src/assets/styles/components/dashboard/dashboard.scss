@@ -12,7 +12,7 @@
         .steps-label {
             color: $active;
             font-size: 20px;
-            margin-bottom: 22.5px;
+            margin-bottom: 28.5px;
             font-family: 'Muli-ExtraBold';
            }
         .steps {
@@ -34,16 +34,16 @@
             display: flex;
             #step {
                 width: 105px;
-                height: 25px;
+                height: 20px;
                 border: none;
-                margin-right: 15px;
+                margin-right: 10px;
                 background-color: $unnamed1;
                 border-radius: $radius0;
             }
             .add {
                 border: none;
-                width: 35px;
-                height: 27px;
+                width: 27px;
+                height: 22px;
                 color: $active;
                 font-size: 20px;
                 font-family: 'Muli-Bold';
@@ -56,6 +56,11 @@
                 margin: 15px 0;
                 color: $unnamed;
                 font-family: 'Muli-Bold';
+                &:hover {
+                    transition: .1s ease;
+                    cursor: pointer;
+                    color: $active1;
+                }
             }
             .active-item {
                 color: $active;

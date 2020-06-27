@@ -17,6 +17,17 @@
     }
 }
 
+.btn-active2 {
+    color: $white;
+    transition: .1s ease;
+    background-color: $active;
+    box-shadow: 3px 3px 6px #fb664c7a;
+    &:hover {
+        cursor: pointer !important;
+        background-color: $active1 !important;
+    }
+}
+
 .btn-switch {
     width: 50px;
     height: 20px;
