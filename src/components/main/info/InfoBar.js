@@ -25,9 +25,9 @@ class InfoBar extends Component {
               <span className="specification">
                 Diesel 2.2 CDTi
               </span>
-              <span className="specification">
+              {/* <span className="specification">
                 2005
-              </span>
+              </span> */}
             </div>
             {/* <div className='divider'></div> */}
             <div className='history'>
