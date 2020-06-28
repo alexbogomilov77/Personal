@@ -18,9 +18,7 @@ class InfoBar extends Component {
     return (
         <div className='infobar'>
             <div className='info'>
-              <span className="id">
-                CB 3411 BA
-              </span>
+              <p className="infobar-label car-id">CB 3411 BA</p>
               <span className="specification">
                 Honda Accord
               </span>
@@ -31,8 +29,9 @@ class InfoBar extends Component {
                 2005
               </span>
             </div>
-            <div className='divider'></div>
+            {/* <div className='divider'></div> */}
             <div className='history'>
+              <p className="infobar-label">history</p>
               <ul className='history-nav'>
                 {this.props.history.map((date) => {
                   return (

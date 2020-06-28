@@ -1,9 +1,17 @@
 import React, { Component } from 'react'
 // import Comment from './Comment'
+import axios from 'axios'
 import { connect } from 'react-redux'
 // import { deleteCommentAction } from '../actions/rootActions'
 
 class Sidebar extends Component {
+
+  componentDidMount() {
+    // axios.get('http://localhost:8080/cars').then( response => {
+    //     console.log(response)
+    //   }
+    // )
+  }
 
   state = {
     activeLink: null

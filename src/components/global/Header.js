@@ -6,7 +6,7 @@ class Header extends Component {
     return (
       <header className="header">
         <div className="logo">
-          LOGO
+          Garage Panel
         </div>
       </header>
     )

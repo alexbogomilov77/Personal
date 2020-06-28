@@ -5,13 +5,14 @@ class Navigation extends Component {
   render() {
     return (
       <div className="dashboard-navigation">
-        <div className="steps-label">Service</div>
-
-        <ul className='steps'>
-          <li className="step"></li>
-          <li className="step active-step"></li>
-          <li className="step"></li>
-        </ul>
+        <div className="wrapper">
+          <div className="steps-label">Service</div>
+          <ul className='steps'>
+            <li className="step"></li>
+            <li className="step active-step"></li>
+            <li className="step"></li>
+          </ul>
+        </div>
         
         <div className="new-step">
           <input type="text" id="step" name="new-step" />
@@ -24,10 +25,10 @@ class Navigation extends Component {
           <li className="steps-list-item active-item">Turbo Charging</li>
           <li className="steps-list-item">Cleaning DPF</li>
           <li className="steps-list-item">Mega Settings</li>
-          <li className="steps-list-item">Turbo Charging</li>
+          {/* <li className="steps-list-item">Turbo Charging</li>
           <li className="steps-list-item">Cleaning DPF</li>
           <li className="steps-list-item">Mega Settings</li>
-          <li className="steps-list-item">Turbo Charging</li>
+          <li className="steps-list-item">Turbo Charging</li> */}
         </ul>
       </div>
     )

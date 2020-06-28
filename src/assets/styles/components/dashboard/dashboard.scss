@@ -8,30 +8,29 @@
     padding: 30px 40px 45px 35px;
     .dashboard-navigation {
         // min-width: 90px;
-        width: 40%;
+        width: 35%;
         .steps-label {
             color: $active;
-            font-size: 20px;
-            margin-bottom: 28.5px;
+            font-size: 20px;    
+            margin-bottom: 11.5px;
             font-family: 'Muli-ExtraBold';
            }
         .steps {
-            margin-bottom: 22.5px;
+            margin-bottom: 40px;
             .step {
-                width: 20px;
-                height: 15px;
+                width: 25px;
+                height: 20px;
                 display: inline-block;
                 margin-right: 5px;
                 background-color: $unnamed1;
             }
             .active-step {
-                width: 30px;
-                height: 20px;
                 background-color: $active;
             }
         }
         .new-step {
             display: flex;
+            margin-bottom: 35px;
             #step {
                 width: 105px;
                 height: 20px;
@@ -53,7 +52,7 @@
         .steps-list {
             .steps-list-item {
                 font-size: 12px;
-                margin: 15px 0;
+                margin: 10px 0;
                 color: $unnamed;
                 font-family: 'Muli-Bold';
                 &:hover {
@@ -71,7 +70,7 @@
     .divider-vertical {
         width: 1px;
         height: 400px;
-        margin: 0 45px 0px 25px;
+        margin: 0 35px 0px 5px;
         background-color: $unnamed1;
     }
     .dashboard-main {
