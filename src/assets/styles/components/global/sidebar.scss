@@ -43,12 +43,13 @@
                 cursor: pointer;
             }
             &.active-category {
-                color: #95acc6;
+                // color: #95acc6;
+                color: #646464
             }
         }
         .divider {
             font-size: 20px;
-            color: #95acc6;
+            color: #646464;
             font-family: 'Muli-ExtraBold';
         }
     }

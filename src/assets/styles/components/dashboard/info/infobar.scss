@@ -4,9 +4,12 @@
     min-height: 415px;
     margin-right: 20px;
     text-align: center;
-    box-shadow: $shadow;
-    border-radius: $radius1;
-    background-color: $white;
+    // box-shadow: $shadow;
+    // border-radius: $radius1;
+    // background-color: $white;
+    border-radius: 5px;
+    background: linear-gradient(145deg, #ffffff, #d7d7d747);
+    box-shadow: 5px 5px 11px #d0d0d075, -5px -5px 11px #ffffff;
     .infobar-label {
         font-size: 14px;
         color: $unnamed;

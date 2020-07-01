@@ -10,7 +10,7 @@
     color: $white !important;
     transition: .1s ease !important;
     background-color: $active !important;
-    box-shadow: 5px 3px 14px #fb664c9c !important;
+    // box-shadow: 5px 3px 14px #fb664c9c !important;
     &:hover {
         cursor: pointer !important;
         background-color: $active1 !important;
@@ -21,7 +21,7 @@
     color: $white;
     transition: .1s ease;
     background-color: $active;
-    box-shadow: 3px 3px 6px #fb664c7a;
+    // box-shadow: 3px 3px 6px #fb664c7a;
     &:hover {
         cursor: pointer !important;
         background-color: $active1 !important;
