@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 // import Comment from './Comment'
 // import axios from 'axios'
 import { connect } from 'react-redux'
+import logo from '../../assets/images/dd2.jpg'
 // import { deleteCommentAction } from '../actions/rootActions'
 
 class Sidebar extends Component {
@@ -26,6 +27,11 @@ class Sidebar extends Component {
 
     return this.props.cars.length > 0 ? (
       <div className='sidebar'>
+
+        <div className="logo">
+          <img className="logo-image" src={logo}></img>
+          <p className="logo-label">GaragePanel</p>
+        </div>
 
         <button className='new btn btn-active'>
           New

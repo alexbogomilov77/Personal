@@ -5,9 +5,9 @@ class Header extends Component {
   render() {
     return (
       <header className="header">
-        <div className="logo">
+        {/* <div className="logo">
           Garage Panel
-        </div>
+        </div> */}
       </header>
     )
   }
