@@ -1,21 +1,23 @@
 import React, { Component } from 'react'
 // import Comment from './Comment'
-// import axios from 'axios'
+import axios from 'axios'
 import { connect } from 'react-redux'
 import logo from '../../assets/images/dd2.jpg'
 // import { deleteCommentAction } from '../actions/rootActions'
 
 class Sidebar extends Component {
 
-  componentDidMount() {
-    // axios.get('http://localhost:8080/cars').then( response => {
-    //     console.log(response)
-    //   }
-    // )
+  state = {
+    activeLink: null,
+    carsState: []
   }
 
-  state = {
-    activeLink: null
+  componentDidMount() {
+    axios.get('http://localhost:8080/cars').then( response => {
+        console.log(response.data)
+        this.setState({ carsState: response.data});
+      }
+    )
   }
 
   handleClick = id => {
@@ -24,6 +26,19 @@ class Sidebar extends Component {
 
   render() {
     const { activeLink } = this.state;
+
+    const { carsState } = this.state
+    const postList = carsState.length ? (
+      carsState.map(post => {
+        return (
+          <div key={post.id}>
+            {post.plate}
+          </div>
+        )
+      })
+    ) : (
+      <div className="center">No posts to show</div>
+    );
 
     return this.props.cars.length > 0 ? (
       <div className='sidebar'>
@@ -36,6 +51,8 @@ class Sidebar extends Component {
         <button className='new btn btn-active'>
           New
         </button>
+
+        {postList}
 
         <div className='categories'>
           <span className="category">active</span>
