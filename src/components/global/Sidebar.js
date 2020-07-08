@@ -9,13 +9,12 @@ class Sidebar extends Component {
 
   state = {
     activeLink: null,
-    carsState: []
+    cars: []
   }
 
   componentDidMount() {
     axios.get('http://localhost:8080/cars').then( response => {
-        console.log(response.data)
-        this.setState({ carsState: response.data});
+        this.setState({ cars: response.data});
       }
     )
   }
@@ -25,22 +24,21 @@ class Sidebar extends Component {
   };
 
   render() {
-    const { activeLink } = this.state;
+    const { activeLink, cars } = this.state;
+    // const { carsState } = this.state
+    // const postList = carsState.length ? (
+    //   carsState.map(post => {
+    //     return (
+    //       <div key={post.id}>
+    //         {post.plate}
+    //       </div>
+    //     )
+    //   })
+    // ) : (
+    //   <div className="center">No posts to show</div>
+    // );
 
-    const { carsState } = this.state
-    const postList = carsState.length ? (
-      carsState.map(post => {
-        return (
-          <div key={post.id}>
-            {post.plate}
-          </div>
-        )
-      })
-    ) : (
-      <div className="center">No posts to show</div>
-    );
-
-    return this.props.cars.length > 0 ? (
+    return cars.length > 0 ? (
       <div className='sidebar'>
 
         <div className="logo">
@@ -52,8 +50,6 @@ class Sidebar extends Component {
           New
         </button>
 
-        {postList}
-
         <div className='categories'>
           <span className="category">active</span>
           <span className='divider'> / </span>
@@ -61,13 +57,13 @@ class Sidebar extends Component {
         </div>
 
         <ul className='sidebar-list'>
-          {this.props.cars.map((car) => {
+          {cars.map((car) => {
             return (
               <li
-                key={car.id}
-                onClick={() => this.handleClick(car.id)}
-                className={'sidebar-item ' + (car.id === activeLink ? 'active-item': '')}>
-                  {car.make}
+                key={car.vehicleID}
+                onClick={() => this.handleClick(car.vehicleID)}
+                className={'sidebar-item ' + (car.vehicleID === activeLink ? 'active-item': '')}>
+                {car.plate}
               </li>
             );
           })}
@@ -81,11 +77,11 @@ class Sidebar extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    cars: state.listCars
-  }
-}
+// const mapStateToProps = (state) => {
+//   return {
+//     cars: state.listCars
+//   }
+// }
 
 // const mapDispatchToProps = (dispatch) => {
 //   return {
@@ -93,5 +89,5 @@ const mapStateToProps = (state) => {
 //   }
 // }
 
-export default connect(mapStateToProps)(Sidebar)
+export default Sidebar
 
