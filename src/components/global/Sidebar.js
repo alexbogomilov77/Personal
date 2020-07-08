@@ -1,15 +1,17 @@
 import React, { Component } from 'react'
 // import Comment from './Comment'
 import axios from 'axios'
-import { connect } from 'react-redux'
+// import { connect } from 'react-redux'
 import logo from '../../assets/images/dd2.jpg'
+import ReactModal from 'react-modal';
 // import { deleteCommentAction } from '../actions/rootActions'
 
 class Sidebar extends Component {
 
   state = {
-    activeLink: null,
-    cars: []
+    cars: [],
+    showModal: false,
+    activeLink: null
   }
 
   componentDidMount() {
@@ -21,7 +23,15 @@ class Sidebar extends Component {
 
   handleClick = id => {
     this.setState({ activeLink: id });
-  };
+  }
+
+  handleOpenModal = () => {
+    this.setState({ showModal: true });
+  }
+  
+  handleCloseModal = () => {
+    this.setState({ showModal: false });
+  }
 
   render() {
     const { activeLink, cars } = this.state;
@@ -68,7 +78,22 @@ class Sidebar extends Component {
             );
           })}
         </ul>
+
+        <div>
+          <button onClick={this.handleOpenModal}>Trigger Modal</button>
+          <ReactModal 
+            isOpen={this.state.showModal}
+            contentLabel="onRequestClose Example"
+            onRequestClose={this.handleCloseModal}
+            className="Modal"
+            overlayClassName="Overlay"
+          >
+            <p>Modal text!</p>
+            <button onClick={this.handleCloseModal}>Close Modal</button>
+          </ReactModal>
+        </div>
       </div>
+
     ) : (
         <div>
           <code>no cars in your garage!</code>
