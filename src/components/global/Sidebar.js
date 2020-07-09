@@ -4,6 +4,7 @@ import axios from 'axios'
 // import { connect } from 'react-redux'
 import logo from '../../assets/images/dd2.jpg'
 import ReactModal from 'react-modal';
+import Modal from '../modals/Modal';
 // import { deleteCommentAction } from '../actions/rootActions'
 
 class Sidebar extends Component {
@@ -56,7 +57,9 @@ class Sidebar extends Component {
           <p className="logo-label">GaragePanel</p>
         </div>
 
-        <button className='new btn btn-active'>
+        <button 
+          onClick={this.handleOpenModal}
+          className='new btn btn-active'>
           New
         </button>
 
@@ -79,19 +82,16 @@ class Sidebar extends Component {
           })}
         </ul>
 
-        <div>
-          <button onClick={this.handleOpenModal}>Trigger Modal</button>
-          <ReactModal 
-            isOpen={this.state.showModal}
-            contentLabel="onRequestClose Example"
-            onRequestClose={this.handleCloseModal}
-            className="Modal"
-            overlayClassName="Overlay"
-          >
-            <p>Modal text!</p>
-            <button onClick={this.handleCloseModal}>Close Modal</button>
-          </ReactModal>
-        </div>
+        <ReactModal 
+          className="modal-wrapper"
+          overlayClassName="modal-overlay"
+          isOpen={this.state.showModal}
+          contentLabel="onRequestClose Example"
+          onRequestClose={this.handleCloseModal}
+        >
+          <Modal />
+          <button onClick={this.handleCloseModal}>Close Modal</button>
+        </ReactModal>
       </div>
 
     ) : (
