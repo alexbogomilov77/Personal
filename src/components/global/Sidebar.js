@@ -17,6 +17,7 @@ class Sidebar extends Component {
 
   componentDidMount() {
     axios.get('http://localhost:8080/cars').then( response => {
+        console.log(response.data)
         this.setState({ cars: response.data});
       }
     )

@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
-
+import axios from 'axios'
 class Modal extends Component {
 
 state = {
-    plate: '',
-    make: '',
-    model: '',
-    year: ''
+    vehicleID: 0,
+    plate: 'PB1447AB',
+    make: 'Skoda',
+    model: 'SuperB',
+    year: 2010
 }
 
 handleChange = (e) => {
@@ -16,12 +17,14 @@ handleSubmit = (e) => {
     e.preventDefault();
     // call function to add a todo
     // this.props.addTodo(this.state);
-    this.setState({
-        content: e.target.value
-    });
+    console.log(this.state)
     // this.setState({
-    //     content: ''
-    // })
+    //     content: e.target.value
+    // });
+    axios.post('http://localhost:8080/cars', this.state).then( response => {
+      console.log(response)
+    }
+  )
 }
 
   render() {

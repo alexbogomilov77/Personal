@@ -59,7 +59,8 @@
             padding: 10px 0;
             font-size: 16px;
             color: $solid-light;
-            border-radius: $radius;
+            border-left: 3px solid #303030;
+            // border-radius: $radius;
             transition: ease .1s;
             font-family: 'Muli-SemiBold';
             &:hover {
@@ -69,7 +70,12 @@
             }
             &.active-item {
                 color: $white2;
-                background-color: $active;
+                // background-color: $active;
+                border-left: 3px solid $active1;
+                // background: linear-gradient(90deg, rgba(146,67,53,1) 0%, rgba(48,48,48,1) 60%);
+                // background: linear-gradient(90deg, rgba(146,67,53,1) 0%, rgba(96,57,50,1) 21%, rgba(48,48,48,1) 47%);
+                // background: linear-gradient(90deg, rgba(76,43,37,1) 0%, rgba(63,45,42,1) 19%, rgba(48,48,48,1) 47%);
+                background: linear-gradient(90deg, rgba(76,43,37,1) 0%, rgba(48,48,48,1) 47%);
                 font-family: 'Muli-ExtraBold';
                 &:hover {
                     background-color: $active1;
