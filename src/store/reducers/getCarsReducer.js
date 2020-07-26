@@ -1,5 +1,6 @@
 const initState = {
-  listOfCars: []
+  listOfCars: '',
+  error: ''
 }
 
 const getCarsReducer = (state = initState, action) => {
@@ -7,12 +8,12 @@ const getCarsReducer = (state = initState, action) => {
     case 'SET_CARS':
       return {
         ...state,
-        listOfCars: [...state.listOfCars, action.response.data]
+        listOfCars: action.response.data
       }
-    case 'DELETE_CAR':
+    case 'SET_CARS_ERROR':
       return {
         ...state,
-        commentsList: state.commentsList.filter((el => el.id !== action.id))
+        error: action.err
       }
     default:
       return state;

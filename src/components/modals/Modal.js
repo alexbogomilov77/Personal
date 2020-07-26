@@ -4,10 +4,10 @@ class Modal extends Component {
 
 state = {
     vehicleID: 0,
-    plate: 'PB1447AB',
-    make: 'Skoda',
-    model: 'SuperB',
-    year: 2010
+    plate: '',
+    make: '',
+    model: '',
+    year: ''
 }
 
 handleChange = (e) => {
@@ -33,10 +33,31 @@ handleSubmit = (e) => {
     return (
       <div className="modal">
         <form onSubmit={this.handleSubmit}>
-          <label>Add new car:</label>
+          <label>Plate:</label>
           <input 
             type="text" 
             id="plate"
+            onChange={this.handleChange} 
+            value={this.state.content} 
+            />
+          <label>Make:</label>
+          <input
+            type="text" 
+            id="make"
+            onChange={this.handleChange} 
+            value={this.state.content} 
+            />
+          <label>Model:</label>
+          <input 
+            type="text" 
+            id="model"
+            onChange={this.handleChange} 
+            value={this.state.content} 
+            />
+          <label>Year:</label>
+          <input
+            type="text" 
+            id="year"
             onChange={this.handleChange} 
             value={this.state.content} 
             />

@@ -7,7 +7,7 @@ export const getCars = (value) => {
         console.log(response.data)
         dispatch({ type: 'SET_CARS', response});
       }).catch((err) => {
-        dispatch({ type: 'LOGIN_ERROR', err });
+        dispatch({ type: 'SET_CARS_ERROR', err });
       });
   }
 }

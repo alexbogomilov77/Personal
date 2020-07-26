@@ -1,26 +1,15 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import axios from 'axios'
 import logo from '../../assets/images/dd2.jpg'
 import ReactModal from 'react-modal';
 import Modal from '../modals/Modal';
-// import { deleteCommentAction } from '../actions/rootActions'
 
 class Sidebar extends Component {
 
   state = {
-    // cars: [],
     showModal: false,
     activeLink: null
   }
-
-  // componentDidMount() {
-  //   axios.get('http://localhost:8080/cars').then( response => {
-  //       console.log(response.data)
-  //       this.setState({ cars: response.data});
-  //     }
-  //   )
-  // }
 
   handleClick = id => {
     this.setState({ activeLink: id });
@@ -35,19 +24,7 @@ class Sidebar extends Component {
   }
 
   render() {
-    const { activeLink, cars } = this.state;
-    // const { carsState } = this.state
-    // const postList = carsState.length ? (
-    //   carsState.map(post => {
-    //     return (
-    //       <div key={post.id}>
-    //         {post.plate}
-    //       </div>
-    //     )
-    //   })
-    // ) : (
-    //   <div className="center">No posts to show</div>
-    // );
+    const { activeLink } = this.state;
 
     return this.props.cars.length > 0 ? (
       <div className='sidebar'>
@@ -107,12 +84,6 @@ const mapStateToProps = (state) => {
     cars: state.getCars.listOfCars
   }
 }
-
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     deleteComment: (id) => dispatch(deleteCommentAction(id))
-//   }
-// }
 
 export default connect(mapStateToProps)(Sidebar)
 
