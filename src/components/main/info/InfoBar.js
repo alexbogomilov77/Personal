@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import { connect } from 'react-redux'
+// import { connect } from 'react-redux'
 
 class InfoBar extends Component {
 
@@ -32,7 +32,7 @@ class InfoBar extends Component {
             {/* <div className='divider'></div> */}
             <div className='history'>
               <p className="infobar-label">history</p>
-              <ul className='history-nav'>
+              {/* <ul className='history-nav'>
                 {this.props.history.map((date) => {
                   return (
                     <li
@@ -43,18 +43,19 @@ class InfoBar extends Component {
                     </li>
                   );
                 })}
-              </ul>
+              </ul> */}
             </div>
         </div>
     )
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    history: state.listHistory
-  }
-}
+// const mapStateToProps = (state) => {
+//   return {
+//     history: state.listHistory
+//   }
+// }
 
-export default connect(mapStateToProps)(InfoBar)
+// export default connect(mapStateToProps)(InfoBar)
+export default InfoBar
 

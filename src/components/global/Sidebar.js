@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-// import Comment from './Comment'
+import { connect } from 'react-redux'
 import axios from 'axios'
-// import { connect } from 'react-redux'
 import logo from '../../assets/images/dd2.jpg'
 import ReactModal from 'react-modal';
 import Modal from '../modals/Modal';
@@ -10,18 +9,18 @@ import Modal from '../modals/Modal';
 class Sidebar extends Component {
 
   state = {
-    cars: [],
+    // cars: [],
     showModal: false,
     activeLink: null
   }
 
-  componentDidMount() {
-    axios.get('http://localhost:8080/cars').then( response => {
-        console.log(response.data)
-        this.setState({ cars: response.data});
-      }
-    )
-  }
+  // componentDidMount() {
+  //   axios.get('http://localhost:8080/cars').then( response => {
+  //       console.log(response.data)
+  //       this.setState({ cars: response.data});
+  //     }
+  //   )
+  // }
 
   handleClick = id => {
     this.setState({ activeLink: id });
@@ -50,7 +49,7 @@ class Sidebar extends Component {
     //   <div className="center">No posts to show</div>
     // );
 
-    return cars.length > 0 ? (
+    return this.props.cars.length > 0 ? (
       <div className='sidebar'>
 
         <div className="logo">
@@ -71,7 +70,7 @@ class Sidebar extends Component {
         </div>
 
         <ul className='sidebar-list'>
-          {cars.map((car) => {
+          {this.props.cars.map((car) => {
             return (
               <li
                 key={car.vehicleID}
@@ -103,11 +102,11 @@ class Sidebar extends Component {
   }
 }
 
-// const mapStateToProps = (state) => {
-//   return {
-//     cars: state.listCars
-//   }
-// }
+const mapStateToProps = (state) => {
+  return {
+    cars: state.getCars.listOfCars
+  }
+}
 
 // const mapDispatchToProps = (dispatch) => {
 //   return {
@@ -115,5 +114,5 @@ class Sidebar extends Component {
 //   }
 // }
 
-export default Sidebar
+export default connect(mapStateToProps)(Sidebar)
 

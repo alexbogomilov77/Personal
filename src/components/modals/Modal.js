@@ -17,7 +17,9 @@ handleSubmit = (e) => {
     e.preventDefault();
     // call function to add a todo
     // this.props.addTodo(this.state);
-    console.log(this.state)
+
+    // console.log(this.state)
+
     // this.setState({
     //     content: e.target.value
     // });
