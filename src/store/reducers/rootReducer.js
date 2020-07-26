@@ -48,12 +48,12 @@
 // export default rootReducer
 
 import getCarsReducer from './getCarsReducer'
-// import projectReducer from './projectReducer'
+import getServicesReducer from './getServicesReducer'
 import { combineReducers } from 'redux'
 
 const rootReducer = combineReducers({
   getCars: getCarsReducer,
-  // project: projectReducer,
+  getServices: getServicesReducer
 });
 
 export default rootReducer

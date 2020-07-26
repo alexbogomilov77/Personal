@@ -1,8 +1,12 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 import logo from '../../assets/images/dd2.jpg'
 import ReactModal from 'react-modal';
 import Modal from '../modals/Modal';
+
+//redux
+import { connect } from 'react-redux'
+import { getServices } from '../../store/actions/getServicesActions'
+
 
 class Sidebar extends Component {
 
@@ -13,6 +17,7 @@ class Sidebar extends Component {
 
   handleClick = id => {
     this.setState({ activeLink: id });
+    this.props.getServices(id);
   }
 
   handleOpenModal = () => {
@@ -85,5 +90,11 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(Sidebar)
+const mapDispatchToProps = dispatch => {
+  return {
+    getServices: (id) => dispatch(getServices(id))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Sidebar)
 

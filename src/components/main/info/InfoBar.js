@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
-// import { connect } from 'react-redux'
+//redux
+import { connect } from 'react-redux'
 
 class InfoBar extends Component {
 
@@ -12,10 +13,23 @@ class InfoBar extends Component {
     this.setState({ activeLink: id });
   };
 
-  render() {
-    const { activeLink } = this.state;
-
+  displayDates = () => this.props.services.map(el => {
+    let day = new Date(el.startdate).getUTCDate()
+    let month = new Date(el.startdate).getUTCMonth()
+    let year = new Date(el.startdate).getUTCFullYear()
+    let date = `${day}.${month}.${year}`
     return (
+      <li
+        key={date}
+        onClick={() => this.handleClick(date)}
+        className={'history-nav-item ' + (date === this.activeLink ? 'active-item': '')}>
+          {date}
+      </li>
+    )
+  })
+
+  render() {
+    return this.props.services.length > 0 ? (
         <div className='infobar'>
             <div className='info'>
               <p className="infobar-label car-id">CB 3411 BA</p>
@@ -32,30 +46,24 @@ class InfoBar extends Component {
             {/* <div className='divider'></div> */}
             <div className='history'>
               <p className="infobar-label">history</p>
-              {/* <ul className='history-nav'>
-                {this.props.history.map((date) => {
-                  return (
-                    <li
-                      key={date.id}
-                      onClick={() => this.handleClick(date.id)}
-                      className={'history-nav-item ' + (date.id === activeLink ? 'active-item': '')}>
-                        {date.id}
-                    </li>
-                  );
-                })}
-              </ul> */}
+              <ul className='history-nav'>
+                { this.displayDates() }
+              </ul>
             </div>
         </div>
+    ) : (
+      <div>
+        <code>no history!</code>
+      </div>
     )
   }
 }
 
-// const mapStateToProps = (state) => {
-//   return {
-//     history: state.listHistory
-//   }
-// }
+const mapStateToProps = (state) => {
+  return {
+    services: state.getServices.listOfServices
+  }
+}
 
-// export default connect(mapStateToProps)(InfoBar)
-export default InfoBar
+export default connect(mapStateToProps)(InfoBar)
 
