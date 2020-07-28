@@ -5,7 +5,7 @@ import Modal from '../modals/Modal';
 
 //redux
 import { connect } from 'react-redux'
-import { getServices } from '../../store/actions/getServicesActions'
+import { getRepairs } from '../../store/actions/getRepairsActions'
 
 
 class Sidebar extends Component {
@@ -17,7 +17,7 @@ class Sidebar extends Component {
 
   handleClick = id => {
     this.setState({ activeLink: id });
-    this.props.getServices(id);
+    this.props.getRepairs(id);
   }
 
   handleOpenModal = () => {
@@ -55,9 +55,9 @@ class Sidebar extends Component {
           {this.props.cars.map((car) => {
             return (
               <li
-                key={car.vehicleID}
-                onClick={() => this.handleClick(car.vehicleID)}
-                className={'sidebar-item ' + (car.vehicleID === activeLink ? 'active-item': '')}>
+                key={car.vehicle_id}
+                onClick={() => this.handleClick(car.vehicle_id)}
+                className={'sidebar-item ' + (car.vehicle_id === activeLink ? 'active-item': '')}>
                 {car.plate}
               </li>
             );
@@ -92,7 +92,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    getServices: (id) => dispatch(getServices(id))
+    getRepairs: (id) => dispatch(getRepairs(id))
   }
 }
 

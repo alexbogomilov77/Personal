@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 //redux
 import { connect } from 'react-redux'
+import { getServices } from '../../../store/actions/getServicesActions'
 
 class InfoBar extends Component {
 
@@ -11,25 +12,26 @@ class InfoBar extends Component {
 
   handleClick = id => {
     this.setState({ activeLink: id });
+    this.props.getServices(id);
   };
 
-  displayDates = () => this.props.services.map(el => {
-    let day = new Date(el.startdate).getUTCDate()
-    let month = new Date(el.startdate).getUTCMonth()
-    let year = new Date(el.startdate).getUTCFullYear()
+  displayRepairs = () => this.props.repairs.map(el => {
+    let day = new Date(el.start_date).getUTCDate()
+    let month = new Date(el.start_date).getUTCMonth()
+    let year = new Date(el.start_date).getUTCFullYear()
     let date = `${day}.${month}.${year}`
     return (
       <li
-        key={date}
-        onClick={() => this.handleClick(date)}
-        className={'history-nav-item ' + (date === this.activeLink ? 'active-item': '')}>
+        key={el.repair_id}
+        onClick={() => this.handleClick(el.repair_id)}
+        className={'history-nav-item ' + (el.repair_id === this.activeLink ? 'active-item': '')}>
           {date}
       </li>
     )
   })
 
   render() {
-    return this.props.services.length > 0 ? (
+    return this.props.repairs.length > 0 ? (
         <div className='infobar'>
             <div className='info'>
               <p className="infobar-label car-id">CB 3411 BA</p>
@@ -47,7 +49,7 @@ class InfoBar extends Component {
             <div className='history'>
               <p className="infobar-label">history</p>
               <ul className='history-nav'>
-                { this.displayDates() }
+                { this.displayRepairs() }
               </ul>
             </div>
         </div>
@@ -59,11 +61,17 @@ class InfoBar extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapDispatchToProps = dispatch => {
   return {
-    services: state.getServices.listOfServices
+    getServices: (id) => dispatch(getServices(id))
   }
 }
 
-export default connect(mapStateToProps)(InfoBar)
+const mapStateToProps = (state) => {
+  return {
+    repairs: state.getRepairs.listOfRepairs
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(InfoBar)
 

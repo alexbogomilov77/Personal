@@ -1,9 +1,26 @@
 import React, { Component } from 'react'
 
+//redux
+import { connect } from 'react-redux'
+
 class Navigation extends Component {
 
-  render() {
+  state = {
+    activeLink: null
+  }
+
+  displayServices = () => this.props.services.map(item => {
     return (
+      <li
+        key={item.service_id}
+        className={'steps-list-item ' + (item.service_id === this.activeLink ? 'active-item': '')}>
+        {item.title}
+      </li>
+    )
+  })
+
+  render() {
+    return this.props.services.length > 0 ? (
       <div className="dashboard-navigation">
         <div className="wrapper">
           <div className="steps-label">Service</div>
@@ -18,22 +35,23 @@ class Navigation extends Component {
           <input type="text" id="step" name="new-step" />
           <button className="add"></button>
         </div>
-
         <ul className='steps-list'>
-          <li className="steps-list-item">Cleaning DPF</li>
-          <li className="steps-list-item">Mega Settings</li>
-          <li className="steps-list-item active-item">Turbo Charging</li>
-          <li className="steps-list-item">Cleaning DPF</li>
-          <li className="steps-list-item">Mega Settings</li>
-          {/* <li className="steps-list-item">Turbo Charging</li>
-          <li className="steps-list-item">Cleaning DPF</li>
-          <li className="steps-list-item">Mega Settings</li>
-          <li className="steps-list-item">Turbo Charging</li> */}
+          { this.displayServices() }
         </ul>
       </div>
+    ) : (
+      <div>
+      <code>no services!</code>
+    </div>
     )
   }
 }
 
-export default (Navigation)
+const mapStateToProps = (state) => {
+  return {
+    services: state.getServices.listOfServices
+  }
+}
+
+export default connect(mapStateToProps)(Navigation)
 
