@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 //redux
 import { connect } from 'react-redux'
+import { getActions } from '../../../../store/actions/getActionsActions'
 
 class Navigation extends Component {
 
@@ -9,10 +10,17 @@ class Navigation extends Component {
     activeLink: null
   }
 
+  
+  handleClick = id => {
+    this.setState({ activeLink: id });
+    this.props.getActions(id);
+  };
+
   displayServices = () => this.props.services.map(item => {
     return (
       <li
         key={item.service_id}
+        onClick={() => this.handleClick(item.service_id)}
         className={'steps-list-item ' + (item.service_id === this.activeLink ? 'active-item': '')}>
         {item.title}
       </li>
@@ -47,11 +55,17 @@ class Navigation extends Component {
   }
 }
 
+const mapDispatchToProps = dispatch => {
+  return {
+    getActions: (id) => dispatch(getActions(id))
+  }
+}
+
 const mapStateToProps = (state) => {
   return {
     services: state.getServices.listOfServices
   }
 }
 
-export default connect(mapStateToProps)(Navigation)
+export default connect(mapStateToProps, mapDispatchToProps)(Navigation)
 

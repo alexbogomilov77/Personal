@@ -1,16 +1,16 @@
 const initState = {
-  listOfServices: '',
+  listOfActions: '',
   error: ''
 }
 
 const getActions = (state = initState, action) => {
   switch (action.type) {
-    case 'SET_SERVICES':
+    case 'SET_ACTIONS':
       return {
         ...state,
-        listOfServices: action.response.data
+        listOfActions: action.response.data
       }
-    case 'SET_SERVICES':
+    case 'SET_ACTIONS_ERROR':
       return {
         ...state,
         error: action.err

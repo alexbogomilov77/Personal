@@ -1,9 +1,23 @@
 import React, { Component } from 'react'
 
+//redux
+import { connect } from 'react-redux'
+
 class Service extends Component {
 
-  render() {
+  displayActions = () => this.props.actions.map(item => {
     return (
+      <li
+        key={item.action_id}
+        className={'service-list-item ' + (item.action_id === this.activeLink ? 'active-item': '')}>
+        <span className="service-name">{item.title}</span>
+        <span className="service-value">{item.price}</span>
+      </li>
+    )
+  })
+
+  render() {
+    return this.props.actions.length > 0 ? (
       <div className="dashboard-main-service">
 
         <div className="service-input-fields">
@@ -26,22 +40,7 @@ class Service extends Component {
 
         <div className='service-list-wrapper'>
           <ul className='service-list'>
-            <li className="service-list-item">
-              <span className="service-name">clean filter system</span>
-              <span className="service-value">120$</span>
-            </li>
-            <li className="service-list-item">
-              <span className="service-name">clean filter system</span>
-              <span className="service-value">120$</span>
-            </li>
-            <li className="service-list-item">
-              <span className="service-name">clean filter system</span>
-              <span className="service-value">120$</span>
-            </li>
-            <li className="service-list-item">
-              <span className="service-name">clean filter system</span>
-              <span className="service-value">120$</span>
-            </li>
+            { this.displayActions() }
           </ul>
         </div>
 
@@ -50,9 +49,19 @@ class Service extends Component {
         </div>
 
       </div>
+    ) : (
+      <div>
+      <code>no actions!</code>
+    </div>
     )
   }
 }
 
-export default (Service)
+const mapStateToProps = (state) => {
+  return {
+    actions: state.getActions.listOfActions
+  }
+}
+
+export default connect(mapStateToProps)(Service)
 
