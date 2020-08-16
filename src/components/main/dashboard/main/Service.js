@@ -51,8 +51,8 @@ class Service extends Component {
       </div>
     ) : (
       <div>
-      <code>no actions!</code>
-    </div>
+        <code>no actions!</code>
+      </div>
     )
   }
 }

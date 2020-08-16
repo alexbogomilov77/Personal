@@ -51,6 +51,7 @@ import getCarsReducer from './getCarsReducer'
 import getRepairsReducer from './getRepairsReducer'
 import getServicesReducer from './getServicesReducer'
 import getActionsReducer from './getActionsReducer'
+import getPartsReducer from './getPartsReducer'
 
 import { combineReducers } from 'redux'
 
@@ -58,7 +59,8 @@ const rootReducer = combineReducers({
   getCars: getCarsReducer,
   getRepairs: getRepairsReducer,
   getServices: getServicesReducer,
-  getActions: getActionsReducer
+  getActions: getActionsReducer,
+  getParts: getPartsReducer
 });
 
 export default rootReducer

@@ -49,8 +49,8 @@ class Navigation extends Component {
       </div>
     ) : (
       <div>
-      <code>no services!</code>
-    </div>
+        <code>no services!</code>
+      </div>
     )
   }
 }
