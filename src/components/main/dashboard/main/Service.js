@@ -54,7 +54,7 @@ class Service extends Component {
         </div>
 
 
-        <div className='service-list-wrapper'>
+        <div className="service-list-wrapper">
           <ul className='service-list'>
             {this.displayServiceDetails()}
           </ul>
