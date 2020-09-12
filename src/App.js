@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 //components
 import Main from './components/global/Main'
 import Header from './components/global/Header'
+import Search from './components/global/Search'
 import Sidebar from './components/global/Sidebar'
 
 //redux
@@ -22,6 +23,7 @@ class App extends Component {
       <div className="App">
         <Sidebar />
         <Header />
+        <Search />
         <Main />
       </div>
     )
