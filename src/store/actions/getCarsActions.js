@@ -4,10 +4,12 @@ export const getCars = (value) => {
   return (dispatch, getState) => {
     axios.get('http://localhost:8080/cars')
       .then( response => {
-        dispatch({ type: 'SET_CARS', response});
+        const selectedTab = Number(localStorage.getItem('sidebarTab'))
+        const carsInSelectedTab = response.data.filter(el => el.state === selectedTab)
+        dispatch({ type: 'SET_CARS', carsInSelectedTab})
       }).catch((err) => {
-        dispatch({ type: 'SET_CARS_ERROR', err });
-      });
+        dispatch({ type: 'SET_CARS_ERROR', err })
+      })
   }
 }
 

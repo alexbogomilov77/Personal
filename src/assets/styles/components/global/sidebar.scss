@@ -37,14 +37,18 @@
         margin-bottom: 30px;
         .category {
             color: $solid-light;
+            margin: 0 10px;
             font-size: 20px;
             font-family: 'Muli-ExtraBold';
+            transition: ease .1s;
             &:hover {
                 cursor: pointer;
+                color: $white;
             }
             &.active-category {
-                // color: #95acc6;
-                color: #646464
+                color: $white;
+                border-bottom: 1px solid $active;
+                padding: 0 0 4px 0;
             }
         }
         .divider {
@@ -53,6 +57,37 @@
             font-family: 'Muli-ExtraBold';
         }
     }
+    .searchField {
+        // display: flex;
+    }
+    .searchInput {
+        background: #303030;
+        border-radius: 5px;
+        font-weight: bold;
+        color: #b06052;
+        border-bottom: 2px solid #b06052;
+        padding: 5px;
+        margin-bottom: 5px;
+    }
+
+    .actionButtons {
+        margin-bottom: 50px;
+        .actionBtn {
+            margin: 0 5px;
+            // color: #303030;
+            font-weight: bold;
+            border: none;
+            // background: $white;
+            width: 30px;
+            height: 20px;
+            &:hover {
+                cursor: pointer;
+                // background: #303030;
+                // color: $active;
+            }
+        }
+    }
+
     .sidebar-list {
         .sidebar-item {
             margin: 5px 0;
@@ -65,8 +100,8 @@
             font-family: 'Muli-SemiBold';
             &:hover {
                 cursor: pointer;
-                color: $solid;
-                background-color: $solid-light;
+                color: $white;
+                // background-color: $solid-light;
             }
             &.active-item {
                 color: $white2;

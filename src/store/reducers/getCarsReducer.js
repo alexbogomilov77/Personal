@@ -8,7 +8,7 @@ const getCarsReducer = (state = initState, action) => {
     case 'SET_CARS':
       return {
         ...state,
-        listOfCars: action.response.data
+        listOfCars: action.carsInSelectedTab
       }
     case 'SET_CARS_ERROR':
       return {
