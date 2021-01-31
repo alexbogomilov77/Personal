@@ -84,7 +84,7 @@ class Sidebar extends Component {
     // if (!isSearchLegit) { !isSearchLegit !isCarExist
         buttons =
         <div className="actionButtons">
-          <button disabled={!isSearchLegit || isCarExist} className="actionBtn">Ad</button>
+          <button disabled={!isSearchLegit && isCarExist} className="actionBtn">Add</button>
           <button disabled={!isSearchLegit && !isCarExist} className="actionBtn" onClick={() => this.changeStatus(searchInputValue, 0)}>A</button>
           <button disabled={!isSearchLegit && !isCarExist} className="actionBtn" onClick={() => this.changeStatus(searchInputValue, 1)}>W</button>
           <button disabled={!isSearchLegit && isCarExist} className="actionBtn">R</button>
