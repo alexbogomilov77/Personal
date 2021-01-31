@@ -24,6 +24,7 @@ class Sidebar extends Component {
 
   componentDidMount() {
     this.selectTab(0)
+    // test
   }
 
   selectTab = value => {
