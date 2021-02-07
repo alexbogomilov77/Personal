@@ -1,18 +1,17 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import logo from '../../assets/images/dd2.jpg'
 import ReactModal from 'react-modal';
 import Modal from '../modals/Modal';
-import { CarsContext } from '../../App'
-import axios from 'axios'
-
-//redux
-// import { connect } from 'react-redux'
-// import { getCars } from '../../store/actions/getCarsActions'
-// import { getRepairs } from '../../store/actions/getRepairsActions'
+import { CarsContext } from '../../contexts/CarsContext'
+import { RepairsContext } from '../../contexts/RepairsContext'
 
 
 export default function Sidebar () {
-  const cars = useContext(CarsContext)
+  const { cars } = useContext(CarsContext)
+  const { fetchCars } = useContext(CarsContext)
+  const { selectTab } = useContext(CarsContext)
+
+  const { fetchRepairs } = useContext(RepairsContext)
 
   const [showModal, setModal] = useState(false)
   const [activeLink, setActiveLink] = useState(null)
@@ -21,25 +20,18 @@ export default function Sidebar () {
   const [searchInputValue, setSearchInputValue] = useState('')
   const [isSearchLegit, setIsSearchLegit] = useState(false)
 
-  // componentDidMount() {
-  //   this.selectTab(0)
-  // }
-
-  // const selectTab = value => {
-  //   selectTab = value => {
-  //     localStorage.setItem('sidebarTab', value)
-  //     this.selectedTab = value
-  //     this.props.getCars();
-  //   }
-  // }
+  useEffect(() => {
+    selectTab(0)
+    fetchCars()
+  },[])
 
   const handleClick = id => {
     setActiveLink(id)
-    this.props.getRepairs(id);
+    fetchRepairs(id)
   }
 
   const changeStatus = (plate, value) => {
-    axios.post(`http://localhost:8080/cars/${plate}`, {status: value})
+    // axios.post(`http://localhost:8080/cars/${plate}`, {status: value})
   }
 
   const handleInput = event => {
@@ -49,18 +41,18 @@ export default function Sidebar () {
   }
 
   const handleKeyUp = event => {
-    if (event.keyCode === 13) {
-      event.preventDefault();
-      searchInputValue(event.target.value)
-      axios.get(`http://localhost:8080/cars/search/${searchInputValue}`)
-      .then( response => {
-        response.data.length > 0
-        ? setIsCarExist(true)
-        : setIsCarExist(false)
-      }).catch( err => {
-        alert(err)
-      })
-    }
+    // if (event.keyCode === 13) {
+    //   event.preventDefault();
+    //   searchInputValue(event.target.value)
+    //   axios.get(`http://localhost:8080/cars/search/${searchInputValue}`)
+    //   .then( response => {
+    //     response.data.length > 0
+    //     ? setIsCarExist(true)
+    //     : setIsCarExist(false)
+    //   }).catch( err => {
+    //     alert(err)
+    //   })
+    // }
   }
 
   const handleOpenModal = () => {
@@ -82,7 +74,7 @@ export default function Sidebar () {
   //       </div>
   //   }
 
-  return cars ? (
+  return cars.length ? (
     <div className='sidebar'>
 
       <div className="logo">
