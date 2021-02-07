@@ -23,7 +23,7 @@ const CarsContextProvider = props => {
   }
 
   return (
-    <CarsContext.Provider value={{ cars, fetchCars, selectTab }}>
+    <CarsContext.Provider value={{ cars, fetchCars, selectedTab, selectTab }}>
       {props.children}
     </CarsContext.Provider>
   );

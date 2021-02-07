@@ -7,20 +7,18 @@ import { RepairsContext } from '../../contexts/RepairsContext'
 
 
 export default function Sidebar () {
-  const { cars } = useContext(CarsContext)
-  const { fetchCars } = useContext(CarsContext)
-  const { selectTab } = useContext(CarsContext)
-
+  const { cars, fetchCars, selectedTab, selectTab } = useContext(CarsContext)
   const { fetchRepairs } = useContext(RepairsContext)
 
   const [showModal, setModal] = useState(false)
   const [activeLink, setActiveLink] = useState(null)
-  const [selectedTab, setSelectedTab] = useState(null)
+  // const [selectedTab, setSelectedTab] = useState(null)
   const [isCarExist, setIsCarExist] = useState(false)
   const [searchInputValue, setSearchInputValue] = useState('')
   const [isSearchLegit, setIsSearchLegit] = useState(false)
 
   useEffect(() => {
+    console.log('rerender')
     selectTab(0)
     fetchCars()
   },[])
@@ -109,14 +107,14 @@ export default function Sidebar () {
       <div className='categories'>
       <span
           className={'category ' + (selectedTab === 0 ? 'active-category': '')}
-          onClick={() => setSelectedTab(0)}
+          onClick={() => selectTab(0)}
         >
           active
         </span>
         <span className='divider'> / </span>
         <span
           className={'category ' + (selectedTab === 1 ? 'active-category': '')}
-          onClick={() => setSelectedTab(1)}
+          onClick={() => selectTab(1)}
         >
           waiting
         </span>
