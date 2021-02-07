@@ -7,6 +7,7 @@ import Header from './components/global/Header'
 import Sidebar from './components/global/Sidebar'
 
 //styles
+//this  is redux branch
 import './assets/styles/index.scss'
 
 class App extends Component {
