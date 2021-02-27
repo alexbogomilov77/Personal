@@ -1,71 +1,52 @@
-import React, { Component } from 'react'
+import React, { useContext, useState } from 'react'
+import { ServicesContext } from '../../../../contexts/ServicesContext'
+import { PartsContext } from '../../../../contexts/PartsContext'
 
-//redux
-import { connect } from 'react-redux'
-import { getActions } from '../../../../store/actions/getActionsActions'
+export default function Navigation () {
+  const { services } = useContext(ServicesContext)
+  const { fetchParts } = useContext(PartsContext)
 
-class Navigation extends Component {
+  const [activeLink, setActiveLink] = useState(null)
 
-  state = {
-    activeLink: null
-  }
-
-  
-  handleClick = id => {
-    this.setState({ activeLink: id });
-    this.props.getActions(id);
+  const handleClick = id => {
+    setActiveLink(id)
+    fetchParts()
   };
 
-  displayServices = () => this.props.services.map(item => {
+  const displayServices = () => services.map(el => {
     return (
       <li
-        key={item.service_id}
-        onClick={() => this.handleClick(item.service_id)}
-        className={'steps-list-item ' + (item.service_id === this.activeLink ? 'active-item': '')}>
-        {item.title}
+        key={el.service_id}
+        onClick={() => handleClick(el.service_id)}
+        className={'steps-list-item ' + (el.service_id === activeLink ? 'active-item': '')}>
+        {el.title}
       </li>
     )
   })
 
-  render() {
-    return this.props.services.length > 0 ? (
-      <div className="dashboard-navigation">
-        <div className="wrapper">
-          <div className="steps-label">Service</div>
-          <ul className='steps'>
-            <li className="step"></li>
-            <li className="step active-step"></li>
-            <li className="step"></li>
-          </ul>
-        </div>
-        
-        <div className="new-step">
-          <input type="text" id="step" name="new-step" />
-          <button className="add"></button>
-        </div>
-        <ul className='steps-list'>
-          { this.displayServices() }
+  return services.length ? (
+    <div className="dashboard-navigation">
+      <div className="wrapper">
+        <div className="steps-label">Service</div>
+        <ul className='steps'>
+          <li className="step"></li>
+          <li className="step active-step"></li>
+          <li className="step"></li>
         </ul>
       </div>
-    ) : (
-      <div>
-        <code>no services!</code>
+      
+      <div className="new-step">
+        <input type="text" id="step" name="new-step" />
+        <button className="add"></button>
       </div>
-    )
-  }
+      <ul className='steps-list'>
+        { displayServices() }
+      </ul>
+    </div>
+  ) : (
+    <div>
+      <code>no services!</code>
+    </div>
+  )
 }
-
-const mapDispatchToProps = dispatch => {
-  return {
-    getActions: (id) => dispatch(getActions(id))
-  }
-}
-
-const mapStateToProps = (state) => {
-  return {
-    services: state.getServices.listOfServices
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Navigation)
 

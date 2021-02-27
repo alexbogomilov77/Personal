@@ -8,6 +8,7 @@ import Sidebar from './components/global/Sidebar'
 import CarsContextProvider from './contexts/CarsContext';
 import RepairsContextProvider from './contexts/RepairsContext';
 import ServicesContextProvider from './contexts/ServicesContext';
+import PartsContextProvider from './contexts/PartsContext';
 //styles
 import './assets/styles/index.scss'
 import './App.scss'
@@ -18,9 +19,11 @@ export default function App() {
       <CarsContextProvider>
         <RepairsContextProvider>
           <ServicesContextProvider>
-            <Sidebar />
-            <Header />
-            <Main />
+            <PartsContextProvider>
+              <Sidebar />
+              <Header />
+              <Main />
+            </PartsContextProvider>
           </ServicesContextProvider>
         </RepairsContextProvider>
       </CarsContextProvider>
