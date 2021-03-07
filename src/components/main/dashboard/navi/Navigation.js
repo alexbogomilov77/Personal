@@ -1,16 +1,16 @@
 import React, { useContext, useState } from 'react'
 import { ServicesContext } from '../../../../contexts/ServicesContext'
-import { PartsContext } from '../../../../contexts/PartsContext'
+import { ActionsContext } from '../../../../contexts/ActionsContext'
 
 export default function Navigation () {
   const { services } = useContext(ServicesContext)
-  const { fetchParts } = useContext(PartsContext)
+  const { fetchActions } = useContext(ActionsContext)
 
   const [activeLink, setActiveLink] = useState(null)
 
   const handleClick = id => {
     setActiveLink(id)
-    fetchParts()
+    fetchActions(id)
   };
 
   const displayServices = () => services.map(el => {

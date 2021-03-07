@@ -9,6 +9,7 @@ import CarsContextProvider from './contexts/CarsContext';
 import RepairsContextProvider from './contexts/RepairsContext';
 import ServicesContextProvider from './contexts/ServicesContext';
 import PartsContextProvider from './contexts/PartsContext';
+import ActionsContextProvider from './contexts/ActionsContext';
 //styles
 import './assets/styles/index.scss'
 import './App.scss'
@@ -19,11 +20,13 @@ export default function App() {
       <CarsContextProvider>
         <RepairsContextProvider>
           <ServicesContextProvider>
+            <ActionsContextProvider>
             <PartsContextProvider>
               <Sidebar />
-              <Header />
+              {/* <Header /> */}
               <Main />
             </PartsContextProvider>
+            </ActionsContextProvider>
           </ServicesContextProvider>
         </RepairsContextProvider>
       </CarsContextProvider>

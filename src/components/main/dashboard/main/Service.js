@@ -1,7 +1,9 @@
 import React, { useContext, useState } from 'react'
+import { ActionsContext } from '../../../../contexts/ActionsContext'
 import { PartsContext } from '../../../../contexts/PartsContext'
 
 export default function Service () {
+  const { actions } = useContext(ActionsContext)
   const { parts } = useContext(PartsContext)
 
   const [activeLink, setActiveLink] = useState(null)

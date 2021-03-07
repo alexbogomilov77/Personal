@@ -1,15 +1,13 @@
-import React, { Component } from 'react'
+import React, { useContext, useState } from 'react'
+import { ActionsContext } from '../../../../contexts/ActionsContext'
+import { PartsContext } from '../../../../contexts/PartsContext'
 
-//redux
-import { connect } from 'react-redux'
-import { getActions } from '../../../../store/actions/getActionsActions'
-import { getParts } from '../../../../store/actions/getPartsActions'
+export default function Service () { 
+    const { fetchActions } = useContext(ActionsContext)
+    const { fetchParts } = useContext(PartsContext)
 
-class Header extends Component {
-
-  state = {
-    activeLink: null,
-    buttons: [
+    const [activeLink, setActiveLink] = useState(null)
+    const buttons = [
       {
         id: "actions",
         position: "left"
@@ -19,62 +17,34 @@ class Header extends Component {
         position: "right"
       }
     ]
+
+  const handleClick = id => {
+    setActiveLink(id)
+    id === "parts" ? fetchParts() : fetchActions(1)
   }
 
-  handleClick = id => {
-    console.log("id" + id);
-    console.log("activeLink" + this.state.activeLink)
-    this.setState({ activeLink: id });
-    if (id === "parts") {
-      this.props.getParts();
-    } else {
-      this.props.getActions(1);
-    }
-  };
-
-  displayToggleButtons = () => this.state.buttons.map(item => {
-    return (
-      <div
-        className={'btn-switch ' + 'btn-switch-' + item.position + (item.id === this.activeLink ? 'btn-item' : '')} key={item.id} onClick={() => this.handleClick(item.id)}
-      >
-        {this.activeLink}
-      </div>
-    )
+  const displayToggleButtons = () => 
+    buttons.map(item => {
+      return (
+        <div
+          className={'btn-switch ' + 'btn-switch-' + item.position + (item.id === activeLink ? 'btn-item' : '')}
+          key={item.id}
+          onClick={() => handleClick(item.id)}
+        >
+          { item.id }
+        </div>
+      )
   })
 
-  render() {
-    return (
-      <div className="dashboard-main-header">
-        <span className="label">Turbo Charging</span>
+  return (
+    <div className="dashboard-main-header">
+      <span className="label">Turbo Charging</span>
 
-        <div className="toggle-action2">
-          {this.displayToggleButtons()}
-          {/* <div className="left">
-            <div id="actions" className={'btn-switch btn-switch-left' + (item.part_id === this.activeLink ? 'btn-item' : '')}>
-              actions
-              </div>
-          </div>
-          <div className="right">
-            <div
-              onClick={() => this.handleClick()}
-              id="parts"
-              className={'btn-switch btn-switch-right' + (item.part_id === this.activeLink ? 'btn-item' : '')}>
-              parts
-              </div>
-          </div> */}
-        </div>
-
+      <div className="toggle-action2">
+        { displayToggleButtons() }
       </div>
-    )
-  }
-}
 
-const mapDispatchToProps = dispatch => {
-  return {
-    getActions: (id) => dispatch(getActions(id)),
-    getParts: () => dispatch(getParts())
-  }
+    </div>
+  )
 }
-
-export default connect(null, mapDispatchToProps)(Header)
 

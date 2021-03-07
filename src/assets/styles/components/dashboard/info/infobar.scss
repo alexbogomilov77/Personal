@@ -2,20 +2,18 @@
     padding: 35px 20px;
     min-width: 130px;
     min-height: 415px;
-    margin-right: 20px;
+    margin-right: 5px;
     text-align: center;
     // box-shadow: $shadow;
     // border-radius: $radius1;
     // background-color: $white;
     border-radius: 5px;
-    background: linear-gradient(145deg, #ffffff, #d7d7d747);
+    background: linear-gradient(145deg, #cb5742, #f49200);
     box-shadow: 5px 5px 11px #d0d0d075, -5px -5px 11px #ffffff;
     .infobar-label {
         font-size: 14px;
-        color: $unnamed;
-        // width: 40%;
+        color: #222222;
         margin-bottom: 10px;
-        // border-bottom: 2px solid $unnamed1;
         padding-bottom: 5px;
         font-family: 'Muli-BoldItalic';
         &.car-id {
@@ -23,7 +21,6 @@
         }
     }
     .info {
-        // padding: 0 20px;
         span {
             display: block;
         }
@@ -53,9 +50,6 @@
             .history-nav-item {
                 padding: 8px 0;
                 font-size: 12px;
-                // text-align: center;
-                // margin-bottom: 10px;
-                // box-shadow: $shadow;
                 font-family: 'Muli-SemiBold';
                 border-radius: $radius0;
                 &:hover {
@@ -63,7 +57,7 @@
                 }
                 &.active-item {
                     color: $white2;
-                    background-color: $active;
+                    background-color: #222222;
                     font-family: 'Muli-Bold';
                 }
             }
