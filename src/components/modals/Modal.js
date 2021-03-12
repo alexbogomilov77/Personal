@@ -1,73 +1,70 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
-class Modal extends Component {
 
-state = {
+export default function Modal () {
+
+  const carDetailsLabels = [
+    'plate',
+    'make',
+    'model',
+    'year',
+    'fuel',
+    'engine',
+    'cc'
+  ]
+
+  const [vehicle, setVehicle] = useState({
     vehicleID: 0,
+    state: 0,
     plate: '',
     make: '',
     model: '',
-    year: ''
-}
+    fuel: '',
+    engine: '',
+    cc: ''
+  })
 
-handleChange = (e) => {
-    this.setState({ [e.target.id]: e.target.value });
-}
-handleSubmit = (e) => {
-    e.preventDefault();
-    // call function to add a todo
-    // this.props.addTodo(this.state);
+  const handleChange = e => {
+    const { id, value } = e.target;
+    setVehicle(prevState => ({
+        ...prevState,
+        [id]: value
+    }));
+  }
 
-    // console.log(this.state)
-
-    // this.setState({
-    //     content: e.target.value
-    // });
-    axios.post('http://localhost:8080/cars', this.state).then( response => {
-      console.log(response)
-    }
-  )
-}
-
-  render() {
-    return (
-      <div className="modal">
-        <form onSubmit={this.handleSubmit}>
-          <label>Plate:</label>
-          <input 
-            type="text" 
-            id="plate"
-            onChange={this.handleChange} 
-            value={this.state.content} 
-            />
-          <label>Make:</label>
-          <input
-            type="text" 
-            id="make"
-            onChange={this.handleChange} 
-            value={this.state.content} 
-            />
-          <label>Model:</label>
-          <input 
-            type="text" 
-            id="model"
-            onChange={this.handleChange} 
-            value={this.state.content} 
-            />
-          <label>Year:</label>
-          <input
-            type="text" 
-            id="year"
-            onChange={this.handleChange} 
-            value={this.state.content} 
-            />
-            <button type="submit">Submit</button>
-        </form>
-        <p>{this.state.plate}</p>
-      </div>
+  const handleSubmit = e => {
+      console.log('click')
+      e.preventDefault()
+      axios.post('http://localhost:8080/cars', vehicle)
+      .then(response => {
+        console.log(response)
+      }
     )
   }
-}
 
-export default (Modal)
+  const carDetailsList = () => 
+    carDetailsLabels.map(item => {
+      return (
+        <li key={item}>
+          <label>{item}:</label>
+          <input 
+            type="text" 
+            id={item}
+            onChange={handleChange}
+            />
+        </li>
+      )
+  })
+
+  return (
+    <div className="modal">
+      <form onSubmit={handleSubmit}>
+        <ul>
+          { carDetailsList() }
+        </ul>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  )
+}
 

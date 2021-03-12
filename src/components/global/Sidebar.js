@@ -5,7 +5,6 @@ import Modal from '../modals/Modal';
 import { CarsContext } from '../../contexts/CarsContext'
 import { RepairsContext } from '../../contexts/RepairsContext'
 
-
 export default function Sidebar () {
   const { cars, fetchCars, selectedTab, selectTab } = useContext(CarsContext)
   const { fetchRepairs } = useContext(RepairsContext)
@@ -18,7 +17,7 @@ export default function Sidebar () {
   const [isSearchLegit, setIsSearchLegit] = useState(false)
 
   useEffect(() => {
-    console.log('rerender')
+    // Modal.setAppElement('body');
     selectTab(0)
     fetchCars()
   },[])
@@ -80,7 +79,7 @@ export default function Sidebar () {
         <p className="logo-label">GaragePanel</p>
       </div>
 
-      <div className="searchField">
+      {/* <div className="searchField">
         <input
           type="search"
           className="searchInput"
@@ -95,14 +94,14 @@ export default function Sidebar () {
           <button disabled={!isSearchLegit && !isCarExist} className="actionBtn" onClick={() => changeStatus(searchInputValue, 1)}>W</button>
           <button disabled={!isSearchLegit && isCarExist} className="actionBtn">R</button>
         </div>
-      </div>
+      </div> */}
       
 
-      {/* <button 
-        onClick={this.handleOpenModal}
+      <button 
+        onClick={handleOpenModal}
         className='new btn btn-active'>
         New
-      </button> */}
+      </button>
 
       <div className='categories'>
       <span
@@ -138,6 +137,7 @@ export default function Sidebar () {
         overlayClassName="modal-overlay"
         isOpen={showModal}
         contentLabel="onRequestClose Example"
+        ariaHideApp={false}
         onRequestClose={handleCloseModal}
       >
         <Modal />
