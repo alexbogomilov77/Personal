@@ -123,9 +123,9 @@ export default function Sidebar () {
         {cars.map(car => {
           return (
             <li
-              key={car.vehicle_id}
-              onClick={() => handleClick(car.vehicle_id)}
-              className={'sidebar-item ' + (car.vehicle_id === activeLink ? 'active-item': '')}>
+              key={car._id}
+              onClick={() => handleClick(car._id)}
+              className={'sidebar-item ' + (car._id === activeLink ? 'active-item': '')}>
               {car.plate}
             </li>
           );
@@ -141,7 +141,7 @@ export default function Sidebar () {
         onRequestClose={handleCloseModal}
       >
         <Modal />
-        <button onClick={handleCloseModal}>Close Modal</button>
+        <button className="closeModal" onClick={handleCloseModal}>close</button>
       </ReactModal>
     </div>
   ) : (

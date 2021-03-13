@@ -6,8 +6,8 @@ export const PartsContext = createContext();
 const PartsContextProvider = props => {
   const [parts, setParts] = useState([])
 
-  const fetchParts = () => {
-    axios.get(`http://localhost:8080/parts/`)
+  const fetchParts = value => {
+    axios.get(`http://localhost:5000/parts/${value}`)
     .then(response => {
       setParts(response.data)
     })

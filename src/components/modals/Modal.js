@@ -8,25 +8,21 @@ export default function Modal () {
     'make',
     'model',
     'year',
-    'fuel',
-    'engine',
-    'cc'
+    'engine'
   ]
 
-  const [vehicle, setVehicle] = useState({
-    vehicleID: 0,
+  const [car, setCar] = useState({
     state: 0,
     plate: '',
     make: '',
     model: '',
-    fuel: '',
-    engine: '',
-    cc: ''
+    year: '',
+    engine: ''
   })
 
   const handleChange = e => {
     const { id, value } = e.target;
-    setVehicle(prevState => ({
+    setCar(prevState => ({
         ...prevState,
         [id]: value
     }));
@@ -35,7 +31,7 @@ export default function Modal () {
   const handleSubmit = e => {
       console.log('click')
       e.preventDefault()
-      axios.post('http://localhost:8080/cars', vehicle)
+      axios.post('http://localhost:5000/cars/add', car)
       .then(response => {
         console.log(response)
       }
@@ -46,7 +42,7 @@ export default function Modal () {
     carDetailsLabels.map(item => {
       return (
         <li key={item}>
-          <label>{item}:</label>
+          <div className="inputLabel">{item}:</div>
           <input 
             type="text" 
             id={item}

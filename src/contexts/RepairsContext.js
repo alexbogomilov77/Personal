@@ -7,7 +7,7 @@ const RepairsContextProvider = props => {
   const [repairs, setRepairs] = useState([])
 
   const fetchRepairs = value => {
-    axios.get(`http://localhost:8080/repairs/${value}`)
+    axios.get(`http://localhost:5000/repairs/${value}`)
     .then(response => {
       setRepairs(response.data)
     })

@@ -121,13 +121,26 @@
     }
 }
 
-.modal-wrapper {
-    top: 100px;
-    left: 200px;
-    right: 200px;
-    bottom: 100px;
+.closeModal {
     position: absolute;
-    background-color: $unnamed1;
+    right: -90px;
+    top: -22px;
+}
+
+.inputLabel {
+    width: 150px;
+}
+
+.modal-wrapper {
+    width: 30%;
+    width: 30%;
+    padding: 20px;
+    border-radius: 5px;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(145deg, #f1f1f1, #ffffff);
   }
 
   .modal-overlay {
@@ -136,5 +149,8 @@
     right: 0;
     bottom: 0;
     position: fixed;
-    background-color: rgba($black, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #41496191;
   }

@@ -5,9 +5,10 @@ export const ServicesContext = createContext();
 
 const ServicesContextProvider = props => {
   const [services, setServices] = useState([])
+  // const [selectedService, setSelectedService] = useState('')
 
   const fetchServices = value => {
-    axios.get(`http://localhost:8080/services/${value}`)
+    axios.get(`http://localhost:5000/services/${value}`)
     .then(response => {
       setServices(response.data)
     })

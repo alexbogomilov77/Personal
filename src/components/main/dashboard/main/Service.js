@@ -8,13 +8,13 @@ export default function Service () {
 
   const [activeLink, setActiveLink] = useState(null)
 
-  const displayServiceDetails = () => 
+  const displayServiceDetails = () =>
     parts.length > 0
     ? parts.map(item => {
       return (
         <li
-          key={item.part_id}
-          className={'service-list-item ' + (item.part_id === activeLink ? 'active-item' : '')}>
+          key={item._id}
+          className={'service-list-item ' + (item._id === activeLink ? 'active-item' : '')}>
           <span className="service-name">{item.title}</span>
           <span className="service-value">{item.price}</span>
         </li>
@@ -23,8 +23,8 @@ export default function Service () {
     : actions.map(item => {
       return (
         <li
-          key={item.action_id}
-          className={'service-list-item ' + (item.action_id === activeLink ? 'active-item' : '')}>
+          key={item._id}
+          className={'service-list-item ' + (item._id === activeLink ? 'active-item' : '')}>
           <span className="service-name">{item.title}</span>
           <span className="service-value">{item.price}</span>
         </li>

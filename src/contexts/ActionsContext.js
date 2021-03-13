@@ -7,7 +7,7 @@ const ActionsContextProvider = props => {
   const [actions, setActions] = useState([])
 
   const fetchActions = value => {
-    axios.get(`http://localhost:8080/actions/${value}`)
+    axios.get(`http://localhost:5000/actions/${value}`)
     .then(response => {
       setActions(response.data)
     })

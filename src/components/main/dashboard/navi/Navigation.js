@@ -16,9 +16,9 @@ export default function Navigation () {
   const displayServices = () => services.map(el => {
     return (
       <li
-        key={el.service_id}
-        onClick={() => handleClick(el.service_id)}
-        className={'steps-list-item ' + (el.service_id === activeLink ? 'active-item': '')}>
+        key={el._id}
+        onClick={() => handleClick(el._id)}
+        className={'steps-list-item ' + (el._id === activeLink ? 'active-item': '')}>
         {el.title}
       </li>
     )

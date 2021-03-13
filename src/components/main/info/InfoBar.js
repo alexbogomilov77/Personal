@@ -20,9 +20,9 @@ export default function InfoBar () {
     let date = `${day}.${month}.${year}`
     return (
       <li
-        key={el.repair_id}
-        onClick={() => handleClick(el.repair_id)}
-        className={'history-nav-item ' + (el.repair_id === activeLink ? 'active-item': '')}>
+        key={el._id}
+        onClick={() => handleClick(el._id)}
+        className={'history-nav-item ' + (el._id === activeLink ? 'active-item': '')}>
           {date}
       </li>
     )

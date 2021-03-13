@@ -8,7 +8,7 @@ const CarsContextProvider = props => {
   const [selectedTab, setSelectedTab] = useState(null)
 
   const fetchCars = () => {
-    axios.get('http://localhost:8080/cars')
+    axios.get('http://localhost:5000/cars')
     .then(response => {
       const selectedTab = Number(localStorage.getItem('sidebarTab'))
       const carsInSelectedTab = response.data.filter(el => el.state === selectedTab)
