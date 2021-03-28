@@ -1,12 +1,15 @@
 import React, { useContext, useState, useEffect } from 'react'
 import logo from '../../assets/images/dd2.jpg'
+import { GrSync } from 'react-icons/gr'
 import ReactModal from 'react-modal';
 import Modal from '../modals/Modal';
+import { SelectedItemsContext } from '../../contexts/SelectedItemsContext'
 import { CarsContext } from '../../contexts/CarsContext'
 import { RepairsContext } from '../../contexts/RepairsContext'
 
 export default function Sidebar () {
-  const { cars, fetchCars, selectedTab, selectTab } = useContext(CarsContext)
+  const { selectCar } = useContext(SelectedItemsContext)
+  const { cars, fetchCars, changeCarStatus, selectedTab, selectTab } = useContext(CarsContext)
   const { fetchRepairs } = useContext(RepairsContext)
 
   const [showModal, setModal] = useState(false)
@@ -17,7 +20,6 @@ export default function Sidebar () {
   const [isSearchLegit, setIsSearchLegit] = useState(false)
 
   useEffect(() => {
-    // Modal.setAppElement('body');
     selectTab(0)
     fetchCars()
   },[])
@@ -25,31 +27,7 @@ export default function Sidebar () {
   const handleClick = id => {
     setActiveLink(id)
     fetchRepairs(id)
-  }
-
-  const changeStatus = (plate, value) => {
-    // axios.post(`http://localhost:8080/cars/${plate}`, {status: value})
-  }
-
-  const handleInput = event => {
-    event.target.value.length === 8
-    ? setIsSearchLegit(true)
-    : setIsSearchLegit(false)
-  }
-
-  const handleKeyUp = event => {
-    // if (event.keyCode === 13) {
-    //   event.preventDefault();
-    //   searchInputValue(event.target.value)
-    //   axios.get(`http://localhost:8080/cars/search/${searchInputValue}`)
-    //   .then( response => {
-    //     response.data.length > 0
-    //     ? setIsCarExist(true)
-    //     : setIsCarExist(false)
-    //   }).catch( err => {
-    //     alert(err)
-    //   })
-    // }
+    selectCar(id)
   }
 
   const handleOpenModal = () => {
@@ -57,19 +35,22 @@ export default function Sidebar () {
   }
   const handleCloseModal = () => {
     setModal(false)
+    fetchCars()
   }
 
-  // return (
-  //   let buttons;
-  //   if (!isSearchLegit) { !isSearchLegit !isCarExist
-  //       buttons =
-  //       <div className="actionButtons">
-  //         <button disabled={!isSearchLegit && isCarExist} className="actionBtn">Add</button>
-  //         <button disabled={!isSearchLegit && !isCarExist} className="actionBtn" onClick={() => this.changeStatus(searchInputValue, 0)}>A</button>
-  //         <button disabled={!isSearchLegit && !isCarExist} className="actionBtn" onClick={() => this.changeStatus(searchInputValue, 1)}>W</button>
-  //         <button disabled={!isSearchLegit && isCarExist} className="actionBtn">R</button>
-  //       </div>
-  //   }
+  const displayCars = () =>
+    cars.map(car => {
+      return (
+        <li
+          key={car._id}
+          className={'sidebar-item ' + (car._id === activeLink ? 'active-item': '')}>
+          <div className="plate" onClick={() => handleClick(car._id)}>{car.plate}</div>
+          <div className="changeBtn" onClick={() => changeCarStatus(car._id, car.status,)}>
+           <GrSync color="red" />
+          </div>
+        </li>
+      )
+    })
 
   return cars.length ? (
     <div className='sidebar'>
@@ -78,24 +59,6 @@ export default function Sidebar () {
         <img className="logo-image" src={logo}></img>
         <p className="logo-label">GaragePanel</p>
       </div>
-
-      {/* <div className="searchField">
-        <input
-          type="search"
-          className="searchInput"
-          name="q"
-          placeholder="Search in your garage"
-          onChange={handleInput}
-          onKeyUp={handleKeyUp}
-        />
-        <div className="actionButtons">
-          <button disabled={!isSearchLegit && isCarExist} className="actionBtn">Add</button>
-          <button disabled={!isSearchLegit && !isCarExist} className="actionBtn" onClick={() => changeStatus(searchInputValue, 0)}>A</button>
-          <button disabled={!isSearchLegit && !isCarExist} className="actionBtn" onClick={() => changeStatus(searchInputValue, 1)}>W</button>
-          <button disabled={!isSearchLegit && isCarExist} className="actionBtn">R</button>
-        </div>
-      </div> */}
-      
 
       <button 
         onClick={handleOpenModal}
@@ -120,16 +83,7 @@ export default function Sidebar () {
       </div>
 
       <ul className='sidebar-list'>
-        {cars.map(car => {
-          return (
-            <li
-              key={car._id}
-              onClick={() => handleClick(car._id)}
-              className={'sidebar-item ' + (car._id === activeLink ? 'active-item': '')}>
-              {car.plate}
-            </li>
-          );
-        })}
+        { displayCars() }
       </ul>
 
       <ReactModal 

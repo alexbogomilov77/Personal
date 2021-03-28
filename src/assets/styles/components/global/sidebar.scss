@@ -58,36 +58,6 @@
             font-family: 'Muli-ExtraBold';
         }
     }
-    .searchField {
-        // display: flex;
-    }
-    .searchInput {
-        background: #303030;
-        border-radius: 5px;
-        font-weight: bold;
-        color: #b06052;
-        border-bottom: 2px solid #b06052;
-        padding: 5px;
-        margin-bottom: 5px;
-    }
-
-    .actionButtons {
-        margin-bottom: 50px;
-        .actionBtn {
-            margin: 0 5px;
-            // color: #303030;
-            font-weight: bold;
-            border: none;
-            // background: $white;
-            width: 30px;
-            height: 20px;
-            &:hover {
-                cursor: pointer;
-                // background: #303030;
-                // color: $active;
-            }
-        }
-    }
 
     .sidebar-list {
         .sidebar-item {
@@ -96,14 +66,11 @@
             font-size: 16px;
             color: $solid-light;
             border-left: 3px solid #303030;
+            justify-content: center;
+            display: flex;
             // border-radius: $radius;
             transition: ease .1s;
             font-family: 'Muli-SemiBold';
-            &:hover {
-                cursor: pointer;
-                color: $white;
-                // background-color: $solid-light;
-            }
             &.active-item {
                 color: $white2;
                 // background-color: $active;
@@ -115,6 +82,25 @@
                 font-family: 'Muli-ExtraBold';
                 &:hover {
                     background-color: $active1;
+                }
+            }
+            .plate {
+                padding: 0 15px;
+                &:hover {
+                    cursor: pointer;
+                    color: $white;
+                }
+            }
+            .changeBtn {
+                font-size: 20px;
+                svg path{
+                    stroke: $solid-light;
+                }
+                &:hover {
+                    cursor: pointer;
+                    svg path{
+                        stroke: $white2;
+                    }
                 }
             }
         }

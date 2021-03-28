@@ -12,7 +12,7 @@ export default function Modal () {
   ]
 
   const [car, setCar] = useState({
-    state: 0,
+    status: 0,
     plate: '',
     make: '',
     model: '',
@@ -29,7 +29,6 @@ export default function Modal () {
   }
 
   const handleSubmit = e => {
-      console.log('click')
       e.preventDefault()
       axios.post('http://localhost:5000/cars/add', car)
       .then(response => {

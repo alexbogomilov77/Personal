@@ -1,26 +1,31 @@
-import React, { useContext, useState } from 'react'
-import { ActionsContext } from '../../../../contexts/ActionsContext'
-import { PartsContext } from '../../../../contexts/PartsContext'
+import React, { useContext, useState, useEffect } from 'react'
+import { SelectedItemsContext } from '../../../../contexts/SelectedItemsContext'
+import { ServicesDetailsContext } from '../../../../contexts/ServicesDetailsContext'
 
-export default function Service () { 
-    const { fetchActions } = useContext(ActionsContext)
-    const { fetchParts } = useContext(PartsContext)
+export default function Service () {
+  const { selectedService, selectedServiceDetail, selectServiceDetail } = useContext(SelectedItemsContext)
+  const { fetchDetails } = useContext(ServicesDetailsContext)
 
-    const [activeLink, setActiveLink] = useState(null)
-    const buttons = [
-      {
-        id: "actions",
-        position: "left"
-      },
-      {
-        id: "parts",
-        position: "right"
-      }
-    ]
+  const [activeLink, setActiveLink] = useState(null)
+  const buttons = [
+    {
+      id: "actions",
+      position: "left"
+    },
+    {
+      id: "parts",
+      position: "right"
+    }
+  ]
+
+  useEffect(() => {
+    setActiveLink(selectedServiceDetail)
+  },[])
 
   const handleClick = id => {
     setActiveLink(id)
-    id === "parts" ? fetchParts() : fetchActions(1)
+    selectServiceDetail(id)
+    fetchDetails(id, selectedService)
   }
 
   const displayToggleButtons = () => 

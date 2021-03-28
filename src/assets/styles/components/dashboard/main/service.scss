@@ -16,14 +16,14 @@
         margin-bottom: 5px;
         font-family: 'Muli-BoldItalic';
     }
-    #name, #value{
+    #name, #price{
         display: flex;
         height: 20px;
         width: 100px;
         width: 100px;
         border: none;
-        border-radius: $radius0;
-        background-color: $unnamed1;
+        background-color: transparent;
+        border-bottom: 2px solid $active;
     }
     #name {
         width: 250px;

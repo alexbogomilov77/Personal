@@ -11,9 +11,28 @@ const CarsContextProvider = props => {
     axios.get('http://localhost:5000/cars')
     .then(response => {
       const selectedTab = Number(localStorage.getItem('sidebarTab'))
-      const carsInSelectedTab = response.data.filter(el => el.state === selectedTab)
+      const carsInSelectedTab = response.data.filter(el => el.status === selectedTab)
       setCars(carsInSelectedTab)
     })
+  }
+
+  // const removeCar = () => {
+  //   axios.get('http://localhost:5000/cars')
+  //   .then(response => {
+  //     const selectedTab = Number(localStorage.getItem('sidebarTab'))
+  //     const carsInSelectedTab = response.data.filter(el => el.status === selectedTab)
+  //     setCars(carsInSelectedTab)
+  //   })
+  // }
+
+  const changeCarStatus = (id, status) => {
+    let changedStatus = { status: null }
+    status === 0
+    ? changedStatus.status = 1
+    : changedStatus.status = 0
+
+    axios.post(`http://localhost:5000/cars/update/${id}`, changedStatus)
+    .then(() => fetchCars())
   }
 
   const selectTab = value => {
@@ -23,7 +42,7 @@ const CarsContextProvider = props => {
   }
 
   return (
-    <CarsContext.Provider value={{ cars, fetchCars, selectedTab, selectTab }}>
+    <CarsContext.Provider value={{ cars, fetchCars, changeCarStatus, selectedTab, selectTab }}>
       {props.children}
     </CarsContext.Provider>
   );

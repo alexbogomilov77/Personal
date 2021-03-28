@@ -1,9 +1,11 @@
 import React, { useContext, useState } from 'react'
+import { SelectedItemsContext } from '../../../contexts/SelectedItemsContext'
 import { RepairsContext } from '../../../contexts/RepairsContext'
 import { ServicesContext } from '../../../contexts/ServicesContext'
 
 export default function InfoBar () {
-  const { repairs } = useContext(RepairsContext)
+  const { selectedCar, selectRepair } = useContext(SelectedItemsContext)
+  const { repairs, addRepair } = useContext(RepairsContext)
   const { fetchServices } = useContext(ServicesContext)
 
   const [activeLink, setActiveLink] = useState(null)
@@ -11,7 +13,8 @@ export default function InfoBar () {
   const handleClick = id => {
     setActiveLink(id)
     fetchServices(id)
-  };
+    selectRepair(id)
+  }
 
   const displayRepairs = () => repairs.map(el => {
     let day = new Date(el.start_date).getUTCDate()
@@ -30,7 +33,7 @@ export default function InfoBar () {
 
   return repairs.length ? (
     <div className='infobar'>
-      <div className='info'>
+      {/* <div className='info'>
         <p className="infobar-label car-id">CB 3411 BA</p>
         <span className="specification">
           Honda Accord
@@ -38,23 +41,32 @@ export default function InfoBar () {
         <span className="specification">
           Diesel 2.2 CDTi
         </span>
-        {/* <span className="specification">
+        <span className="specification">
           2005
-        </span> */}
+        </span>
       </div>
-      {/* <div className='divider'></div> */}
+      <div className='divider'></div> */}
       <div className='history'>
         <p className="infobar-label">history</p>
         <ul className='history-nav'>
           { displayRepairs() }
         </ul>
+        <div className='new' onClick={() => addRepair(selectedCar)}>
+          +
+        </div>
       </div>
-  </div>
+    </div>
   ) : (
     <div>
-      <code>no history!</code>
+      {/* <div className='infobar'>
+        <div className='history'>
+          <p className="infobar-label">history</p>
+          <ul className='history-nav'>
+            { displayRepairs() }
+          </ul>
+        </div>
+      </div> */}
     </div>
   )
-
 }
 

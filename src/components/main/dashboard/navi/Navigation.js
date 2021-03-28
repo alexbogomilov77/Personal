@@ -1,17 +1,26 @@
 import React, { useContext, useState } from 'react'
+import { SelectedItemsContext } from '../../../../contexts/SelectedItemsContext'
 import { ServicesContext } from '../../../../contexts/ServicesContext'
-import { ActionsContext } from '../../../../contexts/ActionsContext'
+import { ServicesDetailsContext } from '../../../../contexts/ServicesDetailsContext'
 
 export default function Navigation () {
-  const { services } = useContext(ServicesContext)
-  const { fetchActions } = useContext(ActionsContext)
+  const { selectedRepair, selectService, selectServiceDetail } = useContext(SelectedItemsContext)
+  const { services, addService } = useContext(ServicesContext)
+  const { fetchDetails } = useContext(ServicesDetailsContext)
 
   const [activeLink, setActiveLink] = useState(null)
+  const [newService, setNewService] = useState(null)
 
   const handleClick = id => {
     setActiveLink(id)
-    fetchActions(id)
-  };
+    selectService(id)
+    selectServiceDetail('actions')
+    fetchDetails('actions', id)
+  }
+
+  const handleInput = event => {
+    setNewService(event.target.value)
+  }
 
   const displayServices = () => services.map(el => {
     return (
@@ -36,8 +45,8 @@ export default function Navigation () {
       </div>
       
       <div className="new-step">
-        <input type="text" id="step" name="new-step" />
-        <button className="add"></button>
+        <input type="text" id="step" name="new-step" onChange={handleInput} />
+        <button className="add" onClick={() => addService(selectedRepair, newService)}></button>
       </div>
       <ul className='steps-list'>
         { displayServices() }
