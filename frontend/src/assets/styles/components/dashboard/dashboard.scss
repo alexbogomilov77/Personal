@@ -1,0 +1,115 @@
+.dashboard {
+    width: 630px;
+    display: flex;
+    min-height: 415px;
+    border-radius: 5px;
+    background: linear-gradient(
+145deg
+, #ffffff, #f2f2f247);
+    box-shadow: 5px 5px 5px #d0d0d026;
+    padding: 30px 40px 45px 35px;
+    .dashboard-navigation {
+        // min-width: 90px;
+        width: 35%;
+        .steps-label {
+            color: $active;
+            font-size: 20px;    
+            margin-bottom: 11.5px;
+            font-family: 'Muli-ExtraBold';
+           }
+        .steps {
+            margin-bottom: 40px;
+            .step {
+                width: 25px;
+                height: 20px;
+                display: inline-block;
+                margin-right: 5px;
+                background-color: $unnamed1;
+            }
+            .active-step {
+                background-color: $active;
+            }
+        }
+        .new-step {
+            display: flex;
+            margin-bottom: 35px;
+            #step {
+                width: 105px;
+                height: 20px;
+                border: none;
+                margin-right: 10px;
+                background-color: transparent;
+                border-bottom: 2px solid $active;
+            }
+            .add {
+                border: none;
+                width: 27px;
+                height: 22px;
+                color: $active;
+                font-size: 20px;
+                font-family: 'Muli-Bold';
+                border-radius: $radius0;
+            }
+        }
+        .steps-list {
+            .steps-list-item {
+                font-size: 12px;
+                margin: 10px 0;
+                color: $unnamed;
+                font-family: 'Muli-Bold';
+                &:hover {
+                    transition: .1s ease;
+                    cursor: pointer;
+                    color: $active1;
+                }
+            }
+            .active-item {
+                color: $active;
+                font-family: 'Muli-ExtraBold';
+            }
+        }
+    }
+    .divider-vertical {
+        width: 1px;
+        height: 400px;
+        margin: 0 35px 0px 45px;
+        background-color: $unnamed1;
+    }
+    .dashboard-main {
+        // max-width: 350px;
+        width: 100%;
+    }
+
+    //Main
+    // .dashboard-main-header {
+    //     text-align: center;
+    // }
+    //Toggle
+    .toggle-action {
+        margin-bottom: 20px;
+        text-align: left;
+    }
+    .action {
+        color: $unnamed;
+        font-size: 20px;
+        font-family: 'Muli-ExtraBold';
+        &.active-action {
+            color: $active;
+        }
+    }
+    .divider-action {
+        color: $active;
+        font-size: 20px;
+        font-family: 'Muli-ExtraBold';
+    }
+
+    //Toggle2
+    .toggle-action2 {
+        display: flex;
+        box-shadow: $shadow;
+    }
+
+    .dashboard-main-service {
+        text-align: center;
+    }
+}
