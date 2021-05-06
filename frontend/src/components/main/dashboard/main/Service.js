@@ -20,7 +20,7 @@ export default function Service () {
     e.preventDefault()
     const detail = {
       id: uuidv1(),
-      service_id: selectedService,
+      service_id: selectedService.id,
       name,
       price,
       type: selectedServiceDetail,

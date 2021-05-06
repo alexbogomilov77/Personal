@@ -17,11 +17,11 @@ export default function Navigation () {
     setFetchedServices(services)
   },[services])
 
-  const handleClick = id => {
-    setActiveLink(id)
-    selectService(id)
+  const handleClick = service => {
+    setActiveLink(service.id)
+    selectService(service)
     selectServiceDetail('actions')
-    fetchDetails('actions', id)
+    fetchDetails('actions', service.id)
   }
 
   const handleSubmit = e => {
@@ -41,7 +41,7 @@ export default function Navigation () {
     return (
       <li
         key={el.id}
-        onClick={() => handleClick(el.id)}
+        onClick={() => handleClick(el)}
         className={'steps-list-item ' + (el.id === activeLink ? 'active-item': '')}>
         {el.name}
       </li>

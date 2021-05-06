@@ -25,7 +25,7 @@ export default function Header () {
   const handleClick = id => {
     setActiveLink(id)
     selectServiceDetail(id)
-    fetchDetails(id, selectedService)
+    fetchDetails(id, selectedService.id)
   }
 
   const displayToggleButtons = () => 
