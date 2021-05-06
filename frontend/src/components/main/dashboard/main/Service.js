@@ -1,64 +1,77 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
+import { FiTrash2 } from 'react-icons/fi'
+import { v1 as uuidv1 } from 'uuid'
 import { SelectedItemsContext } from '../../../../contexts/SelectedItemsContext'
 import { ServicesDetailsContext } from '../../../../contexts/ServicesDetailsContext'
 
 export default function Service () {
   const { selectedService, selectedServiceDetail } = useContext(SelectedItemsContext)
-  const { details, addDetail } = useContext(ServicesDetailsContext)
+  const { details, addDetail, deleteDetail } = useContext(ServicesDetailsContext)
 
-  const [activeLink, setActiveLink] = useState(null)
-  const [newDetail, setNewDetail] = useState({
-    name: '',
-    price: ''
-  })
+  const [fetchedDetails, setFetchedDetails] = useState([])
+  const [name, setName] = useState('')
+  const [price, setPrice] = useState('')
 
-  const handleInput = e => {
-    const { id, value } = e.target;
-    setNewDetail(prevState => ({
-        type: selectedServiceDetail,
-        service_id: selectedService,
-        ...prevState,
-        [id]: value
-    }))
+  useEffect(() => {
+    setFetchedDetails(details)
+  },[details])
+
+  const handleSubmit = e => {
+    e.preventDefault()
+    const detail = {
+      id: uuidv1(),
+      service_id: selectedService,
+      name,
+      price,
+      type: selectedServiceDetail,
+    }
+
+    setFetchedDetails([...fetchedDetails, detail])
+    addDetail(detail)
+    setName('')
+    setPrice('')
   }
-  console.log('mounted')
+
+  const handleDelete = itemId => {
+    deleteDetail(itemId, selectedServiceDetail)
+    setFetchedDetails(fetchedDetails.filter(item => item.id !== itemId));
+  }
   
   const displayServiceDetails = () =>
-    details.map(item => {
+    fetchedDetails.map(item => {
       return (
-        <li
-          key={item._id}
-          className={'service-list-item ' + (item._id === activeLink ? 'active-item' : '')}>
-          <span className="service-name">{item.title}</span>
-          <span className="service-value">{item.price}</span>
+        <li key={item.id} className="service-list-item">
+          <p className="service-name">{item.name}</p>
+          <p className="service-value">{item.price}</p>
+          <div className="deleteDetail" onClick={() => handleDelete(item.id)}>
+            <FiTrash2 />
+          </div>
         </li>
       )
     })
 
-  return details.length > 0 ? (
+  return (
     <div className="dashboard-main-service">
 
-      <div className="service-input-fields">
+      <form className="service-input-fields">
         <div className="input-block">
-          <div className="input">
-            <label className="input-label" htmlFor="name">Name:</label>
-            <input type="text" id="name" name="name" onChange={handleInput}/>
-          </div>
+          <label className="input-label" htmlFor="name">Name:</label>
+          <input type="text" value={name} onChange={e => setName(e.target.value)} />
         </div>
+        
 
         <div className="input-block">
           <label className="input-label" htmlFor="value">Price:</label>
-          <div className="input">
-            <input type="text" id="price" name="value" onChange={handleInput} />
-          </div>
+          <input type="text" value={price} onChange={e => setPrice(e.target.value)} />
         </div>
-        <button className="add btn-active2"  onClick={() => addDetail(newDetail)}></button>
-      </div>
+        
+        <button className="add btn-active2" type="submit" onClick={handleSubmit}></button>
+      </form>
 
 
       <div className="service-list-wrapper">
         <ul className='service-list'>
-          { displayServiceDetails() }
+          { fetchedDetails.length ? displayServiceDetails() : '' }
         </ul>
       </div>
 
@@ -66,10 +79,6 @@ export default function Service () {
         <button className="action-btn btn-active">complete</button>
       </div>
 
-    </div>
-  ) : (
-    <div>
-      <code>no info!</code>
     </div>
   )
 }

@@ -46,7 +46,7 @@ export default function Sidebar () {
           className={'sidebar-item ' + (car._id === activeLink ? 'active-item': '')}>
           <div className="plate" onClick={() => handleClick(car._id)}>{car.plate}</div>
           <div className="changeBtn" onClick={() => changeCarStatus(car._id, car.status,)}>
-           <GrSync color="red" />
+           <GrSync />
           </div>
         </li>
       )

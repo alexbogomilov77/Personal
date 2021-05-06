@@ -7,8 +7,6 @@ const ServicesDetailsContextProvider = props => {
   const [details, setDetails] = useState([])
 
   const fetchDetails = (detailType, service) => {
-    console.log('detailType', detailType)
-    console.log('service', service)
     axios.get(`http://localhost:5000/${detailType}/${service}`)
     .then(response => {
       setDetails(response.data)
@@ -16,13 +14,20 @@ const ServicesDetailsContextProvider = props => {
   }
 
   const addDetail = newDetail => {
-    console.log(newDetail)
     const detail = {
+      id: newDetail.id,
       service_id: newDetail.service_id,
-      title: newDetail.name,
+      name: newDetail.name,
       price: newDetail.price,
     }
     axios.post(`http://localhost:5000/${newDetail.type}/add`, detail)
+    .then(response => {
+      console.log(response)
+    })
+  }
+
+  const deleteDetail = (detailId, detailType ) => {
+    axios.delete(`http://localhost:5000/${detailType}/delete/${detailId}`)
     .then(response => {
       console.log(response)
     })
@@ -33,7 +38,8 @@ const ServicesDetailsContextProvider = props => {
       value={{
         details,
         fetchDetails,
-        addDetail
+        addDetail,
+        deleteDetail
       }}>
       {props.children}
     </ServicesDetailsContext.Provider>

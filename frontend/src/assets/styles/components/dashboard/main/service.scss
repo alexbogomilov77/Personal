@@ -56,6 +56,7 @@
     min-height: 150px;
     margin-bottom: 80px;
     .service-list-item {
+        display: flex;
         font-size: 11px;
         padding: 10px 22px;
         color: #949494;
@@ -65,7 +66,7 @@
             background-color: $unnamed1;
         }
         .service-name {
-            margin-right: 180px;
+            width: 260px;
         }
     }
 }

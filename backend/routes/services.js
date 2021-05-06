@@ -8,12 +8,14 @@ router.route('/:id').get((req, res) => {
 })
 
 router.route('/add').post((req, res) => {
+  const id = req.body.id 
   const repair_id = req.body.repair_id 
-  const title = req.body.title
+  const name = req.body.name
   
   const newService = new Service({
+    id,
     repair_id,
-    title
+    name
   })
 
   newService.save()

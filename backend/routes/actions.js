@@ -8,18 +8,26 @@ router.route('/:id').get((req, res) => {
 })
 
 router.route('/add').post((req, res) => {
+  const id = req.body.id
   const service_id = req.body.service_id
-  const title = req.body.title
+  const name = req.body.name
   const price = req.body.price
   
   const newAction = new Action({
+    id,
     service_id,
-    title,
+    name,
     price
   })
 
   newAction.save()
   .then(() => res.json('New action has been added!'))
+  .catch(err => res.status(400).json('Error: ' + err))
+})
+
+router.route('/delete/:id').delete((req, res) => {
+  Action.deleteOne({id: req.params.id})
+  .then(() => res.json('action has been deleted!'))
   .catch(err => res.status(400).json('Error: ' + err))
 })
 

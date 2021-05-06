@@ -8,18 +8,26 @@ router.route('/:id').get((req, res) => {
 })
 
 router.route('/add').post((req, res) => {
+  const id = req.body.id
   const service_id = req.body.service_id
-  const title = req.body.title
+  const name = req.body.name
   const price = req.body.price
   
   const newPart = new Part({
+    id,
     service_id,
-    title,
+    name,
     price
   })
 
   newPart.save()
   .then(() => res.json('New part has been added!'))
+  .catch(err => res.status(400).json('Error: ' + err))
+})
+
+router.route('/delete/:id').delete((req, res) => {
+  Part.deleteOne({id: req.params.id})
+  .then(() => res.json('part has been deleted!'))
   .catch(err => res.status(400).json('Error: ' + err))
 })
 

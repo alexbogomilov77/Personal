@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from 'react'
 import { SelectedItemsContext } from '../../../../contexts/SelectedItemsContext'
 import { ServicesDetailsContext } from '../../../../contexts/ServicesDetailsContext'
 
-export default function Service () {
+export default function Header () {
   const { selectedService, selectedServiceDetail, selectServiceDetail } = useContext(SelectedItemsContext)
   const { fetchDetails } = useContext(ServicesDetailsContext)
 
@@ -43,7 +43,7 @@ export default function Service () {
 
   return (
     <div className="dashboard-main-header">
-      <span className="label">Turbo Charging</span>
+      <span className="label">{ selectedService ? selectedService.name : '' }</span>
 
       <div className="toggle-action2">
         { displayToggleButtons() }

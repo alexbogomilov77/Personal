@@ -13,11 +13,7 @@ const ServicesContextProvider = props => {
     })
   }
 
-  const addService = (selectedRepair, newService) => {
-    const service = {
-      repair_id: selectedRepair,
-      title: newService
-    }
+  const addService = service => {
     axios.post(`http://localhost:5000/services/add`, service)
     .then(response => {
       console.log(response)

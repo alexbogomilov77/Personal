@@ -1,4 +1,5 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
+import { v1 as uuidv1 } from 'uuid'
 import { SelectedItemsContext } from '../../../../contexts/SelectedItemsContext'
 import { ServicesContext } from '../../../../contexts/ServicesContext'
 import { ServicesDetailsContext } from '../../../../contexts/ServicesDetailsContext'
@@ -8,8 +9,13 @@ export default function Navigation () {
   const { services, addService } = useContext(ServicesContext)
   const { fetchDetails } = useContext(ServicesDetailsContext)
 
-  const [activeLink, setActiveLink] = useState(null)
-  const [newService, setNewService] = useState(null)
+  const [fetchedServices, setFetchedServices] = useState([])
+  const [activeLink, setActiveLink] = useState('')
+  const [newService, setNewService] = useState('')
+
+  useEffect(() => {
+    setFetchedServices(services)
+  },[services])
 
   const handleClick = id => {
     setActiveLink(id)
@@ -18,22 +24,31 @@ export default function Navigation () {
     fetchDetails('actions', id)
   }
 
-  const handleInput = event => {
-    setNewService(event.target.value)
+  const handleSubmit = e => {
+    e.preventDefault()
+    const service = {
+      id: uuidv1(),
+      repair_id: selectedRepair,
+      name: newService
+    }
+
+    setFetchedServices([...fetchedServices, service])
+    addService(service)
+    setNewService('')
   }
 
-  const displayServices = () => services.map(el => {
+  const displayServices = () => fetchedServices.map(el => {
     return (
       <li
-        key={el._id}
-        onClick={() => handleClick(el._id)}
-        className={'steps-list-item ' + (el._id === activeLink ? 'active-item': '')}>
-        {el.title}
+        key={el.id}
+        onClick={() => handleClick(el.id)}
+        className={'steps-list-item ' + (el.id === activeLink ? 'active-item': '')}>
+        {el.name}
       </li>
     )
   })
 
-  return services.length ? (
+  return (
     <div className="dashboard-navigation">
       <div className="wrapper">
         <div className="steps-label">Service</div>
@@ -43,18 +58,15 @@ export default function Navigation () {
           <li className="step"></li>
         </ul>
       </div>
-      
-      <div className="new-step">
-        <input type="text" id="step" name="new-step" onChange={handleInput} />
-        <button className="add" onClick={() => addService(selectedRepair, newService)}></button>
-      </div>
+
+      <form className="new-step">
+        <input type="text" value={newService} onChange={e => setNewService(e.target.value)} />
+        <button className="add" type="submit" onClick={handleSubmit}></button>
+      </form>
+  
       <ul className='steps-list'>
-        { displayServices() }
+        { fetchedServices.length ? displayServices() : ''}
       </ul>
-    </div>
-  ) : (
-    <div>
-      <code>no services!</code>
     </div>
   )
 }

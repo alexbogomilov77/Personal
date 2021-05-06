@@ -2,11 +2,15 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const PartSchema = new Schema({
-  action_id: {
+  id: {
     type: String,
     required: true
   },
-  title: {
+  service_id: {
+    type: String,
+    required: true
+  },
+  name: {
     type: String,
     required: true
   },

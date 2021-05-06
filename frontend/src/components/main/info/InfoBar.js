@@ -31,41 +31,30 @@ export default function InfoBar () {
     )
   })
 
-  return repairs.length ? (
+  //     <div className='info'>
+  //       <p className="infobar-label car-id">CB 3411 BA</p>
+  //       <span className="specification">
+  //         Honda Accord
+  //       </span>
+  //       <span className="specification">
+  //         Diesel 2.2 CDTi
+  //       </span>
+  //       <span className="specification">
+  //         2005
+  //       </span>
+  //     </div>
+  //     <div className='divider'></div>
+  return (
     <div className='infobar'>
-      {/* <div className='info'>
-        <p className="infobar-label car-id">CB 3411 BA</p>
-        <span className="specification">
-          Honda Accord
-        </span>
-        <span className="specification">
-          Diesel 2.2 CDTi
-        </span>
-        <span className="specification">
-          2005
-        </span>
-      </div>
-      <div className='divider'></div> */}
       <div className='history'>
         <p className="infobar-label">history</p>
         <ul className='history-nav'>
-          { displayRepairs() }
+          { repairs.length ? displayRepairs() : '' }
         </ul>
         <div className='new' onClick={() => addRepair(selectedCar)}>
           +
         </div>
       </div>
-    </div>
-  ) : (
-    <div>
-      {/* <div className='infobar'>
-        <div className='history'>
-          <p className="infobar-label">history</p>
-          <ul className='history-nav'>
-            { displayRepairs() }
-          </ul>
-        </div>
-      </div> */}
     </div>
   )
 }

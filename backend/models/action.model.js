@@ -2,11 +2,15 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const ActionSchema = new Schema({
+  id: {
+    type: String,
+    required: true
+  },
   service_id: {
     type: String,
     required: true
   },
-  title: {
+  name: {
     type: String,
     required: true
   },
