@@ -2,7 +2,6 @@ import React from 'react'
 
 //components
 import Main from './components/global/Main'
-import Header from './components/global/Header'
 import Sidebar from './components/global/Sidebar'
 //contexts
 import SelectedItemsContext from './contexts/SelectedItemsContext';
@@ -23,7 +22,6 @@ export default function App() {
           <ProblemsContextProvider>
             <ProblemsDetailsContextProvider>
               <Sidebar />
-              {/* <Header /> */}
               <Main />
             </ProblemsDetailsContextProvider>
           </ProblemsContextProvider>
