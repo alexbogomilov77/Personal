@@ -2,11 +2,11 @@ import React, { useContext, useState, useEffect } from 'react'
 import { FiTrash2 } from 'react-icons/fi'
 import { v1 as uuidv1 } from 'uuid'
 import { SelectedItemsContext } from '../../../../contexts/SelectedItemsContext'
-import { ServicesDetailsContext } from '../../../../contexts/ServicesDetailsContext'
+import { ProblemsDetailsContext } from '../../../../contexts/ProblemsDetailsContext'
 
-export default function Service () {
-  const { selectedService, selectedServiceDetail } = useContext(SelectedItemsContext)
-  const { details, addDetail, deleteDetail } = useContext(ServicesDetailsContext)
+export default function Problem () {
+  const { selectedProblem, selectedProblemDetail } = useContext(SelectedItemsContext)
+  const { details, addDetail, deleteDetail } = useContext(ProblemsDetailsContext)
 
   const [fetchedDetails, setFetchedDetails] = useState([])
   const [name, setName] = useState('')
@@ -20,10 +20,10 @@ export default function Service () {
     e.preventDefault()
     const detail = {
       id: uuidv1(),
-      service_id: selectedService.id,
+      problem_id: selectedProblem.id,
       name,
       price,
-      type: selectedServiceDetail,
+      type: selectedProblemDetail,
     }
 
     setFetchedDetails([...fetchedDetails, detail])
@@ -33,11 +33,11 @@ export default function Service () {
   }
 
   const handleDelete = itemId => {
-    deleteDetail(itemId, selectedServiceDetail)
+    deleteDetail(itemId, selectedProblemDetail)
     setFetchedDetails(fetchedDetails.filter(item => item.id !== itemId));
   }
   
-  const displayServiceDetails = () =>
+  const displayProblemDetails = () =>
     fetchedDetails.map(item => {
       return (
         <li key={item.id} className="service-list-item">
@@ -71,7 +71,7 @@ export default function Service () {
 
       <div className="service-list-wrapper">
         <ul className='service-list'>
-          { fetchedDetails.length ? displayServiceDetails() : '' }
+          { fetchedDetails.length ? displayProblemDetails() : '' }
         </ul>
       </div>
 

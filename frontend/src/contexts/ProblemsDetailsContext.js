@@ -1,26 +1,20 @@
 import React, { createContext, useState } from 'react';
 import axios from 'axios'
 
-export const ServicesDetailsContext = createContext();
+export const ProblemsDetailsContext = createContext();
 
-const ServicesDetailsContextProvider = props => {
+const ProblemsDetailsContextProvider = props => {
   const [details, setDetails] = useState([])
 
-  const fetchDetails = (detailType, service) => {
-    axios.get(`http://localhost:5000/${detailType}/${service}`)
+  const fetchDetails = (detailType, problemId) => {
+    axios.get(`http://localhost:5000/${detailType}/${problemId}`)
     .then(response => {
       setDetails(response.data)
     })
   }
 
-  const addDetail = newDetail => {
-    const detail = {
-      id: newDetail.id,
-      service_id: newDetail.service_id,
-      name: newDetail.name,
-      price: newDetail.price,
-    }
-    axios.post(`http://localhost:5000/${newDetail.type}/add`, detail)
+  const addDetail = detail => {
+    axios.post(`http://localhost:5000/${detail.type}/add`, detail)
     .then(response => {
       console.log(response)
     })
@@ -34,7 +28,7 @@ const ServicesDetailsContextProvider = props => {
   }
 
   return (
-    <ServicesDetailsContext.Provider
+    <ProblemsDetailsContext.Provider
       value={{
         details,
         fetchDetails,
@@ -42,8 +36,8 @@ const ServicesDetailsContextProvider = props => {
         deleteDetail
       }}>
       {props.children}
-    </ServicesDetailsContext.Provider>
+    </ProblemsDetailsContext.Provider>
   );
 }
 
-export default ServicesDetailsContextProvider;
+export default ProblemsDetailsContextProvider;

@@ -8,8 +8,8 @@ import Sidebar from './components/global/Sidebar'
 import SelectedItemsContext from './contexts/SelectedItemsContext';
 import CarsContextProvider from './contexts/CarsContext';
 import RepairsContextProvider from './contexts/RepairsContext';
-import ServicesContextProvider from './contexts/ServicesContext';
-import ServicesDetailsContextProvider from './contexts/ServicesDetailsContext';
+import ProblemsContextProvider from './contexts/ProblemsContext';
+import ProblemsDetailsContextProvider from './contexts/ProblemsDetailsContext';
 //styles
 import './assets/styles/index.scss'
 import './App.scss'
@@ -20,13 +20,13 @@ export default function App() {
       <SelectedItemsContext>
       <CarsContextProvider>
         <RepairsContextProvider>
-          <ServicesContextProvider>
-            <ServicesDetailsContextProvider>
+          <ProblemsContextProvider>
+            <ProblemsDetailsContextProvider>
               <Sidebar />
               {/* <Header /> */}
               <Main />
-            </ServicesDetailsContextProvider>
-          </ServicesContextProvider>
+            </ProblemsDetailsContextProvider>
+          </ProblemsContextProvider>
         </RepairsContextProvider>
       </CarsContextProvider>
       </SelectedItemsContext>

@@ -2,20 +2,20 @@ const router = require('express').Router()
 let Part = require('../models/part.model')
 
 router.route('/:id').get((req, res) => {
-  Part.find({service_id: req.params.id})
+  Part.find({problem_id: req.params.id})
     .then(part => res.json(part))
     .catch(err => res.status(400).json('Error: ' + err))
 })
 
 router.route('/add').post((req, res) => {
   const id = req.body.id
-  const service_id = req.body.service_id
+  const problem_id = req.body.problem_id
   const name = req.body.name
   const price = req.body.price
   
   const newPart = new Part({
     id,
-    service_id,
+    problem_id,
     name,
     price
   })

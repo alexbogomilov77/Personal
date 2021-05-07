@@ -5,8 +5,8 @@ export const SelectedItemsContext = createContext();
 const SelectedItemsContextProvider = props => {
   const [selectedCar, setSelectedCar] = useState(null)
   const [selectedRepair, setSelectedRepair] = useState(null)
-  const [selectedService, setSelectedService] = useState(null)
-  const [selectedServiceDetail, setSelectedServiceDetail] = useState(null)
+  const [selectedProblem, setSelectedProblem] = useState(null)
+  const [selectedProblemDetail, setSelectedProblemDetail] = useState(null)
 
   const selectCar = car => {
     setSelectedCar(car)
@@ -16,12 +16,12 @@ const SelectedItemsContextProvider = props => {
     setSelectedRepair(repair)
   }
 
-  const selectService = service => {
-    setSelectedService(service)
+  const selectProblem = problem => {
+    setSelectedProblem(problem)
   }
 
-  const selectServiceDetail = detail => {
-    setSelectedServiceDetail(detail)
+  const selectProblemDetail = detail => {
+    setSelectedProblemDetail(detail)
   }
 
   return (
@@ -31,10 +31,10 @@ const SelectedItemsContextProvider = props => {
         selectCar,
         selectedRepair,
         selectRepair,
-        selectedService,
-        selectService,
-        selectedServiceDetail,
-        selectServiceDetail
+        selectedProblem,
+        selectProblem,
+        selectedProblemDetail,
+        selectProblemDetail
       }}>
       {props.children}
     </SelectedItemsContext.Provider>

@@ -1,9 +1,9 @@
 const router = require('express').Router()
-let Service = require('../models/service.model')
+let Problem = require('../models/problem.model')
 
 router.route('/:id').get((req, res) => {
-  Service.find({repair_id: req.params.id})
-    .then(service => res.json(service))
+  Problem.find({repair_id: req.params.id})
+    .then(problem => res.json(problem))
     .catch(err => res.status(400).json('Error: ' + err))
 })
 
@@ -12,14 +12,14 @@ router.route('/add').post((req, res) => {
   const repair_id = req.body.repair_id 
   const name = req.body.name
   
-  const newService = new Service({
+  const newProblem = new Problem({
     id,
     repair_id,
     name
   })
 
-  newService.save()
-  .then(() => res.json('New service has been added!'))
+  newProblem.save()
+  .then(() => res.json('New problem has been added!'))
   .catch(err => res.status(400).json('Error: ' + err))
 })
 

@@ -2,20 +2,20 @@ const router = require('express').Router()
 let Action = require('../models/action.model')
 
 router.route('/:id').get((req, res) => {
-  Action.find({service_id: req.params.id})
+  Action.find({problem_id: req.params.id})
     .then(action => res.json(action))
     .catch(err => res.status(400).json('Error: ' + err))
 })
 
 router.route('/add').post((req, res) => {
   const id = req.body.id
-  const service_id = req.body.service_id
+  const problem_id = req.body.problem_id
   const name = req.body.name
   const price = req.body.price
   
   const newAction = new Action({
     id,
-    service_id,
+    problem_id,
     name,
     price
   })

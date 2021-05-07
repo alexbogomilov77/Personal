@@ -6,7 +6,7 @@ const PartSchema = new Schema({
     type: String,
     required: true
   },
-  service_id: {
+  problem_id: {
     type: String,
     required: true
   },

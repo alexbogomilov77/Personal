@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-const ServiceSchema = new Schema({
+const ProblemSchema = new Schema({
   id: {
     type: String,
     required: true
@@ -16,6 +16,6 @@ const ServiceSchema = new Schema({
   }
 })
 
-const Service = mongoose.model('Service', ServiceSchema)
+const Problem = mongoose.model('Problem', ProblemSchema)
 
-module.exports = Service
+module.exports = Problem

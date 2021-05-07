@@ -1,10 +1,10 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { SelectedItemsContext } from '../../../../contexts/SelectedItemsContext'
-import { ServicesDetailsContext } from '../../../../contexts/ServicesDetailsContext'
+import { ProblemsDetailsContext } from '../../../../contexts/ProblemsDetailsContext'
 
 export default function Header () {
-  const { selectedService, selectedServiceDetail, selectServiceDetail } = useContext(SelectedItemsContext)
-  const { fetchDetails } = useContext(ServicesDetailsContext)
+  const { selectedProblem, selectedProblemDetail, selectProblemDetail } = useContext(SelectedItemsContext)
+  const { fetchDetails } = useContext(ProblemsDetailsContext)
 
   const [activeLink, setActiveLink] = useState(null)
   const buttons = [
@@ -19,13 +19,13 @@ export default function Header () {
   ]
 
   useEffect(() => {
-    setActiveLink(selectedServiceDetail)
+    setActiveLink(selectedProblemDetail)
   },[])
 
   const handleClick = id => {
     setActiveLink(id)
-    selectServiceDetail(id)
-    fetchDetails(id, selectedService.id)
+    selectProblemDetail(id)
+    fetchDetails(id, selectedProblem.id)
   }
 
   const displayToggleButtons = () => 
@@ -43,7 +43,7 @@ export default function Header () {
 
   return (
     <div className="dashboard-main-header">
-      <span className="label">{ selectedService ? selectedService.name : '' }</span>
+      <span className="label">{ selectedProblem ? selectedProblem.name : '' }</span>
 
       <div className="toggle-action2">
         { displayToggleButtons() }
