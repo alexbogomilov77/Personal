@@ -51,7 +51,7 @@ export default function Navigation () {
       <button 
         onClick={handleOpenModal}
         className='btn btnLight'>
-        New
+        new
       </button>
 
       <ul> {fetchedProblems.length ? displayProblems() : ''} </ul>

@@ -62,7 +62,7 @@ export default function Sidebar () {
       <button 
         onClick={handleOpenModal}
         className='new btn btnDark'>
-        New
+        new
       </button>
 
       <div className='categories'>

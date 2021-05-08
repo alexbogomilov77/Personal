@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { FiTrash2 } from 'react-icons/fi'
-import { GoCheck } from 'react-icons/go'
+import { HiOutlineCheck } from 'react-icons/hi'
 import { v1 as uuidv1 } from 'uuid'
 import { SelectedItemsContext } from '../../../../contexts/SelectedItemsContext'
 import { ProblemsDetailsContext } from '../../../../contexts/ProblemsDetailsContext'
@@ -68,9 +68,11 @@ export default function Body () {
           <input type="text" value={price} onChange={e => setPrice(e.target.value)} />
         </div>
         
-        <button className="btn btnLight btnIcon" type="submit" onClick={handleSubmit}>
-          <GoCheck />
-        </button>
+        <div className="submitBtn">
+          <button className="btn btnLight" type="submit" onClick={handleSubmit}>
+            add
+          </button>
+        </div>
       </form>
 
       <ul className='details'>

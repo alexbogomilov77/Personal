@@ -35,7 +35,7 @@ export default function Fixes () {
   })
 
   return (
-    <div className='container'>
+    <div className='fixesWrapper'>
       <div className='newFix btn btnLight' onClick={() => addRepair(selectedCar)}>
         +
       </div>

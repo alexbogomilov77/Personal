@@ -6,7 +6,6 @@
     padding: 7.5px 15px;
     border-radius: 20px;
     box-shadow: $shadow;
-    text-transform: uppercase;
     transition: .1s ease;
     font-family: 'Muli-Bold';
 }
@@ -31,11 +30,11 @@
     }
 }
 
-.btnIcon {
-    padding: 2px 10px;
-    font-size: 20px;
-    line-height: 0px;
-}
+// .btnIcon {
+//     padding: 2px 10px;
+//     font-size: 20px;
+//     line-height: 0px;
+// }
 
 .btnSwitch {
     width: 50px;

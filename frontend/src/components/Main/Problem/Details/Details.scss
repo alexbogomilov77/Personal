@@ -4,25 +4,29 @@
     text-align: center;
     
     .form {
-        display: flex;
-        align-items: center;
+        display: grid;
+        column-gap: 40px;
+        grid-template-columns: repeat(3, 130px);
         margin-bottom: 20px;
         .inputBlock {
             text-align: left;
-            margin-right: 60px;
             input {
                 border: none;
-                width: 100px;
+                width: 100%;
                 background: transparent;
                 border-bottom: 1px solid black;
             }
         }
         .inputLabel  {
             display: block;
-            color: #dbdbdb;
+            color: $unnamed;
             font-size: 12px;
             margin-bottom: 5px;
             font-family: 'Muli-BoldItalic';
+        }
+        .submitBtn {
+            display: flex;
+            align-items: flex-end;
         }
     }
     
@@ -31,17 +35,17 @@
         min-height: 150px;
         margin-bottom: 80px;
         .detail {
-            display: flex;
-            font-size: 11px;
+            display: grid;
+            grid-column-gap: 40px;
+            grid-template-columns: repeat(3, 130px);
+            font-size: 12px;
             padding: 10px 22px;
-            color: #949494;
+            color: $solid;
             border-radius: 2.5px;
             font-family: 'Muli-Bold';
             &:nth-child(even) {
-                background-color: $unnamed1;
-            }
-            .detailName {
-                width: 160px;
+                // background-color: $unnamed1;
+                background: linear-gradient(45deg, $unnamed1, transparent);
             }
         }
     }
