@@ -1,10 +1,12 @@
 import React, { useContext, useState, useEffect } from 'react'
-import { SelectedItemsContext } from '../../../../contexts/SelectedItemsContext'
-import { ProblemsContext } from '../../../../contexts/ProblemsContext'
-import { ProblemsDetailsContext } from '../../../../contexts/ProblemsDetailsContext'
-
 import ReactModal from 'react-modal';
-import ProblemModal from '../../../modals/ProblemModal';
+import Modal from '../../modals/ProblemModal';
+//contexts
+import { SelectedItemsContext } from '../../../contexts/SelectedItemsContext'
+import { ProblemsContext } from '../../../contexts/ProblemsContext'
+import { ProblemsDetailsContext } from '../../../contexts/ProblemsDetailsContext'
+//styles
+import './Problems.scss'
 
 export default function Navigation () {
   const { selectProblem, selectProblemDetail } = useContext(SelectedItemsContext)
@@ -12,7 +14,7 @@ export default function Navigation () {
   const { fetchDetails } = useContext(ProblemsDetailsContext)
 
   const [fetchedProblems, setFetchedProblems] = useState([])
-  const [activeLink, setActiveLink] = useState('')
+  const [selectedProblem, setSelectedProblem] = useState('')
   const [showModal, setModal] = useState(false)
 
   useEffect(() => {
@@ -20,7 +22,7 @@ export default function Navigation () {
   },[problems])
 
   const handleClick = problem => {
-    setActiveLink(problem.id)
+    setSelectedProblem(problem.id)
     selectProblem(problem)
     selectProblemDetail('actions')
     fetchDetails('actions', problem.id)
@@ -38,22 +40,21 @@ export default function Navigation () {
       <li
         key={el.id}
         onClick={() => handleClick(el)}
-        className={'steps-list-item ' + (el.id === activeLink ? 'active-item': '')}>
+        className={el.id === selectedProblem ? 'selectedProblem' : ''}>
         {el.name}
       </li>
     )
   })
 
   return (
-    <div className="dashboard-navigation">
+    <div className="problems">
       <button 
         onClick={handleOpenModal}
-        className='new btn btn-active'>
+        className='btnAction'>
         New
       </button>
-      <ul className='steps-list'>
-        { fetchedProblems.length ? displayProblems() : ''}
-      </ul>
+
+      <ul> {fetchedProblems.length ? displayProblems() : ''} </ul>
 
       <ReactModal 
         className="modal-wrapper"
@@ -63,7 +64,7 @@ export default function Navigation () {
         ariaHideApp={false}
         onRequestClose={handleCloseModal}
       >
-        <ProblemModal />
+        <Modal />
         <button className="closeModal" onClick={handleCloseModal}>close</button>
       </ReactModal>
     </div>

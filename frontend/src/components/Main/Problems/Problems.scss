@@ -1,0 +1,24 @@
+@import "../../../assets/styles/base/vars.scss";
+
+.problems {
+    width: 20%;
+    border-right: 2px solid #e7e7e7;
+    margin-right: 50px;
+    ul {
+        li {
+            font-size: 12px;
+            margin: 10px 0;
+            color: $unnamed;
+            font-family: 'Muli-Bold';
+            &:hover {
+                transition: .1s ease;
+                cursor: pointer;
+                color: $active1;
+            }
+        }
+        .selectedProblem {
+            color: $active;
+            font-family: 'Muli-ExtraBold';
+        }
+    }
+}

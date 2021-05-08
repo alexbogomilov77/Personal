@@ -3,8 +3,10 @@ import { FiTrash2 } from 'react-icons/fi'
 import { v1 as uuidv1 } from 'uuid'
 import { SelectedItemsContext } from '../../../../contexts/SelectedItemsContext'
 import { ProblemsDetailsContext } from '../../../../contexts/ProblemsDetailsContext'
+//styles
+import './Details.scss'
 
-export default function Problem () {
+export default function Body () {
   const { selectedProblem, selectedProblemDetail } = useContext(SelectedItemsContext)
   const { details, addDetail, deleteDetail } = useContext(ProblemsDetailsContext)
 
@@ -40,9 +42,9 @@ export default function Problem () {
   const displayProblemDetails = () =>
     fetchedDetails.map(item => {
       return (
-        <li key={item.id} className="service-list-item">
-          <p className="service-name">{item.name}</p>
-          <p className="service-value">{item.price}</p>
+        <li key={item.id} className="detail">
+          <p className="detailName">{item.name}</p>
+          <p className="detailValue">{item.price}</p>
           <div className="deleteDetail" onClick={() => handleDelete(item.id)}>
             <FiTrash2 />
           </div>
@@ -51,32 +53,29 @@ export default function Problem () {
     })
 
   return (
-    <div className="dashboard-main-service">
+    <div className="detailsWrapper">
 
-      <form className="service-input-fields">
-        <div className="input-block">
-          <label className="input-label" htmlFor="name">Name:</label>
+      <form className="form">
+        <div className="inputBlock">
+          <label className="inputLabel" htmlFor="name">Name:</label>
           <input type="text" value={name} onChange={e => setName(e.target.value)} />
         </div>
         
 
-        <div className="input-block">
-          <label className="input-label" htmlFor="value">Price:</label>
+        <div className="inputBlock">
+          <label className="inputLabel" htmlFor="value">Price:</label>
           <input type="text" value={price} onChange={e => setPrice(e.target.value)} />
         </div>
         
-        <button className="add btn-active2" type="submit" onClick={handleSubmit}></button>
+        <button className="btnAction" type="submit" onClick={handleSubmit}></button>
       </form>
 
+      <ul className='details'>
+        { fetchedDetails.length ? displayProblemDetails() : '' }
+      </ul>
 
-      <div className="service-list-wrapper">
-        <ul className='service-list'>
-          { fetchedDetails.length ? displayProblemDetails() : '' }
-        </ul>
-      </div>
-
-      <div className="dashboard-main-service-footer">
-        <button className="action-btn btn-active">complete</button>
+      <div className="footer">
+        <button className="btnAction">complete</button>
       </div>
 
     </div>

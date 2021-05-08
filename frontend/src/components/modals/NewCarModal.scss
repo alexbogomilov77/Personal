@@ -1,0 +1,29 @@
+.closeModal {
+    position: absolute;
+    right: -90px;
+    top: -22px;
+}
+
+.modal-wrapper {
+    width: 30%;
+    width: 30%;
+    padding: 20px;
+    border-radius: 5px;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(145deg, #f1f1f1, #ffffff);
+  }
+
+  .modal-overlay {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #41496191;
+  }

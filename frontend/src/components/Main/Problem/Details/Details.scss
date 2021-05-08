@@ -1,0 +1,42 @@
+@import "../../../../assets/styles/base/vars.scss";
+
+.detailsWrapper {
+    text-align: center;
+    
+    .form {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        .inputBlock {
+            text-align: left;
+        }
+        .inputLabel  {
+            display: block;
+            color: #dbdbdb;
+            font-size: 12px;
+            margin-bottom: 5px;
+            font-family: 'Muli-BoldItalic';
+        }
+    }
+    
+    .details {
+        text-align: left;
+        min-height: 150px;
+        margin-bottom: 80px;
+        .detail {
+            display: flex;
+            font-size: 11px;
+            padding: 10px 22px;
+            color: #949494;
+            border-radius: 2.5px;
+            font-family: 'Muli-Bold';
+            &:nth-child(even) {
+                background-color: $unnamed1;
+            }
+            .detailName {
+                width: 260px;
+            }
+        }
+    }
+}
+

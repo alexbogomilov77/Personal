@@ -1,0 +1,47 @@
+
+
+.btnAction {
+    border: none;
+    font-size: 12px;
+    padding: 7.5px 25px;
+    border-radius: $radius0;
+    color: $white;
+    box-shadow: $shadow;
+    text-transform: uppercase;
+    transition: .1s ease;
+    background-color: $active;
+    font-family: 'Muli-ExtraBold';
+    &:hover {
+        cursor: pointer;
+        background-color: $active1;
+    }
+}
+
+.btnSwitch {
+    width: 50px;
+    height: 20px;
+    display: flex;
+    padding: 5px;
+    font-size: 12px;
+    color: #c5c5c5;
+    align-items: center;
+    transition: .1s ease;
+    justify-content: center;
+    font-family: 'Muli-Bold';
+    background-color: #efefef;
+    &.btnSwitch-left {
+        border-radius: $radius0 0px 0px $radius0;
+    }
+    &.btnSwitch-right {
+        border-radius: 0px $radius0 $radius0 0px;
+    }
+    &.selected {
+        color: $white;
+        background: $active1;
+    }
+    &:hover {
+        color: $white;
+        cursor: pointer;
+        background-color: #c5c5c5;
+    }
+}

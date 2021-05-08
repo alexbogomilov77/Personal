@@ -1,0 +1,26 @@
+@import "../../../assets/styles/base/vars.scss";
+
+.container {
+    padding: 35px 20px;
+    min-width: 130px;
+    min-height: 415px;
+    margin-right: 5px;
+    text-align: center;
+    border-radius: 5px;
+    .fixes {
+        .fix {
+            padding: 8px 0;
+            font-size: 12px;
+            font-family: 'Muli-SemiBold';
+            border-radius: $radius0;
+            &:hover {
+                cursor: pointer;
+            }
+            &.selectedFix {
+                color: $white2;
+                background-color: #222222;
+                font-family: 'Muli-Bold';
+            }
+        }
+    }
+}

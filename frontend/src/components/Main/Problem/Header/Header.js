@@ -1,12 +1,14 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { SelectedItemsContext } from '../../../../contexts/SelectedItemsContext'
 import { ProblemsDetailsContext } from '../../../../contexts/ProblemsDetailsContext'
+//styles
+import './Header.scss'
 
 export default function Header () {
   const { selectedProblem, selectedProblemDetail, selectProblemDetail } = useContext(SelectedItemsContext)
   const { fetchDetails } = useContext(ProblemsDetailsContext)
 
-  const [activeLink, setActiveLink] = useState(null)
+  const [selectedBtn, setSelectedBtn] = useState(null)
   const buttons = [
     {
       id: "actions",
@@ -19,11 +21,11 @@ export default function Header () {
   ]
 
   useEffect(() => {
-    setActiveLink(selectedProblemDetail)
+    setSelectedBtn(selectedProblemDetail)
   },[])
 
   const handleClick = id => {
-    setActiveLink(id)
+    setSelectedBtn(id)
     selectProblemDetail(id)
     fetchDetails(id, selectedProblem.id)
   }
@@ -32,7 +34,7 @@ export default function Header () {
     buttons.map(item => {
       return (
         <div
-          className={'btn-switch ' + 'btn-switch-' + item.position + (item.id === activeLink ? 'btn-item' : '')}
+          className={'btnSwitch ' + 'btnSwitch-' + item.position + ' ' + (item.id === selectedBtn ? 'selected' : '')}
           key={item.id}
           onClick={() => handleClick(item.id)}
         >
@@ -42,10 +44,10 @@ export default function Header () {
   })
 
   return (
-    <div className="dashboard-main-header">
+    <div className="header">
       <span className="label">{ selectedProblem ? selectedProblem.name : '' }</span>
 
-      <div className="toggle-action2">
+      <div className="switchBtns">
         { displayToggleButtons() }
       </div>
 

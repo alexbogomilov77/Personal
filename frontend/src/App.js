@@ -1,8 +1,8 @@
 import React from 'react'
 
 //components
-import Main from './components/global/Main'
-import Sidebar from './components/global/Sidebar'
+import Main from './components/Main/Main'
+import Sidebar from './components/Sidebar/Sidebar'
 //contexts
 import SelectedItemsContext from './contexts/SelectedItemsContext';
 import CarsContextProvider from './contexts/CarsContext';

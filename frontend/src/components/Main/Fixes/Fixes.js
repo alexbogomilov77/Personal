@@ -1,17 +1,20 @@
 import React, { useContext, useState } from 'react'
+//contexts
 import { SelectedItemsContext } from '../../../contexts/SelectedItemsContext'
 import { RepairsContext } from '../../../contexts/RepairsContext'
 import { ProblemsContext } from '../../../contexts/ProblemsContext'
+//styles
+import './Fixes.scss'
 
-export default function InfoBar () {
+export default function Fixes () {
   const { selectedCar, selectRepair } = useContext(SelectedItemsContext)
   const { repairs, addRepair } = useContext(RepairsContext)
   const { fetchProblems } = useContext(ProblemsContext)
 
-  const [activeLink, setActiveLink] = useState(null)
+  const [selectedFix, setSelectedFix] = useState(null)
 
   const handleClick = id => {
-    setActiveLink(id)
+    setSelectedFix(id)
     fetchProblems(id)
     selectRepair(id)
   }
@@ -25,23 +28,20 @@ export default function InfoBar () {
       <li
         key={el._id}
         onClick={() => handleClick(el._id)}
-        className={'history-nav-item ' + (el._id === activeLink ? 'active-item': '')}>
+        className={'fix ' + (el._id === selectedFix ? 'selectedFix': '')}>
           {date}
       </li>
     )
   })
 
   return (
-    <div className='infobar'>
-      <div className='history'>
-        {/* <p className="infobar-label">history</p> */}
-        <div className='new' onClick={() => addRepair(selectedCar)}>
-          +
-        </div>
-        <ul className='history-nav'>
-          { repairs.length ? displayRepairs() : '' }
-        </ul>
+    <div className='container'>
+      <div className='new' onClick={() => addRepair(selectedCar)}>
+        +
       </div>
+      <ul className='fixes'>
+        { repairs.length ? displayRepairs() : '' }
+      </ul>
     </div>
   )
 }

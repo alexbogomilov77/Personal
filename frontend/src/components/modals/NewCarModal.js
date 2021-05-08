@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+//styles
+import './NewCarModal.scss'
 
 export default function Modal () {
 

@@ -2,10 +2,13 @@ import React, { useContext, useState, useEffect } from 'react'
 import logo from '../../assets/images/dd2.jpg'
 import { GrSync } from 'react-icons/gr'
 import ReactModal from 'react-modal';
-import Modal from '../modals/Modal';
+import Modal from '../modals/NewCarModal';
+//contexts
 import { SelectedItemsContext } from '../../contexts/SelectedItemsContext'
 import { CarsContext } from '../../contexts/CarsContext'
 import { RepairsContext } from '../../contexts/RepairsContext'
+//styles
+import './Sidebar.scss'
 
 export default function Sidebar () {
   const { selectCar } = useContext(SelectedItemsContext)
@@ -14,10 +17,6 @@ export default function Sidebar () {
 
   const [showModal, setModal] = useState(false)
   const [activeLink, setActiveLink] = useState(null)
-  // const [selectedTab, setSelectedTab] = useState(null)
-  const [isCarExist, setIsCarExist] = useState(false)
-  const [searchInputValue, setSearchInputValue] = useState('')
-  const [isSearchLegit, setIsSearchLegit] = useState(false)
 
   useEffect(() => {
     selectTab(0)
@@ -43,7 +42,7 @@ export default function Sidebar () {
       return (
         <li
           key={car._id}
-          className={'sidebar-item ' + (car._id === activeLink ? 'active-item': '')}>
+          className={'car ' + (car._id === activeLink ? 'active': '')}>
           <div className="plate" onClick={() => handleClick(car._id)}>{car.plate}</div>
           <div className="changeBtn" onClick={() => changeCarStatus(car._id, car.status,)}>
            <GrSync />
@@ -56,33 +55,33 @@ export default function Sidebar () {
     <div className='sidebar'>
 
       <div className="logo">
-        <img className="logo-image" src={logo}></img>
-        <p className="logo-label">GaragePanel</p>
+        <img src={logo}></img>
+        <p>GaragePanel</p>
       </div>
 
       <button 
         onClick={handleOpenModal}
-        className='new btn btn-active'>
+        className='new btnAction'>
         New
       </button>
 
       <div className='categories'>
-      <span
-          className={'category ' + (selectedTab === 0 ? 'active-category': '')}
-          onClick={() => selectTab(0)}
-        >
-          active
-        </span>
-        <span className='divider'> / </span>
         <span
-          className={'category ' + (selectedTab === 1 ? 'active-category': '')}
-          onClick={() => selectTab(1)}
-        >
-          waiting
-        </span>
+            className={'category ' + (selectedTab === 0 ? 'active': '')}
+            onClick={() => selectTab(0)}
+          >
+            active
+          </span>
+          <span className='divider'> / </span>
+          <span
+            className={'category ' + (selectedTab === 1 ? 'active': '')}
+            onClick={() => selectTab(1)}
+          >
+            waiting
+          </span>
       </div>
 
-      <ul className='sidebar-list'>
+      <ul className='cars'>
         { displayCars() }
       </ul>
 

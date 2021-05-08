@@ -1,4 +1,6 @@
-.dashboard-main-header {
+@import "../../../../assets/styles/base/vars.scss";
+
+.header {
     display: flex;
     margin-bottom: 50px;
     align-items: center;
@@ -7,5 +9,10 @@
         color: $solid;
         font-size: 24px;
         font-family: 'Muli-ExtraBold';
+    }
+
+    .switchBtns {
+        display: flex;
+        box-shadow: $shadow;
     }
 }

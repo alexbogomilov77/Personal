@@ -1,3 +1,5 @@
+@import "../../assets/styles/base/vars.scss";
+
 .sidebar {
     width: 230px;
     height: 98vh;
@@ -13,27 +15,20 @@
         display: flex;
         align-items: center;
         margin: 10px 0;
-        .logo-image {
+        img {
             padding-left: 20px;
         }
-        .logo-label {
+        p {
             font-size: 18px;
             color: #fbfbfb;
             font-family: 'Muli-ExtraBoldItalic';
         }
     }
+
     .new {
-        width: 60px;
-        height: 30px;
-        font-size: 16px;
-        color: $white2;
-        transition: ease .1s;
         margin: 50px 0 40px 0;
-        font-family: 'Muli-ExtraBold';
-        &:hover {
-            background-color: $active1;
-        }
     }
+
     .categories {
         margin-bottom: 30px;
         .category {
@@ -46,7 +41,7 @@
                 cursor: pointer;
                 color: $white;
             }
-            &.active-category {
+            &.active {
                 color: $white;
                 border-bottom: 1px solid $active;
                 padding: 0 0 4px 0;
@@ -59,8 +54,8 @@
         }
     }
 
-    .sidebar-list {
-        .sidebar-item {
+    .cars {
+        .car {
             margin: 5px 0;
             padding: 10px 0;
             font-size: 16px;
@@ -68,16 +63,11 @@
             border-left: 3px solid #303030;
             justify-content: center;
             display: flex;
-            // border-radius: $radius;
             transition: ease .1s;
             font-family: 'Muli-SemiBold';
-            &.active-item {
+            &.active {
                 color: $white2;
-                // background-color: $active;
                 border-left: 3px solid $active1;
-                // background: linear-gradient(90deg, rgba(146,67,53,1) 0%, rgba(48,48,48,1) 60%);
-                // background: linear-gradient(90deg, rgba(146,67,53,1) 0%, rgba(96,57,50,1) 21%, rgba(48,48,48,1) 47%);
-                // background: linear-gradient(90deg, rgba(76,43,37,1) 0%, rgba(63,45,42,1) 19%, rgba(48,48,48,1) 47%);
                 background: linear-gradient(90deg, rgba(76,43,37,1) 0%, rgba(48,48,48,1) 47%);
                 font-family: 'Muli-ExtraBold';
                 &:hover {
@@ -107,36 +97,3 @@
     }
 }
 
-.closeModal {
-    position: absolute;
-    right: -90px;
-    top: -22px;
-}
-
-.inputLabel {
-    width: 150px;
-}
-
-.modal-wrapper {
-    width: 30%;
-    width: 30%;
-    padding: 20px;
-    border-radius: 5px;
-    display: flex;
-    position: relative;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(145deg, #f1f1f1, #ffffff);
-  }
-
-  .modal-overlay {
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    position: fixed;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #41496191;
-  }
