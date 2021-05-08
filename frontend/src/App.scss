@@ -1,4 +1,17 @@
 // // DEFAULTS
 .App {
   height: 100vh;
+  display: grid;
+  grid-template-columns: 259px 260px min-content;
+  grid-template-rows: 100px min-content;
+}
+
+.dashboard {
+  grid-column: 3;
+  grid-row: 2;
+  display: flex;
+  border-radius: 5px;
+  background: linear-gradient(145deg, #ffffff, #f2f2f247);
+  box-shadow: 5px 5px 5px #d0d0d026;
+  padding: 30px 0px 45px 0px;
 }

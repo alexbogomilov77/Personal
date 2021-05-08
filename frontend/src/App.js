@@ -1,8 +1,11 @@
 import React from 'react'
 
 //components
-import Main from './components/Main/Main'
 import Sidebar from './components/Sidebar/Sidebar'
+import MainHeader from './components/MainHeader/MainHeader'
+import Fixes from './components/Fixes/Fixes'
+import Problems from './components/Problems/Problems'
+import Problem from './components/Problem/Problem'
 //contexts
 import SelectedItemsContext from './contexts/SelectedItemsContext';
 import CarsContextProvider from './contexts/CarsContext';
@@ -22,7 +25,12 @@ export default function App() {
           <ProblemsContextProvider>
             <ProblemsDetailsContextProvider>
               <Sidebar />
-              <Main />
+              <MainHeader />
+              <Fixes />
+              <div className="dashboard">
+                <Problems />
+                <Problem />
+              </div>
             </ProblemsDetailsContextProvider>
           </ProblemsContextProvider>
         </RepairsContextProvider>

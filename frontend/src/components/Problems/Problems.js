@@ -1,10 +1,10 @@
 import React, { useContext, useState, useEffect } from 'react'
 import ReactModal from 'react-modal';
-import Modal from '../../modals/ProblemModal';
+import Modal from '../modals/ProblemModal';
 //contexts
-import { SelectedItemsContext } from '../../../contexts/SelectedItemsContext'
-import { ProblemsContext } from '../../../contexts/ProblemsContext'
-import { ProblemsDetailsContext } from '../../../contexts/ProblemsDetailsContext'
+import { SelectedItemsContext } from '../../contexts/SelectedItemsContext'
+import { ProblemsContext } from '../../contexts/ProblemsContext'
+import { ProblemsDetailsContext } from '../../contexts/ProblemsDetailsContext'
 //styles
 import './Problems.scss'
 

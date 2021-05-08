@@ -1,9 +1,8 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { FiTrash2 } from 'react-icons/fi'
-import { HiOutlineCheck } from 'react-icons/hi'
 import { v1 as uuidv1 } from 'uuid'
-import { SelectedItemsContext } from '../../../../contexts/SelectedItemsContext'
-import { ProblemsDetailsContext } from '../../../../contexts/ProblemsDetailsContext'
+import { SelectedItemsContext } from '../../../contexts/SelectedItemsContext'
+import { ProblemsDetailsContext } from '../../../contexts/ProblemsDetailsContext'
 //styles
 import './Details.scss'
 

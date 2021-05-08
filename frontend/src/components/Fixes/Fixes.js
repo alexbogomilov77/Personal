@@ -1,8 +1,8 @@
 import React, { useContext, useState } from 'react'
 //contexts
-import { SelectedItemsContext } from '../../../contexts/SelectedItemsContext'
-import { RepairsContext } from '../../../contexts/RepairsContext'
-import { ProblemsContext } from '../../../contexts/ProblemsContext'
+import { SelectedItemsContext } from '../../contexts/SelectedItemsContext'
+import { RepairsContext } from '../../contexts/RepairsContext'
+import { ProblemsContext } from '../../contexts/ProblemsContext'
 //styles
 import './Fixes.scss'
 

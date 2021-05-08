@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react'
-import { SelectedItemsContext } from '../../../../contexts/SelectedItemsContext'
-import { ProblemsDetailsContext } from '../../../../contexts/ProblemsDetailsContext'
+import { SelectedItemsContext } from '../../../contexts/SelectedItemsContext'
+import { ProblemsDetailsContext } from '../../../contexts/ProblemsDetailsContext'
 //styles
 import './Header.scss'
 
