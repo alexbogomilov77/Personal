@@ -1,20 +1,40 @@
 
 
-.btnAction {
+.btn {
     border: none;
-    font-size: 12px;
-    padding: 7.5px 25px;
-    border-radius: $radius0;
-    color: $white;
+    font-size: 10px;
+    padding: 7.5px 15px;
+    border-radius: 20px;
     box-shadow: $shadow;
     text-transform: uppercase;
     transition: .1s ease;
-    background-color: $active;
-    font-family: 'Muli-ExtraBold';
+    font-family: 'Muli-Bold';
+}
+
+.btnDark {
+    color: $white;
+    background-color: #383838;
     &:hover {
+        cursor: pointer;
+        background-color: #4e4e4e;
+    }
+}
+
+.btnLight {
+    color: #f67a65;
+    background-color: transparent;
+    border: 1px solid #f67a65;
+    &:hover {
+        color: white;
         cursor: pointer;
         background-color: $active1;
     }
+}
+
+.btnIcon {
+    padding: 2px 10px;
+    font-size: 20px;
+    line-height: 0px;
 }
 
 .btnSwitch {

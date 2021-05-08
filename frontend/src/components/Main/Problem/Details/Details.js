@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { FiTrash2 } from 'react-icons/fi'
+import { GoCheck } from 'react-icons/go'
 import { v1 as uuidv1 } from 'uuid'
 import { SelectedItemsContext } from '../../../../contexts/SelectedItemsContext'
 import { ProblemsDetailsContext } from '../../../../contexts/ProblemsDetailsContext'
@@ -67,7 +68,9 @@ export default function Body () {
           <input type="text" value={price} onChange={e => setPrice(e.target.value)} />
         </div>
         
-        <button className="btnAction" type="submit" onClick={handleSubmit}></button>
+        <button className="btn btnLight btnIcon" type="submit" onClick={handleSubmit}>
+          <GoCheck />
+        </button>
       </form>
 
       <ul className='details'>
@@ -75,7 +78,7 @@ export default function Body () {
       </ul>
 
       <div className="footer">
-        <button className="btnAction">complete</button>
+        <button className="btn btnLight">complete</button>
       </div>
 
     </div>

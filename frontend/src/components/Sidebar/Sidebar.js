@@ -61,7 +61,7 @@ export default function Sidebar () {
 
       <button 
         onClick={handleOpenModal}
-        className='new btnAction'>
+        className='new btn btnDark'>
         New
       </button>
 

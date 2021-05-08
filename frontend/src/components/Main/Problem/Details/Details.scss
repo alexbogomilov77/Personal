@@ -9,6 +9,13 @@
         margin-bottom: 20px;
         .inputBlock {
             text-align: left;
+            margin-right: 60px;
+            input {
+                border: none;
+                width: 100px;
+                background: transparent;
+                border-bottom: 1px solid black;
+            }
         }
         .inputLabel  {
             display: block;
@@ -34,7 +41,7 @@
                 background-color: $unnamed1;
             }
             .detailName {
-                width: 260px;
+                width: 160px;
             }
         }
     }

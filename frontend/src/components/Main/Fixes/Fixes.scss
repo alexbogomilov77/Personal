@@ -7,18 +7,23 @@
     margin-right: 5px;
     text-align: center;
     border-radius: 5px;
+
+    .newFix {
+        margin-bottom: 20px;
+    }
+
     .fixes {
         .fix {
             padding: 8px 0;
             font-size: 12px;
             font-family: 'Muli-SemiBold';
-            border-radius: $radius0;
+            border-radius: 25px;
             &:hover {
                 cursor: pointer;
             }
             &.selectedFix {
                 color: $white2;
-                background-color: #222222;
+                background-color: #f67a65;
                 font-family: 'Muli-Bold';
             }
         }

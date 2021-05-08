@@ -50,7 +50,7 @@ export default function Navigation () {
     <div className="problems">
       <button 
         onClick={handleOpenModal}
-        className='btnAction'>
+        className='btn btnLight'>
         New
       </button>
 
