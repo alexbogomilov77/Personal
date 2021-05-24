@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { FiTrash2 } from 'react-icons/fi'
 import { v1 as uuidv1 } from 'uuid'
+//contexts
 import { SelectedItemsContext } from '../../../contexts/SelectedItemsContext'
 import { ProblemsDetailsContext } from '../../../contexts/ProblemsDetailsContext'
 //styles
@@ -75,7 +76,7 @@ export default function Body () {
       </form>
 
       <ul className='details'>
-        { fetchedDetails.length ? displayProblemDetails() : '' }
+        { fetchedDetails.length && selectedProblem ? displayProblemDetails() : '' }
       </ul>
 
       <div className="footer">

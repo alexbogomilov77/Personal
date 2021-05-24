@@ -5,7 +5,7 @@ import { SelectedItemsContext } from '../../contexts/SelectedItemsContext'
 import { ProblemsContext } from '../../contexts/ProblemsContext'
 
 export default function ProblemModal () {
-  const { selectedRepair } = useContext(SelectedItemsContext)
+  const { selectedFix } = useContext(SelectedItemsContext)
   const { addProblem } = useContext(ProblemsContext)
 
   const [name, setName] = useState('')
@@ -15,7 +15,7 @@ export default function ProblemModal () {
     e.preventDefault()
     const problem = {
       id: uuidv1(),
-      repair_id: selectedRepair,
+      fix_id: selectedFix,
       name,
       description
     }

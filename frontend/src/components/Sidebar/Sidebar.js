@@ -6,14 +6,14 @@ import Modal from '../modals/NewCarModal';
 //contexts
 import { SelectedItemsContext } from '../../contexts/SelectedItemsContext'
 import { CarsContext } from '../../contexts/CarsContext'
-import { RepairsContext } from '../../contexts/RepairsContext'
+import { FixesContext } from '../../contexts/FixesContext'
 //styles
 import './Sidebar.scss'
 
 export default function Sidebar () {
   const { selectCar } = useContext(SelectedItemsContext)
   const { cars, fetchCars, changeCarStatus, selectedTab, selectTab } = useContext(CarsContext)
-  const { fetchRepairs } = useContext(RepairsContext)
+  const { fetchFixes } = useContext(FixesContext)
 
   const [showModal, setModal] = useState(false)
   const [activeLink, setActiveLink] = useState(null)
@@ -25,7 +25,7 @@ export default function Sidebar () {
 
   const handleClick = id => {
     setActiveLink(id)
-    fetchRepairs(id)
+    fetchFixes(id)
     selectCar(id)
   }
 

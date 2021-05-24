@@ -6,7 +6,7 @@ const ProblemSchema = new Schema({
     type: String,
     required: true
   },
-  repair_id: {
+  fix_id: {
     type: String,
     required: true
   },

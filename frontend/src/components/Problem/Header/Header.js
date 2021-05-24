@@ -21,8 +21,6 @@ export default function Header () {
   ]
 
   useEffect(() => {
-    console.log('hi')
-    console.log(selectedProblemDetail)
     setSelectedBtn(selectedProblemDetail)
   },[selectedProblemDetail])
 

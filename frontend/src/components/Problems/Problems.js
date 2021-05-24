@@ -9,7 +9,7 @@ import { ProblemsDetailsContext } from '../../contexts/ProblemsDetailsContext'
 import './Problems.scss'
 
 export default function Navigation () {
-  const { selectProblem, selectProblemDetail } = useContext(SelectedItemsContext)
+  const { selectedFix, selectProblem, selectProblemDetail } = useContext(SelectedItemsContext)
   const { problems } = useContext(ProblemsContext)
   const { fetchDetails } = useContext(ProblemsDetailsContext)
 
@@ -54,7 +54,7 @@ export default function Navigation () {
         new
       </button>
 
-      <ul> {fetchedProblems.length ? displayProblems() : ''} </ul>
+      <ul> { fetchedProblems.length && selectedFix ? displayProblems() : '' } </ul>
 
       <ReactModal 
         className="modal-wrapper"

@@ -19,13 +19,13 @@ connection.once('open', () => {
 })
 
 const carsRouter = require('./routes/cars')
-const repairsRouter = require('./routes/repairs')
+const fixesRouter = require('./routes/fixes')
 const problemsRouter = require('./routes/problems')
 const actionsRouter = require('./routes/actions')
 const partsRouter = require('./routes/parts')
 
 app.use('/cars', carsRouter)
-app.use('/repairs', repairsRouter)
+app.use('/fixes', fixesRouter)
 app.use('/problems', problemsRouter)
 app.use('/actions', actionsRouter)
 app.use('/parts', partsRouter)

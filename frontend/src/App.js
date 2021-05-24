@@ -9,7 +9,7 @@ import Problem from './components/Problem/Problem'
 //contexts
 import SelectedItemsContext from './contexts/SelectedItemsContext';
 import CarsContextProvider from './contexts/CarsContext';
-import RepairsContextProvider from './contexts/RepairsContext';
+import FixesContextProvider from './contexts/FixesContext';
 import ProblemsContextProvider from './contexts/ProblemsContext';
 import ProblemsDetailsContextProvider from './contexts/ProblemsDetailsContext';
 //styles
@@ -21,7 +21,7 @@ export default function App() {
     <div className="App">
       <SelectedItemsContext>
       <CarsContextProvider>
-        <RepairsContextProvider>
+        <FixesContextProvider>
           <ProblemsContextProvider>
             <ProblemsDetailsContextProvider>
               <Sidebar />
@@ -33,7 +33,7 @@ export default function App() {
               </div>
             </ProblemsDetailsContextProvider>
           </ProblemsContextProvider>
-        </RepairsContextProvider>
+        </FixesContextProvider>
       </CarsContextProvider>
       </SelectedItemsContext>
     </div>

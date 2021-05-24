@@ -1,7 +1,11 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-const RepairSchema = new Schema({
+const FixSchema = new Schema({
+  id: {
+    type: String,
+    required: true
+  },
   car_id: {
     type: String,
     required: true
@@ -12,10 +16,10 @@ const RepairSchema = new Schema({
   },
   start_date: {
     type: Date,
-    default: Date.now
+    required: true
   }
 })
 
-const Repair = mongoose.model('Repair', RepairSchema)
+const Fix = mongoose.model('Fix', FixSchema)
 
-module.exports = Repair
+module.exports = Fix

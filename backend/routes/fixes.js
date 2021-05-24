@@ -1,24 +1,27 @@
 const router = require('express').Router()
-let Repair = require('../models/repair.model')
+let Fix = require('../models/fix.model')
 
 router.route('/:id').get((req, res) => {
-  Repair.find({car_id: req.params.id})
-    .then(repair => res.json(repair))
+  Fix.find({car_id: req.params.id})
+    .then(fix => res.json(fix))
     .catch(err => res.status(400).json('Error: ' + err))
 })
 
 router.route('/add').post((req, res) => {
-  console.log('here')
+  const id = req.body.id
   const car_id = req.body.car_id
   const price = 23
-  
-  const newRepair = new Repair({
+  const start_date = req.body.start_date
+
+  const newFix = new Fix({
+    id,
     car_id,
-    price
+    price,
+    start_date
   })
 
-  newRepair.save()
-  .then(() => res.json('New repair has been added!'))
+  newFix.save()
+  .then(() => res.json('New fix has been added!'))
   .catch(err => res.status(400).json('Error: ' + err))
 })
 
