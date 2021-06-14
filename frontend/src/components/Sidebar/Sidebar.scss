@@ -56,11 +56,10 @@
     .cars {
         .car {
             margin: 5px 0;
-            padding: 10px 0;
+            padding: 10px 0 10px 60px;
             font-size: 16px;
             color: $solid-light;
             border-left: 3px solid #303030;
-            justify-content: center;
             display: flex;
             transition: ease .1s;
             font-family: 'Muli-SemiBold';

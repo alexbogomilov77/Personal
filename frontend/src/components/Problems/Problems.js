@@ -31,8 +31,13 @@ export default function Navigation () {
   const handleOpenModal = () => {
     setModal(true)
   }
-  const handleCloseModal = () => {
+  const handleCloseModal = problem => {
     setModal(false)
+  }
+
+  const handleSubmit = problem => {
+    setFetchedProblems([...fetchedProblems, problem])
+    handleCloseModal()
   }
 
   const displayProblems = () => fetchedProblems.map(el => {
@@ -48,6 +53,7 @@ export default function Navigation () {
 
   return (
     <div className="problems">
+      <p className="label">Problems</p>
       <button 
         onClick={handleOpenModal}
         className='btn btnLight'>
@@ -64,7 +70,7 @@ export default function Navigation () {
         ariaHideApp={false}
         onRequestClose={handleCloseModal}
       >
-        <Modal />
+        <Modal closeModal={handleSubmit} />
         <button className="closeModal" onClick={handleCloseModal}>close</button>
       </ReactModal>
     </div>

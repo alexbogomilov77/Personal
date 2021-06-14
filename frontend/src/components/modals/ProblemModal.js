@@ -4,7 +4,7 @@ import { v1 as uuidv1 } from 'uuid'
 import { SelectedItemsContext } from '../../contexts/SelectedItemsContext'
 import { ProblemsContext } from '../../contexts/ProblemsContext'
 
-export default function ProblemModal () {
+export default function ProblemModal ({ closeModal }) {
   const { selectedFix } = useContext(SelectedItemsContext)
   const { addProblem } = useContext(ProblemsContext)
 
@@ -20,6 +20,7 @@ export default function ProblemModal () {
       description
     }
     addProblem(problem)
+    closeModal(problem)
   }
 
   return (

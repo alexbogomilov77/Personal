@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
-import axios from 'axios'
+import React, { useContext, useState } from 'react'
+import { CarsContext } from '../../contexts/CarsContext'
 //styles
 import './NewCarModal.scss'
 
-export default function Modal () {
+export default function Modal ({ closeModal }) {
+  const { addCar, fetchCars } = useContext(CarsContext)
 
   const carDetailsLabels = [
     'plate',
@@ -31,12 +32,10 @@ export default function Modal () {
   }
 
   const handleSubmit = e => {
-      e.preventDefault()
-      axios.post('http://localhost:5000/cars/add', car)
-      .then(response => {
-        console.log(response)
-      }
-    )
+    e.preventDefault()
+    addCar(car)
+    fetchCars()
+    closeModal()
   }
 
   const carDetailsList = () => 

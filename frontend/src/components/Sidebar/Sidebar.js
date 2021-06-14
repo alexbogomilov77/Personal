@@ -12,7 +12,7 @@ import './Sidebar.scss'
 
 export default function Sidebar () {
   const { selectCar } = useContext(SelectedItemsContext)
-  const { cars, fetchCars, changeCarStatus, selectedTab, selectTab } = useContext(CarsContext)
+  const { cars, changeCarStatus, selectedTab, selectTab } = useContext(CarsContext)
   const { fetchFixes } = useContext(FixesContext)
 
   const [showModal, setModal] = useState(false)
@@ -20,7 +20,6 @@ export default function Sidebar () {
 
   useEffect(() => {
     selectTab(0)
-    fetchCars()
   },[])
 
   const handleClick = id => {
@@ -34,7 +33,6 @@ export default function Sidebar () {
   }
   const handleCloseModal = () => {
     setModal(false)
-    fetchCars()
   }
 
   const displayCars = () =>
@@ -43,10 +41,10 @@ export default function Sidebar () {
         <li
           key={car._id}
           className={'car ' + (car._id === activeLink ? 'active': '')}>
-          <div className="plate" onClick={() => handleClick(car._id)}>{car.plate}</div>
           <div className="changeBtn" onClick={() => changeCarStatus(car._id, car.status,)}>
            <GrSync />
           </div>
+          <div className="plate" onClick={() => handleClick(car._id)}>{car.plate}</div>
         </li>
       )
     })
@@ -93,7 +91,7 @@ export default function Sidebar () {
         ariaHideApp={false}
         onRequestClose={handleCloseModal}
       >
-        <Modal />
+        <Modal closeModal={handleCloseModal} />
         <button className="closeModal" onClick={handleCloseModal}>close</button>
       </ReactModal>
     </div>

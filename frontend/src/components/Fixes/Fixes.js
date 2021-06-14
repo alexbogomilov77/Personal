@@ -9,7 +9,7 @@ import { ProblemsContext } from '../../contexts/ProblemsContext'
 import './Fixes.scss'
 
 export default function Fixes () {
-  const { selectedCar, selectFix } = useContext(SelectedItemsContext)
+  const { selectedCar, selectFix, emptyProblems  } = useContext(SelectedItemsContext)
   const { fixes, addFix } = useContext(FixesContext)
   const { fetchProblems } = useContext(ProblemsContext)
 
@@ -17,8 +17,10 @@ export default function Fixes () {
   const [fetchedFixes, setFetchedFixes] = useState([])
 
   useEffect(() => {
+    setSelectedFix(null)
+    //to improve method above it is clearing fixes
+    //after selecting another car and go back to previous selected
     setFetchedFixes(fixes)
-    console.log(fixes)
   },[fixes])
 
   const handleSubmit = e => {
@@ -34,6 +36,7 @@ export default function Fixes () {
   }
 
   const handleClick = id => {
+    emptyProblems()
     setSelectedFix(id)
     fetchProblems(id)
     selectFix(id)
@@ -56,6 +59,7 @@ export default function Fixes () {
 
   return (
     <div className='fixesWrapper'>
+      <p className="label">Fixes</p>
       <form className="form">
         <button className="newFix btn btnLight" type="submit" onClick={handleSubmit}>
           +

@@ -16,14 +16,12 @@ const CarsContextProvider = props => {
     })
   }
 
-  // const removeCar = () => {
-  //   axios.get('http://localhost:5000/cars')
-  //   .then(response => {
-  //     const selectedTab = Number(localStorage.getItem('sidebarTab'))
-  //     const carsInSelectedTab = response.data.filter(el => el.status === selectedTab)
-  //     setCars(carsInSelectedTab)
-  //   })
-  // }
+  const addCar = car => {
+    axios.post('http://localhost:5000/cars/add', car)
+    .then(response => {
+      console.log(response)
+    })
+  }
 
   const changeCarStatus = (id, status) => {
     let changedStatus = { status: null }
@@ -42,7 +40,7 @@ const CarsContextProvider = props => {
   }
 
   return (
-    <CarsContext.Provider value={{ cars, fetchCars, changeCarStatus, selectedTab, selectTab }}>
+    <CarsContext.Provider value={{ cars, fetchCars, addCar, changeCarStatus, selectedTab, selectTab }}>
       {props.children}
     </CarsContext.Provider>
   );

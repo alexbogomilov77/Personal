@@ -9,7 +9,7 @@ const SelectedItemsContextProvider = props => {
   const [selectedProblemDetail, setSelectedProblemDetail] = useState(null)
 
   const selectCar = car => {
-    checkSelectedCar(car)
+    emptyAllFields(car)
     setSelectedCar(car)
   }
 
@@ -25,16 +25,17 @@ const SelectedItemsContextProvider = props => {
     setSelectedProblemDetail(detail)
   }
 
-  const checkSelectedCar = car => {
+  const emptyAllFields = car => {
     if (car !== selectedCar) {
-      emptyAllFields()
+      setSelectedFix(null)
+      setSelectedProblem(null)
+      setSelectedProblemDetail(null)
     }
   }
 
-  const emptyAllFields = () => {
-    setSelectedFix(null)
-    setSelectedProblem(null)
-    setSelectedProblemDetail(null)
+  const emptyProblems = () => {
+      setSelectedProblem(null)
+      setSelectedProblemDetail(null)
   }
 
   return (
@@ -47,7 +48,8 @@ const SelectedItemsContextProvider = props => {
         selectedProblem,
         selectProblem,
         selectedProblemDetail,
-        selectProblemDetail
+        selectProblemDetail,
+        emptyProblems
       }}>
       {props.children}
     </SelectedItemsContext.Provider>
