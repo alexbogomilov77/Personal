@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import moment from 'moment'
 import { v1 as uuidv1 } from 'uuid'
 //contexts
+import { LoadingContext } from '../../contexts/LoadingContext'
 import { SelectedItemsContext } from '../../contexts/SelectedItemsContext'
 import { FixesContext } from '../../contexts/FixesContext'
 import { ProblemsContext } from '../../contexts/ProblemsContext'
@@ -9,6 +10,7 @@ import { ProblemsContext } from '../../contexts/ProblemsContext'
 import './Fixes.scss'
 
 export default function Fixes () {
+  const { setLoading } = useContext(LoadingContext)
   const { selectedCar, selectFix, emptyProblems  } = useContext(SelectedItemsContext)
   const { fixes, addFix } = useContext(FixesContext)
   const { fetchProblems } = useContext(ProblemsContext)
@@ -25,6 +27,7 @@ export default function Fixes () {
 
   const handleSubmit = e => {
     e.preventDefault()
+    setLoading(true)
     const fix = {
       id: uuidv1(),
       car_id: selectedCar,
@@ -36,6 +39,7 @@ export default function Fixes () {
   }
 
   const handleClick = id => {
+    setLoading(true)
     emptyProblems()
     setSelectedFix(id)
     fetchProblems(id)

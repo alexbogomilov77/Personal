@@ -4,6 +4,7 @@ import { GrSync } from 'react-icons/gr'
 import ReactModal from 'react-modal';
 import Modal from '../modals/NewCarModal';
 //contexts
+import { LoadingContext } from '../../contexts/LoadingContext'
 import { SelectedItemsContext } from '../../contexts/SelectedItemsContext'
 import { CarsContext } from '../../contexts/CarsContext'
 import { FixesContext } from '../../contexts/FixesContext'
@@ -11,6 +12,7 @@ import { FixesContext } from '../../contexts/FixesContext'
 import './Sidebar.scss'
 
 export default function Sidebar () {
+  const { setLoading, stopLoading } = useContext(LoadingContext)
   const { selectCar } = useContext(SelectedItemsContext)
   const { cars, changeCarStatus, selectedTab, selectTab } = useContext(CarsContext)
   const { fetchFixes } = useContext(FixesContext)
@@ -20,9 +22,11 @@ export default function Sidebar () {
 
   useEffect(() => {
     selectTab(0)
+    stopLoading()
   },[])
 
   const handleClick = id => {
+    setLoading(true)
     setActiveLink(id)
     fetchFixes(id)
     selectCar(id)

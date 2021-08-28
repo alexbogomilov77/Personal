@@ -2,12 +2,14 @@ import React, { useContext, useState, useEffect } from 'react'
 import { FiTrash2 } from 'react-icons/fi'
 import { v1 as uuidv1 } from 'uuid'
 //contexts
+import { LoadingContext } from '../../../contexts/LoadingContext'
 import { SelectedItemsContext } from '../../../contexts/SelectedItemsContext'
 import { ProblemsDetailsContext } from '../../../contexts/ProblemsDetailsContext'
 //styles
 import './Details.scss'
 
-export default function Body () {
+export default function Details () {
+  const { setLoading } = useContext(LoadingContext)
   const { selectedProblem, selectedProblemDetail } = useContext(SelectedItemsContext)
   const { details, addDetail, deleteDetail } = useContext(ProblemsDetailsContext)
 
@@ -21,6 +23,7 @@ export default function Body () {
 
   const handleSubmit = e => {
     e.preventDefault()
+    setLoading(true)
     const detail = {
       id: uuidv1(),
       problem_id: selectedProblem.id,
@@ -36,6 +39,7 @@ export default function Body () {
   }
 
   const handleDelete = itemId => {
+    setLoading(true)
     deleteDetail(itemId, selectedProblemDetail)
     setFetchedDetails(fetchedDetails.filter(item => item.id !== itemId));
   }

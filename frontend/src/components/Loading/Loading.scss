@@ -1,0 +1,11 @@
+.progressBar  {
+  .react-progress-bar-percent {
+    height: 3px;
+    background: #f67a65;
+    box-shadow: 0 0 10px #f67a65, 0 0 5px #f67a65;
+  }
+  .react-progress-bar-spinner-icon {
+    border-top-color: #f67a65;
+    border-left-color: #f67a65;
+  }
+}

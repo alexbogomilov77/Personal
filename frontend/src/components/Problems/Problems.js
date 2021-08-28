@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from 'react'
 import ReactModal from 'react-modal';
 import Modal from '../modals/ProblemModal';
 //contexts
+import { LoadingContext } from '../../contexts/LoadingContext'
 import { SelectedItemsContext } from '../../contexts/SelectedItemsContext'
 import { ProblemsContext } from '../../contexts/ProblemsContext'
 import { ProblemsDetailsContext } from '../../contexts/ProblemsDetailsContext'
@@ -9,6 +10,7 @@ import { ProblemsDetailsContext } from '../../contexts/ProblemsDetailsContext'
 import './Problems.scss'
 
 export default function Navigation () {
+  const { setLoading } = useContext(LoadingContext)
   const { selectedFix, selectProblem, selectProblemDetail } = useContext(SelectedItemsContext)
   const { problems } = useContext(ProblemsContext)
   const { fetchDetails } = useContext(ProblemsDetailsContext)
@@ -22,6 +24,7 @@ export default function Navigation () {
   },[problems])
 
   const handleClick = problem => {
+    setLoading(true)
     setSelectedProblem(problem.id)
     selectProblem(problem)
     selectProblemDetail('actions')
@@ -31,13 +34,14 @@ export default function Navigation () {
   const handleOpenModal = () => {
     setModal(true)
   }
-  const handleCloseModal = problem => {
+  const handleCloseModal = () => {
     setModal(false)
   }
 
   const handleSubmit = problem => {
     setFetchedProblems([...fetchedProblems, problem])
     handleCloseModal()
+    setLoading(true)
   }
 
   const displayProblems = () => fetchedProblems.map(el => {

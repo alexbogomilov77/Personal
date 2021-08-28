@@ -1,10 +1,12 @@
 import React, { useContext, useState, useEffect } from 'react'
+import { LoadingContext } from '../../../contexts/LoadingContext'
 import { SelectedItemsContext } from '../../../contexts/SelectedItemsContext'
 import { ProblemsDetailsContext } from '../../../contexts/ProblemsDetailsContext'
 //styles
 import './Header.scss'
 
 export default function Header () {
+  const { setLoading } = useContext(LoadingContext)
   const { selectedProblem, selectedProblemDetail, selectProblemDetail } = useContext(SelectedItemsContext)
   const { fetchDetails } = useContext(ProblemsDetailsContext)
 
@@ -25,6 +27,7 @@ export default function Header () {
   },[selectedProblemDetail])
 
   const handleClick = id => {
+    setLoading(true)
     setSelectedBtn(id)
     selectProblemDetail(id)
     fetchDetails(id, selectedProblem.id)
