@@ -95,8 +95,9 @@ export default function Sidebar () {
         ariaHideApp={false}
         onRequestClose={handleCloseModal}
       >
+        <h1 className="modalHeader">Add new car</h1>
         <Modal closeModal={handleCloseModal} />
-        <button className="closeModal" onClick={handleCloseModal}>close</button>
+        <button className="closeModal btn btnColor" onClick={handleCloseModal}>X</button>
       </ReactModal>
     </div>
   ) : (

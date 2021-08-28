@@ -8,35 +8,53 @@ export default function ProblemModal ({ closeModal }) {
   const { selectedFix } = useContext(SelectedItemsContext)
   const { addProblem } = useContext(ProblemsContext)
 
-  const [name, setName] = useState('')
-  const [description, setDescription] = useState('')
+  const problemDetailsLabels = [
+    'name',
+    'description'
+  ]
+
+  const [problem, setProblem] = useState({
+    id: uuidv1(),
+    fix_id: selectedFix,
+    name: '',
+    description: ''
+  })
+
+  const handleChange = e => {
+    const { id, value } = e.target;
+    setProblem(prevState => ({
+        ...prevState,
+        [id]: value
+    }));
+  }
 
   const handleSubmit = e => {
     e.preventDefault()
-    const problem = {
-      id: uuidv1(),
-      fix_id: selectedFix,
-      name,
-      description
-    }
     addProblem(problem)
-    closeModal(problem)
+    closeModal()
   }
 
+  const problemDetailsList = () => 
+    problemDetailsLabels.map(item => {
+      return (
+        <li key={item}>
+          <p className="inputLabel">{item}:</p>
+          <input 
+            type="text" 
+            id={item}
+            onChange={handleChange}
+            />
+        </li>
+      )
+  })
+
   return (
-    <div className="service">
-      <form onSubmit={handleSubmit}>
-        <div className="input-block">
-          <label className="input-label" htmlFor="name">Name:</label>
-          <input type="text" value={name} onChange={e => setName(e.target.value)} />
-        </div>
-
-        <div className="input-block">
-          <label className="input-label" htmlFor="description">Description:</label>
-          <input type="text" value={description} onChange={e => setDescription(e.target.value)} />
-        </div>
-
-        <button type="submit">Submit</button>
+    <div className="modal">
+      <form className="modalForm" onSubmit={handleSubmit}>
+        <ul>
+          { problemDetailsList() }
+        </ul>
+        <button className="btn btnLight" type="submit">Submit</button>
       </form>
     </div>
   )

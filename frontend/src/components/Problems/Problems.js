@@ -74,8 +74,9 @@ export default function Navigation () {
         ariaHideApp={false}
         onRequestClose={handleCloseModal}
       >
+        <h1 className="modalHeader">Add new problem</h1>
         <Modal closeModal={handleSubmit} />
-        <button className="closeModal" onClick={handleCloseModal}>close</button>
+        <button className="closeModal btn btnColor" onClick={handleCloseModal}>X</button>
       </ReactModal>
     </div>
   )

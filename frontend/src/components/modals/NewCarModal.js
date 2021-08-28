@@ -1,7 +1,5 @@
 import React, { useContext, useState } from 'react'
 import { CarsContext } from '../../contexts/CarsContext'
-//styles
-import './NewCarModal.scss'
 
 export default function Modal ({ closeModal }) {
   const { addCar, fetchCars } = useContext(CarsContext)
@@ -42,7 +40,7 @@ export default function Modal ({ closeModal }) {
     carDetailsLabels.map(item => {
       return (
         <li key={item}>
-          <div className="inputLabel">{item}:</div>
+          <p className="inputLabel">{item}:</p>
           <input 
             type="text" 
             id={item}
@@ -54,11 +52,11 @@ export default function Modal ({ closeModal }) {
 
   return (
     <div className="modal">
-      <form onSubmit={handleSubmit}>
+      <form className="modalForm" onSubmit={handleSubmit}>
         <ul>
           { carDetailsList() }
         </ul>
-        <button type="submit">Submit</button>
+        <button className="btn btnLight" type="submit">Submit</button>
       </form>
     </div>
   )

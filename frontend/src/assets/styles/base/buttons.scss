@@ -30,6 +30,15 @@
     }
 }
 
+.btnColor {
+    color: $white;
+    background-color: $active;
+    &:hover {
+        cursor: pointer;
+        background-color: $active1;
+    }
+}
+
 // .btnIcon {
 //     padding: 2px 10px;
 //     font-size: 20px;
