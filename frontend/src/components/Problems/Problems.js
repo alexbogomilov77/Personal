@@ -57,7 +57,7 @@ export default function Navigation () {
 
   return (
     <div className="problems">
-      <p className="label">Problems</p>
+      {/* <p className="label">Problems</p> */}
       <button 
         onClick={handleOpenModal}
         className='btn btnLight'>

@@ -1,19 +1,26 @@
 @import "../../assets/styles/base/vars.scss";
 
 .fixesWrapper {
-    grid-column: 2;
-    grid-row: 2;
-    padding: 30px 70px;
+    left: -106px;
+    position: absolute;
+    padding: 20px 25px;
+    min-width: 56px;
+    min-height: 160px;
     text-align: center;
-    border-radius: 5px;
+    border-radius: 5px 0 0 5px;
+    background: $active;
+    color: white;
 
     .label {
         margin-bottom: 20px;
     }
 
     .newFix {
-        width: 100%;
-        margin-bottom: 20px;
+        width: 80%;
+        font-size: 16px;
+        padding: 3px 0;
+        box-shadow: none;
+        margin-bottom: 15px;
     }
 
     .fixes {

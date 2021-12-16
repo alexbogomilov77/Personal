@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react'
-import logo from '../../assets/images/dd2.jpg'
+import logo from '../../assets/images/logo.png'
 import { GrSync } from 'react-icons/gr'
 import ReactModal from 'react-modal';
 import Modal from '../modals/NewCarModal';
@@ -19,6 +19,13 @@ export default function Sidebar () {
 
   const [showModal, setModal] = useState(false)
   const [activeLink, setActiveLink] = useState(null)
+
+  const isActive = function(id) {
+    if(id === activeLink) {
+      return 'active'
+    }
+    return ''
+  }
 
   useEffect(() => {
     selectTab(0)
@@ -44,11 +51,14 @@ export default function Sidebar () {
       return (
         <li
           key={car._id}
-          className={'car ' + (car._id === activeLink ? 'active': '')}>
-          <div className="changeBtn" onClick={() => changeCarStatus(car._id, car.status,)}>
+          className={'car ' + (isActive(car._id))}>
+          { car._id === activeLink ? <div className="changeBtn" onClick={() => changeCarStatus(car._id, car.status,)}>
            <GrSync />
+          </div> : ''}
+          <div className="name" onClick={() => handleClick(car._id)}>
+            <p className="plate">{car.plate}</p>
+            <p className="make">{car.make} {car.model}</p>
           </div>
-          <div className="plate" onClick={() => handleClick(car._id)}>{car.plate}</div>
         </li>
       )
     })

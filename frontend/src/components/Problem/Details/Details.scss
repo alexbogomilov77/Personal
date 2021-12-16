@@ -6,7 +6,7 @@
     .form {
         display: grid;
         column-gap: 40px;
-        grid-template-columns: repeat(3, 130px);
+        grid-template-columns: repeat(3, 170px);
         margin-bottom: 20px;
         .inputBlock {
             text-align: left;
@@ -37,14 +37,13 @@
         .detail {
             display: grid;
             grid-column-gap: 40px;
-            grid-template-columns: repeat(3, 130px);
+            grid-template-columns: repeat(3, 170px);
             font-size: 12px;
             padding: 10px 22px;
             color: $solid;
             border-radius: 2.5px;
             font-family: 'Muli-Bold';
             &:nth-child(even) {
-                // background-color: $unnamed1;
                 background: linear-gradient(45deg, $unnamed1, transparent);
             }
         }

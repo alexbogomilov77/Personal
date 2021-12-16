@@ -3,8 +3,6 @@
 .sidebar {
     grid-column: 1;
     grid-row: 1 / span 3;
-    border-radius: 5px;
-    margin: 1vh;
     text-align: center;
     background: linear-gradient(0deg, #2a2a2a, #1e1e1e);
     background-color: #303030;
@@ -56,15 +54,17 @@
     .cars {
         .car {
             margin: 5px 0;
-            padding: 10px 0 10px 60px;
+            padding: 13px 0;
             font-size: 16px;
             color: $solid-light;
             border-left: 3px solid #303030;
             display: flex;
+            justify-content: center;
             transition: ease .1s;
             font-family: 'Muli-SemiBold';
             &.active {
                 color: $white2;
+                position: relative;
                 border-left: 3px solid $active1;
                 background: linear-gradient(90deg, rgba(76,43,37,1) 0%, rgba(48,48,48,1) 47%);
                 font-family: 'Muli-ExtraBold';
@@ -72,14 +72,22 @@
                     background-color: $active1;
                 }
             }
-            .plate {
-                padding: 0 15px;
+            .name {
                 &:hover {
                     cursor: pointer;
                     color: $white;
                 }
+                .plate {
+                    font-size: 14px;
+                }
+                .make {
+                    font-weight: bold;
+                }
             }
             .changeBtn {
+                position: absolute;
+                left: 30px;
+                top: 20px;
                 font-size: 20px;
                 svg path{
                     stroke: $solid-light;

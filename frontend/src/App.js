@@ -30,8 +30,8 @@ export default function App() {
             <div className="App">
               <Sidebar />
               <MainHeader />
-              <Fixes />
               <div className="dashboard">
+                <Fixes />
                 <Problems />
                 <Problem />
               </div>

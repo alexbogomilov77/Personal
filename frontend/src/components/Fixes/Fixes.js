@@ -63,9 +63,9 @@ export default function Fixes () {
 
   return (
     <div className='fixesWrapper'>
-      <p className="label">Fixes</p>
+      {/* <p className="label">Fixes</p> */}
       <form className="form">
-        <button className="newFix btn btnLight" type="submit" onClick={handleSubmit}>
+        <button className="newFix btn btnWhite" type="submit" onClick={handleSubmit}>
           +
         </button>
       </form>
