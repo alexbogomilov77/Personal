@@ -9,7 +9,7 @@ const ProblemsDetailsContextProvider = props => {
   const [details, setDetails] = useState([])
 
   const fetchDetails = (detailType, problemId) => {
-    axios.get(`http://localhost:5000/${detailType}/${problemId}`)
+    axios.get(`http://localhost:5001/${detailType}/${problemId}`)
     .then(response => {
       setDetails(response.data)
       stopLoading()
@@ -17,12 +17,12 @@ const ProblemsDetailsContextProvider = props => {
   }
 
   const addDetail = detail => {
-    axios.post(`http://localhost:5000/${detail.type}/add`, detail)
+    axios.post(`http://localhost:5001/${detail.type}/add`, detail)
     .then(stopLoading())
   }
 
   const deleteDetail = (detailId, detailType ) => {
-    axios.delete(`http://localhost:5000/${detailType}/delete/${detailId}`)
+    axios.delete(`http://localhost:5001/${detailType}/delete/${detailId}`)
     .then(stopLoading())
   }
 
