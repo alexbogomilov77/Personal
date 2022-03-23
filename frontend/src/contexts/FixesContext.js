@@ -9,7 +9,7 @@ const FixesContextProvider = props => {
   const [fixes, setFixes] = useState([])
 
   const fetchFixes = carid => {
-    axios.get(`http://localhost:5001/fixes/${carid}`)
+    axios.get(`https://app-garage-manager.herokuapp.com/fixes/${carid}`)
     .then(response => {
       setFixes(response.data)
       stopLoading()
@@ -17,7 +17,7 @@ const FixesContextProvider = props => {
   }
 
   const addFix = fix => {
-    axios.post(`http://localhost:5001/fixes/add`, fix)
+    axios.post(`https://app-garage-manager.herokuapp.com/fixes/add`, fix)
     .then(stopLoading())
   }
 

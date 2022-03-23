@@ -8,7 +8,7 @@ const CarsContextProvider = props => {
   const [selectedTab, setSelectedTab] = useState(null)
 
   const fetchCars = () => {
-    axios.get('http://localhost:5001/cars')
+    axios.get('https://app-garage-manager.herokuapp.com/cars')
     .then(response => {
       const selectedTab = Number(localStorage.getItem('sidebarTab'))
       const carsInSelectedTab = response.data.filter(el => el.status === selectedTab)
@@ -17,7 +17,7 @@ const CarsContextProvider = props => {
   }
 
   const addCar = car => {
-    axios.post('http://localhost:5001/cars/add', car)
+    axios.post('https://app-garage-manager.herokuapp.com/cars/add', car)
     .then(response => {
       console.log(response)
     })
@@ -29,7 +29,7 @@ const CarsContextProvider = props => {
     ? changedStatus.status = 1
     : changedStatus.status = 0
 
-    axios.post(`http://localhost:5001/cars/update/${id}`, changedStatus)
+    axios.post(`https://app-garage-manager.herokuapp.com/cars/update/${id}`, changedStatus)
     .then(() => fetchCars())
   }
 

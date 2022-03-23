@@ -9,7 +9,7 @@ const ProblemsContextProvider = props => {
   const [problems, setProblems] = useState([])
 
   const fetchProblems = fix => {
-    axios.get(`http://localhost:5001/problems/${fix}`)
+    axios.get(`https://app-garage-manager.herokuapp.com/problems/${fix}`)
     .then(response => {
       setProblems(response.data)
       stopLoading()
@@ -17,7 +17,7 @@ const ProblemsContextProvider = props => {
   }
 
   const addProblem = problem => {
-    axios.post(`http://localhost:5001/problems/add`, problem)
+    axios.post(`https://app-garage-manager.herokuapp.com/problems/add`, problem)
     .then(stopLoading())
   }
 

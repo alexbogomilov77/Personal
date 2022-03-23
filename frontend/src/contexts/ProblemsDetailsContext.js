@@ -9,7 +9,7 @@ const ProblemsDetailsContextProvider = props => {
   const [details, setDetails] = useState([])
 
   const fetchDetails = (detailType, problemId) => {
-    axios.get(`http://localhost:5001/${detailType}/${problemId}`)
+    axios.get(`https://app-garage-manager.herokuapp.com/${detailType}/${problemId}`)
     .then(response => {
       setDetails(response.data)
       stopLoading()
@@ -17,12 +17,12 @@ const ProblemsDetailsContextProvider = props => {
   }
 
   const addDetail = detail => {
-    axios.post(`http://localhost:5001/${detail.type}/add`, detail)
+    axios.post(`https://app-garage-manager.herokuapp.com/${detail.type}/add`, detail)
     .then(stopLoading())
   }
 
   const deleteDetail = (detailId, detailType ) => {
-    axios.delete(`http://localhost:5001/${detailType}/delete/${detailId}`)
+    axios.delete(`https://app-garage-manager.herokuapp.com/${detailType}/delete/${detailId}`)
     .then(stopLoading())
   }
 
