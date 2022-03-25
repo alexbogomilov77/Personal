@@ -31,7 +31,7 @@ export default function ProblemModal ({ closeModal }) {
   const handleSubmit = e => {
     e.preventDefault()
     addProblem(problem)
-    closeModal(problem)
+    closeModal()
   }
 
   const problemDetailsList = () => 
