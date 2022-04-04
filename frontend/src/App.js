@@ -3,9 +3,9 @@ import React from "react";
 //components
 // import Loading from "./components/Loading/Loading";
 import Sidebar from "./components/Sidebar/Sidebar";
-// import MainHeader from "./components/MainHeader/MainHeader";
-// import Fixes from "./components/Fixes/Fixes";
-// import Problems from "./components/Problems/Problems";
+import MainHeader from "./components/MainHeader/MainHeader";
+import Fixes from "./components/Fixes/Fixes";
+import Problems from "./components/Problems/Problems";
 // import Problem from "./components/Problem/Problem";
 //contexts
 // import LoadingContext from "./contexts/LoadingContext";
@@ -20,7 +20,14 @@ import "./App.scss";
 
 export default function App() {
   return (
-    <Sidebar />
+    <div className="App">
+      <Sidebar />
+      <MainHeader />
+      <div className="dashboard">
+        <Fixes />
+        <Problems />
+      </div>
+    </div>
     // <LoadingContext>
     //   <SelectedItemsContextProvider>
     //     <CarsContextProvider>

@@ -12,13 +12,13 @@ export const setSelectTab = (payload) => {
 export const setSelectedCar = (payload) => {
   return { type: SET_SELECTED_CAR, payload };
 };
-export const setSelectedFix = (payload) => {
+export const selectFix = (payload) => {
   return { type: SET_SELECTED_FIX, payload };
 };
-export const setSelectedProblem = (payload) => {
+export const selectProblem = (payload) => {
   return { type: SET_SELECTED_PROBLEM, payload };
 };
-export const setSelectedProblemDetail = (payload) => {
+export const selectProblemDetail = (payload) => {
   return { type: SET_SELECTED_PROBLEM_DETAIL, payload };
 };
 
@@ -31,25 +31,20 @@ export function selectTab(tab) {
   };
 }
 
-export function selectCar(car) {
-  return (dispatch) => {
-    new Promise((resolve) => {
-      emptyAllFields(car);
-      dispatch(setSelectedCar(car));
-      resolve();
-    });
-  };
-}
+export const selectCar = () => (car) => {
+  emptyAllFields(car);
+  setSelectedCar(car);
+};
 
-export function emptyAllFields(car) {
-  return (dispatch) => {
-    new Promise((resolve) => {
-      if (car !== store.getState().selectedCar) {
-        dispatch(setSelectedFix(null));
-        dispatch(setSelectedProblem(null));
-        dispatch(setSelectedProblemDetail(null));
-        resolve();
-      }
-    });
-  };
-}
+export const emptyProblems = () => () => {
+  selectProblem(null);
+  selectProblemDetail(null);
+};
+
+export const emptyAllFields = () => (car) => {
+  if (car !== store.getState().selectedItems.selectedCar) {
+    selectFix(null);
+    selectProblem(null);
+    selectProblemDetail(null);
+  }
+};

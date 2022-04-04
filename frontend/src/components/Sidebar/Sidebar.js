@@ -1,21 +1,20 @@
 import React, { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
 import ReactModal from "react-modal";
 import Modal from "../modals/NewCarModal";
 //redux
+import { useSelector, useDispatch } from "react-redux";
 import { fetchCars } from "../../redux/actions/cars.actions";
-//styles
-import "./Sidebar.scss";
 //components
 import Tabs from "./Tabs";
 import CarsList from "./CarsList";
-//assets
+//styles
+import "./Sidebar.scss";
 import logo from "../../assets/images/logo.png";
 
 const Sidebar = () => {
   const dispatch = useDispatch();
 
-  let cars = useSelector((state) => state.cars.cars);
+  const cars = useSelector((state) => state.cars.cars);
   const [showModal, setModal] = useState(false);
 
   useEffect(() => {

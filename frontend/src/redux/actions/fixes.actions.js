@@ -20,3 +20,8 @@ export function fetchFixes(carId) {
     });
   };
 }
+
+export const addFix = (fix) => {
+  axios.post("https://app-garage-manager.herokuapp.com/fixes/add", fix);
+  // .then(stopLoading())
+};
