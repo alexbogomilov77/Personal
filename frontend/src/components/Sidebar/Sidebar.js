@@ -1,118 +1,63 @@
-import React, { useContext, useState, useEffect } from 'react'
-import logo from '../../assets/images/logo.png'
-import { GrSync } from 'react-icons/gr'
-import ReactModal from 'react-modal';
-import Modal from '../modals/NewCarModal';
-//contexts
-import { LoadingContext } from '../../contexts/LoadingContext'
-import { SelectedItemsContext } from '../../contexts/SelectedItemsContext'
-import { CarsContext } from '../../contexts/CarsContext'
-import { FixesContext } from '../../contexts/FixesContext'
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import ReactModal from "react-modal";
+import Modal from "../modals/NewCarModal";
+//redux
+import { fetchCars } from "../../redux/actions/cars.actions";
 //styles
-import './Sidebar.scss'
+import "./Sidebar.scss";
+//components
+import Tabs from "./Tabs";
+import CarsList from "./CarsList";
+//assets
+import logo from "../../assets/images/logo.png";
 
-export default function Sidebar () {
-  const { setLoading, stopLoading } = useContext(LoadingContext)
-  const { selectCar } = useContext(SelectedItemsContext)
-  const { cars, changeCarStatus, selectedTab, selectTab } = useContext(CarsContext)
-  const { fetchFixes } = useContext(FixesContext)
+const Sidebar = () => {
+  const dispatch = useDispatch();
 
-  const [showModal, setModal] = useState(false)
-  const [activeLink, setActiveLink] = useState(null)
-
-  const isActive = function(id) {
-    if(id === activeLink) {
-      return 'active'
-    }
-    return ''
-  }
+  let cars = useSelector((state) => state.cars.cars);
+  const [showModal, setModal] = useState(false);
 
   useEffect(() => {
-    selectTab(0)
-    stopLoading()
-  },[])
+    dispatch(fetchCars());
+  }, []);
 
-  const handleClick = id => {
-    setLoading(true)
-    setActiveLink(id)
-    fetchFixes(id)
-    selectCar(id)
-  }
-
-  const handleOpenModal = () => {
-    setModal(true)
-  }
-  const handleCloseModal = () => {
-    setModal(false)
-  }
-
-  const displayCars = () =>
-    cars.map(car => {
-      return (
-        <li
-          key={car._id}
-          className={'car ' + (isActive(car._id))}>
-          { car._id === activeLink ? <div className="changeBtn" onClick={() => changeCarStatus(car._id, car.status,)}>
-           <GrSync />
-          </div> : ''}
-          <div className="name" onClick={() => handleClick(car._id)}>
-            <p className="plate">{car.plate}</p>
-            <p className="make">{car.make} {car.model}</p>
-          </div>
-        </li>
-      )
-    })
-
-  return cars.length ? (
-    <div className='sidebar'>
-
+  return cars ? (
+    <div className="sidebar">
       <div className="logo">
         <img src={logo}></img>
         <p>GaragePanel</p>
       </div>
 
-      <button 
-        onClick={handleOpenModal}
-        className='new btn btnDark'>
+      <button onClick={() => setModal(true)} className="new btn btnDark">
         new
       </button>
 
-      <div className='categories'>
-        <span
-            className={'category ' + (selectedTab === 0 ? 'active': '')}
-            onClick={() => selectTab(0)}
-          >
-            active
-          </span>
-          <span className='divider'> / </span>
-          <span
-            className={'category ' + (selectedTab === 1 ? 'active': '')}
-            onClick={() => selectTab(1)}
-          >
-            waiting
-          </span>
-      </div>
-
-      <ul className='cars'>
-        { displayCars() }
-      </ul>
-
-      <ReactModal 
+      <Tabs />
+      <CarsList cars={cars} />
+      <ReactModal
         className="modal-wrapper"
         overlayClassName="modal-overlay"
         isOpen={showModal}
         contentLabel="onRequestClose Example"
         ariaHideApp={false}
-        onRequestClose={handleCloseModal}
+        onRequestClose={() => setModal(true)}
       >
         <h1 className="modalHeader">Add new car</h1>
-        <Modal closeModal={handleCloseModal} />
-        <button className="closeModal btn btnColor" onClick={handleCloseModal}>X</button>
+        <Modal closeModal={() => setModal(true)} />
+        <button
+          className="closeModal btn btnColor"
+          onClick={() => setModal(true)}
+        >
+          X
+        </button>
       </ReactModal>
     </div>
   ) : (
     <div>
       <code>no cars in your garage!</code>
     </div>
-  )
-}
+  );
+};
+
+export default Sidebar;
