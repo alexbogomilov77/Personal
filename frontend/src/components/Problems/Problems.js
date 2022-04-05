@@ -35,6 +35,7 @@ export default function Navigation() {
   };
 
   const handleSubmit = (problem) => {
+    console.log(problem);
     setFetchedProblems([...fetchedProblems, problem]);
     setModal(false);
     // setLoading(true)

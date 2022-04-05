@@ -22,3 +22,18 @@ export function fetchDetails(detailType, problemId) {
     });
   };
 }
+
+export const addDetail = () => (detail) => {
+  axios.post(
+    `https://app-garage-manager.herokuapp.com/${detail.type}/add`,
+    detail
+  );
+  // .then(stopLoading())
+};
+
+export const deleteDetail = () => (detailId, detailType) => {
+  axios.delete(
+    `https://app-garage-manager.herokuapp.com/${detailType}/delete/${detailId}`
+  );
+  // .then(stopLoading())
+};

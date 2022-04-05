@@ -20,3 +20,19 @@ export function fetchProblems(fix) {
     });
   };
 }
+
+export function addProblem(problem) {
+  return () => {
+    new Promise((resolve) => {
+      axios
+        .post(`https://app-garage-manager.herokuapp.com/problems/add`, problem)
+        .then(() => {
+          resolve();
+        });
+    });
+  };
+}
+// export const addProblem = () => (problem) => {
+//   axios.post(`https://app-garage-manager.herokuapp.com/problems/add`, problem);
+//   .then(stopLoading())
+// };

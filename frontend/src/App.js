@@ -6,7 +6,7 @@ import Sidebar from "./components/Sidebar/Sidebar";
 import MainHeader from "./components/MainHeader/MainHeader";
 import Fixes from "./components/Fixes/Fixes";
 import Problems from "./components/Problems/Problems";
-// import Problem from "./components/Problem/Problem";
+import Problem from "./components/Problem/Problem";
 //contexts
 // import LoadingContext from "./contexts/LoadingContext";
 // import SelectedItemsContextProvider from "./contexts/SelectedItemsContext";
@@ -26,6 +26,7 @@ export default function App() {
       <div className="dashboard">
         <Fixes />
         <Problems />
+        <Problem />
       </div>
     </div>
     // <LoadingContext>
