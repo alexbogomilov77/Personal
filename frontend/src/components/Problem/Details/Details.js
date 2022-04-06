@@ -10,7 +10,7 @@ import {
 //styles
 import "./Details.scss";
 
-export default function Details() {
+export const Details = () => {
   const dispatch = useDispatch();
   // const { setLoading } = useContext(LoadingContext)
   const selectedProblem = useSelector(
@@ -56,11 +56,9 @@ export default function Details() {
     fetchedDetails.map((item) => {
       return (
         <li key={item.id} className="detail">
-          <p className="detailName">{item.name}</p>
-          <p className="detailValue">{item.price}</p>
-          <div className="deleteDetail" onClick={() => handleDelete(item.id)}>
-            <FiTrash2 />
-          </div>
+          <p>{item.name}</p>
+          <p>{item.price}</p>
+          <FiTrash2 className="delete" onClick={() => handleDelete(item.id)} />
         </li>
       );
     });
@@ -106,4 +104,6 @@ export default function Details() {
       </div>
     </div>
   );
-}
+};
+
+export default Details;

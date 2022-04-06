@@ -4,7 +4,10 @@ import Modal from "../modals/ProblemModal";
 //redux
 import { useSelector, useDispatch } from "react-redux";
 import { fetchDetails } from "../../redux/actions/problemsDetails.actions";
-import { selectProblem } from "../../redux/actions/selectedItems.actions";
+import {
+  selectProblem,
+  selectProblemDetail
+} from "../../redux/actions/selectedItems.actions";
 //styles
 import "./Problems.scss";
 
@@ -13,9 +16,6 @@ export default function Navigation() {
   // const { setLoading } = useContext(LoadingContext)
 
   const selectedFix = useSelector((state) => state.selectedItems.selectedFix);
-  const selectProblemDetail = useSelector(
-    (state) => state.selectedItems.selectProblemDetail
-  );
   const problems = useSelector((state) => state.problems.problems);
 
   const [fetchedProblems, setFetchedProblems] = useState([]);
@@ -35,7 +35,6 @@ export default function Navigation() {
   };
 
   const handleSubmit = (problem) => {
-    console.log(problem);
     setFetchedProblems([...fetchedProblems, problem]);
     setModal(false);
     // setLoading(true)

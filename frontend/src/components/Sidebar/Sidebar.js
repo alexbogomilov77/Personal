@@ -15,13 +15,24 @@ const Sidebar = () => {
   const dispatch = useDispatch();
 
   const cars = useSelector((state) => state.cars.cars);
+
+  const [fetchedCars, setFetchedCars] = useState([]);
   const [showModal, setModal] = useState(false);
 
   useEffect(() => {
     dispatch(fetchCars());
   }, []);
 
-  return cars ? (
+  useEffect(() => {
+    setFetchedCars(cars);
+  }, [cars]);
+
+  const closeAndSet = (car) => {
+    setModal(false);
+    setFetchedCars([...fetchedCars, car]);
+  };
+
+  return fetchedCars ? (
     <div className="sidebar">
       <div className="logo">
         <img src={logo}></img>
@@ -33,20 +44,20 @@ const Sidebar = () => {
       </button>
 
       <Tabs />
-      <CarsList cars={cars} />
+      <CarsList cars={fetchedCars} />
       <ReactModal
         className="modal-wrapper"
         overlayClassName="modal-overlay"
         isOpen={showModal}
         contentLabel="onRequestClose Example"
         ariaHideApp={false}
-        onRequestClose={() => setModal(true)}
+        onRequestClose={() => setModal(false)}
       >
         <h1 className="modalHeader">Add new car</h1>
-        <Modal closeModal={() => setModal(true)} />
+        <Modal closeModal={(car) => closeAndSet(car)} />
         <button
           className="closeModal btn btnColor"
-          onClick={() => setModal(true)}
+          onClick={() => setModal(false)}
         >
           X
         </button>

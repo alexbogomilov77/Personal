@@ -24,6 +24,18 @@ export function fetchCars() {
   };
 }
 
+export function addCar(car) {
+  return () => {
+    new Promise((resolve) => {
+      axios
+        .post("https://app-garage-manager.herokuapp.com/cars/add", car)
+        .then(() => {
+          resolve();
+        });
+    });
+  };
+}
+
 export function changeCarStatus(id, status) {
   return (dispatch) => {
     new Promise((resolve) => {

@@ -1,52 +1,56 @@
 @import "../../../assets/styles/base/vars.scss";
 
 .detailsWrapper {
-    text-align: center;
-    
-    .form {
-        display: grid;
-        column-gap: 40px;
-        grid-template-columns: repeat(3, 170px);
-        margin-bottom: 20px;
-        .inputBlock {
-            text-align: left;
-            input {
-                border: none;
-                width: 100%;
-                background: transparent;
-                border-bottom: 1px solid black;
-            }
-        }
-        .inputLabel  {
-            display: block;
-            color: $unnamed;
-            font-size: 12px;
-            margin-bottom: 5px;
-            font-family: 'Muli-BoldItalic';
-        }
-        .submitBtn {
-            display: flex;
-            align-items: flex-end;
-        }
-    }
-    
-    .details {
-        text-align: left;
-        min-height: 150px;
-        margin-bottom: 80px;
-        .detail {
-            display: grid;
-            grid-column-gap: 40px;
-            grid-template-columns: repeat(3, 170px);
-            font-size: 12px;
-            padding: 10px 22px;
-            color: $solid;
-            border-radius: 2.5px;
-            font-family: 'Muli-Bold';
-            &:nth-child(even) {
-                background: linear-gradient(45deg, $unnamed1, transparent);
-            }
-        }
-    }
-}
+  text-align: center;
 
+  .form {
+    display: grid;
+    column-gap: 40px;
+    grid-template-columns: repeat(3, 170px);
+    margin-bottom: 20px;
+    .inputBlock {
+      text-align: left;
+      input {
+        border: none;
+        width: 100%;
+        background: transparent;
+        border-bottom: 1px solid black;
+      }
+    }
+    .inputLabel {
+      display: block;
+      color: $unnamed;
+      font-size: 12px;
+      margin-bottom: 5px;
+      font-family: "Muli-BoldItalic";
+    }
+    .submitBtn {
+      display: flex;
+      align-items: flex-end;
+    }
+  }
+
+  .details {
+    text-align: left;
+    min-height: 150px;
+    margin-bottom: 80px;
+    .detail {
+      display: grid;
+      grid-column-gap: 40px;
+      grid-template-columns: repeat(3, 170px);
+      font-size: 12px;
+      padding: 10px 22px;
+      color: $solid;
+      border-radius: 2.5px;
+      font-family: "Muli-Bold";
+      &:nth-child(even) {
+        background: linear-gradient(45deg, $unnamed1, transparent);
+      }
+      .delete {
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

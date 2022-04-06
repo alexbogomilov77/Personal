@@ -23,17 +23,27 @@ export function fetchDetails(detailType, problemId) {
   };
 }
 
-export const addDetail = () => (detail) => {
-  axios.post(
-    `https://app-garage-manager.herokuapp.com/${detail.type}/add`,
-    detail
-  );
-  // .then(stopLoading())
-};
+export function addDetail(detail) {
+  return () => {
+    new Promise((resolve) => {
+      axios
+        .post(
+          `https://app-garage-manager.herokuapp.com/${detail.type}/add`,
+          detail
+        )
+        .then(() => resolve());
+    });
+  };
+}
 
-export const deleteDetail = () => (detailId, detailType) => {
-  axios.delete(
-    `https://app-garage-manager.herokuapp.com/${detailType}/delete/${detailId}`
-  );
-  // .then(stopLoading())
-};
+export function deleteDetail(detailId, detailType) {
+  return () => {
+    new Promise((resolve) => {
+      axios
+        .delete(
+          `https://app-garage-manager.herokuapp.com/${detailType}/delete/${detailId}`
+        )
+        .then(() => resolve());
+    });
+  };
+}
