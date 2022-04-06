@@ -6,7 +6,7 @@ import { fetchDetails } from "../../../redux/actions/problemsDetails.actions";
 //styles
 import "./Header.scss";
 
-export default function Header() {
+export const Header = () => {
   const dispatch = useDispatch();
   // const { setLoading } = useContext(LoadingContext)
   const selectedProblem = useSelector(
@@ -67,4 +67,6 @@ export default function Header() {
       <div className="switchBtns">{displayToggleButtons()}</div>
     </div>
   );
-}
+};
+
+export default Header;

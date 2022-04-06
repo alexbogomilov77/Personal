@@ -24,6 +24,7 @@ export default function Navigation() {
 
   useEffect(() => {
     setFetchedProblems(problems);
+    setSelectedProblem("");
   }, [problems]);
 
   const handleClick = (problem) => {
@@ -71,7 +72,7 @@ export default function Navigation() {
         onRequestClose={() => setModal(false)}
       >
         <h1 className="modalHeader">Add new problem</h1>
-        <Modal closeModal={() => handleSubmit()} />
+        <Modal closeModal={(problem) => handleSubmit(problem)} />
         <button
           className="closeModal btn btnColor"
           onClick={() => setModal(false)}

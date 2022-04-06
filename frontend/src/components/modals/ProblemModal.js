@@ -28,7 +28,7 @@ const ProblemModal = ({ closeModal }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(addProblem(problem));
-    closeModal();
+    closeModal(problem);
   };
 
   const problemDetailsList = () =>

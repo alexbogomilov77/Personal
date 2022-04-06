@@ -15,7 +15,7 @@ import "./Fixes.scss";
 const Fixes = () => {
   const dispatch = useDispatch();
   // const { setLoading } = useContext(LoadingContext)
-  const selectedCar = useSelector((state) => state.cars.cars);
+  const selectedCar = useSelector((state) => state.selectedItems.selectedCar);
   const fixes = useSelector((state) => state.fixes.fixes);
 
   const [selectedFix, setSelectedFix] = useState(null);
@@ -29,6 +29,7 @@ const Fixes = () => {
   }, [fixes]);
 
   const handleSubmit = (e) => {
+    console.log("selectedCar", selectedCar);
     e.preventDefault();
     // setLoading(true);
     const fix = {
@@ -73,7 +74,7 @@ const Fixes = () => {
         <button
           className="newFix btn btnWhite"
           type="submit"
-          onClick={() => handleSubmit()}
+          onClick={handleSubmit}
         >
           +
         </button>

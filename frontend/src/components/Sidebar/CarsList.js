@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { changeCarStatus } from "../../redux/actions/cars.actions";
 import { fetchFixes } from "../../redux/actions/fixes.actions";
 import { selectCar } from "../../redux/actions/selectedItems.actions";
+import { setDetails } from "../../redux/actions/problemsDetails.actions";
 //styles
 import "./Sidebar.scss";
 //others
@@ -26,6 +27,7 @@ const CarsList = (props) => {
     setActiveLink(id);
     dispatch(fetchFixes(id));
     dispatch(selectCar(id));
+    dispatch(setDetails(null));
   };
 
   return (

@@ -31,10 +31,15 @@ export function selectTab(tab) {
   };
 }
 
-export const selectCar = () => (car) => {
-  emptyAllFields(car);
-  setSelectedCar(car);
-};
+export function selectCar(car) {
+  return (dispatch) => {
+    return new Promise((resolve) => {
+      emptyAllFields(car);
+      dispatch(setSelectedCar(car));
+      resolve();
+    });
+  };
+}
 
 export const emptyProblems = () => () => {
   selectProblem(null);
