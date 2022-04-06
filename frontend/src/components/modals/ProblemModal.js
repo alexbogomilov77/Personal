@@ -1,62 +1,56 @@
+import React, { useState } from "react";
+import { v1 as uuidv1 } from "uuid";
+//redux
+import { useDispatch, useSelector } from "react-redux";
+import { addProblem } from "../../redux/actions/problems.actions";
 
-import React, { useContext, useState } from 'react'
-import { v1 as uuidv1 } from 'uuid'
-import { SelectedItemsContext } from '../../contexts/SelectedItemsContext'
-import { ProblemsContext } from '../../contexts/ProblemsContext'
+const ProblemModal = ({ closeModal }) => {
+  const dispatch = useDispatch();
+  const selectedFix = useSelector((state) => state.selectedItems.selectedFix);
 
-export default function ProblemModal ({ closeModal }) {
-  const { selectedFix } = useContext(SelectedItemsContext)
-  const { addProblem } = useContext(ProblemsContext)
-
-  const problemDetailsLabels = [
-    'name',
-    'description'
-  ]
+  const problemDetailsLabels = ["name", "description"];
 
   const [problem, setProblem] = useState({
     id: uuidv1(),
     fix_id: selectedFix,
-    name: '',
-    description: ''
-  })
+    name: "",
+    description: ""
+  });
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     const { id, value } = e.target;
-    setProblem(prevState => ({
-        ...prevState,
-        [id]: value
+    setProblem((prevState) => ({
+      ...prevState,
+      [id]: value
     }));
-  }
+  };
 
-  const handleSubmit = e => {
-    e.preventDefault()
-    addProblem(problem)
-    closeModal()
-  }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(addProblem(problem));
+    closeModal(problem);
+  };
 
-  const problemDetailsList = () => 
-    problemDetailsLabels.map(item => {
+  const problemDetailsList = () =>
+    problemDetailsLabels.map((item) => {
       return (
         <li key={item}>
           <p className="inputLabel">{item}:</p>
-          <input 
-            type="text" 
-            id={item}
-            onChange={handleChange}
-            />
+          <input type="text" id={item} onChange={handleChange} />
         </li>
-      )
-  })
+      );
+    });
 
   return (
     <div className="modal">
       <form className="modalForm" onSubmit={handleSubmit}>
-        <ul>
-          { problemDetailsList() }
-        </ul>
-        <button className="btn btnLight" type="submit">Submit</button>
+        <ul>{problemDetailsList()}</ul>
+        <button className="btn btnLight" type="submit">
+          Submit
+        </button>
       </form>
     </div>
-  )
-}
+  );
+};
 
+export default ProblemModal;
