@@ -39,7 +39,7 @@ export function addCar(car) {
 export function changeCarStatus(id, status) {
   return (dispatch) => {
     new Promise((resolve) => {
-      const changedStatus = { status };
+      const changedStatus = { status: status === 0 ? 1 : 0 };
       axios
         .post(
           `https://app-garage-manager.herokuapp.com/cars/update/${id}`,

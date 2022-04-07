@@ -10,6 +10,7 @@ const initialState = {
 const selectedItemsReducer = (state = initialState, action) => {
   switch (action.type) {
     case "SET_LOADER":
+      if (action.payload === false) console.log("!FALSE");
       return { ...state, isLoading: action.payload };
     case "SET_SELECTED_TAB":
       return { ...state, selectedTab: action.payload };
@@ -18,6 +19,7 @@ const selectedItemsReducer = (state = initialState, action) => {
     case "SET_SELECTED_FIX":
       return { ...state, selectedFix: action.payload };
     case "SET_SELECTED_PROBLEM":
+      console.log("selectProblem reducer");
       return { ...state, selectedProblem: action.payload };
     case "SET_SELECTED_PROBLEM_DETAIL":
       return { ...state, selectedProblemDetail: action.payload };

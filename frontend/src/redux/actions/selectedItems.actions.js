@@ -20,6 +20,7 @@ export const selectFix = (payload) => {
   return { type: SET_SELECTED_FIX, payload };
 };
 export const selectProblem = (payload) => {
+  console.log("selectProblem action");
   return { type: SET_SELECTED_PROBLEM, payload };
 };
 export const selectProblemDetail = (payload) => {
@@ -38,7 +39,7 @@ export function selectTab(tab) {
 export function selectCar(car) {
   return (dispatch) => {
     return new Promise((resolve) => {
-      emptyAllFields(car);
+      dispatch(emptyAllFields(car));
       dispatch(setSelectedCar(car));
       resolve();
     });
@@ -50,10 +51,27 @@ export const emptyProblems = () => () => {
   selectProblemDetail(null);
 };
 
-export const emptyAllFields = () => (car) => {
-  if (car !== store.getState().selectedItems.selectedCar) {
-    selectFix(null);
-    selectProblem(null);
-    selectProblemDetail(null);
-  }
-};
+export function emptyAllFields(car) {
+  return (dispatch) => {
+    return new Promise((resolve) => {
+      console.log(car);
+      console.log(store.getState().selectedItems.selectedCar);
+
+      if (car !== store.getState().selectedItems.selectedCar) {
+        console.log("here");
+        dispatch(selectFix(null));
+        dispatch(selectProblem(null));
+        dispatch(selectProblemDetail(null));
+        resolve();
+      }
+    });
+  };
+}
+
+// export const emptyAllFields = () => (car) => {
+//   if (car !== store.getState().selectedItems.selectedCar) {
+//     selectFix(null);
+//     selectProblem(null);
+//     selectProblemDetail(null);
+//   }
+// };

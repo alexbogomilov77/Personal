@@ -36,7 +36,7 @@ const Sidebar = () => {
     <div className="sidebar">
       <div className="logo">
         <img src={logo}></img>
-        <p>GaragePanel</p>
+        <p>Garage Manager</p>
       </div>
 
       <button onClick={() => setModal(true)} className="new btn btnDark">

@@ -20,9 +20,6 @@ const CarsList = (props) => {
 
   useEffect(() => {
     dispatch(setLoader(false));
-    // setTimeout(() => {
-    //   dispatch(setLoader(false));
-    // }, 500);
   }, [cars]);
 
   const isActive = function (id) {
@@ -32,8 +29,13 @@ const CarsList = (props) => {
     }
   };
 
+  const changeStatus = (id, status) => {
+    dispatch(setLoader(true));
+    dispatch(changeCarStatus(id, status));
+  };
+
   const handleClick = (id) => {
-    // setLoading(true);
+    dispatch(setLoader(true));
     setActiveLink(id);
     dispatch(fetchFixes(id));
     dispatch(selectCar(id));
@@ -47,7 +49,7 @@ const CarsList = (props) => {
           {car._id === activeLink ? (
             <div
               className="changeBtn"
-              onClick={() => dispatch(changeCarStatus(car._id, car.status))}
+              onClick={() => changeStatus(car._id, car.status)}
             >
               <GrSync />
             </div>

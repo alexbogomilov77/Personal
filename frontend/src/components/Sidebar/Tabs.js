@@ -18,9 +18,6 @@ const Tabs = () => {
     dispatch(setLoader(true));
     await dispatch(selectTab(tab));
     await dispatch(fetchCars());
-    // setTimeout(() => {
-    //   dispatch(setLoader(false));
-    // }, 500);
   };
 
   return (

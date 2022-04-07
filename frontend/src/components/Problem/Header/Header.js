@@ -48,7 +48,8 @@ export const Header = () => {
             "btnSwitch-" +
             item.position +
             " " +
-            (item.id === selectedBtn ? "selected" : "")
+            (item.id === selectedBtn ? "selected" : "") +
+            (!selectedProblem ? "disabled" : "")
           }
           key={item.id}
           onClick={() => handleClick(item.id)}

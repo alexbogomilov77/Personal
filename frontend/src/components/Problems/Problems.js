@@ -5,6 +5,7 @@ import Modal from "../modals/ProblemModal";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchDetails } from "../../redux/actions/problemsDetails.actions";
 import {
+  setLoader,
   selectProblem,
   selectProblemDetail
 } from "../../redux/actions/selectedItems.actions";
@@ -13,7 +14,6 @@ import "./Problems.scss";
 
 export default function Navigation() {
   const dispatch = useDispatch();
-  // const { setLoading } = useContext(LoadingContext)
 
   const selectedFix = useSelector((state) => state.selectedItems.selectedFix);
   const problems = useSelector((state) => state.problems.problems);
@@ -25,10 +25,11 @@ export default function Navigation() {
   useEffect(() => {
     setFetchedProblems(problems);
     setSelectedProblem("");
+    dispatch(setLoader(false));
   }, [problems]);
 
   const handleClick = (problem) => {
-    // setLoading(true)
+    dispatch(setLoader(true));
     setSelectedProblem(problem.id);
     dispatch(selectProblem(problem));
     dispatch(selectProblemDetail("actions"));

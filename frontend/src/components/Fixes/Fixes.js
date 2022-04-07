@@ -4,6 +4,7 @@ import { v1 as uuidv1 } from "uuid";
 //redux
 import { useSelector, useDispatch } from "react-redux";
 import {
+  setLoader,
   selectFix,
   emptyProblems
 } from "../../redux/actions/selectedItems.actions";
@@ -26,10 +27,10 @@ const Fixes = () => {
     //to improve method above it is clearing fixes
     //after selecting another car and go back to previous selected
     setFetchedFixes(fixes);
+    dispatch(setLoader(false));
   }, [fixes]);
 
   const handleSubmit = (e) => {
-    console.log("selectedCar", selectedCar);
     e.preventDefault();
     // setLoading(true);
     const fix = {
@@ -43,7 +44,7 @@ const Fixes = () => {
   };
 
   const handleClick = (id) => {
-    // setLoading(true);
+    dispatch(setLoader(true));
     dispatch(emptyProblems());
     setSelectedFix(id);
     dispatch(fetchProblems(id));

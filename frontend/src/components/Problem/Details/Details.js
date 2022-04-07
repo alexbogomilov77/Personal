@@ -7,12 +7,12 @@ import {
   addDetail,
   deleteDetail
 } from "../../../redux/actions/problemsDetails.actions";
+import { setLoader } from "../../../redux/actions/selectedItems.actions";
 //styles
 import "./Details.scss";
 
 export const Details = () => {
   const dispatch = useDispatch();
-  // const { setLoading } = useContext(LoadingContext)
   const selectedProblem = useSelector(
     (state) => state.selectedItems.selectedProblem
   );
@@ -27,6 +27,7 @@ export const Details = () => {
 
   useEffect(() => {
     setFetchedDetails(details);
+    dispatch(setLoader(false));
   }, [details]);
 
   const handleSubmit = (e) => {

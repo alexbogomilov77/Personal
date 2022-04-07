@@ -3,6 +3,7 @@ import { v1 as uuidv1 } from "uuid";
 //redux
 import { useDispatch } from "react-redux";
 import { addCar } from "../../redux/actions/cars.actions";
+import { setLoader } from "../../redux/actions/selectedItems.actions";
 
 export default function Modal({ closeModal }) {
   const dispatch = useDispatch();
@@ -29,6 +30,7 @@ export default function Modal({ closeModal }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    dispatch(setLoader(true));
     dispatch(addCar(car));
     closeModal(car);
   };
