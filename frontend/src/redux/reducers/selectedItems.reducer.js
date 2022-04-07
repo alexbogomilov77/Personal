@@ -1,4 +1,5 @@
 const initialState = {
+  isLoading: false,
   selectedTab: 0,
   selectedCar: null,
   selectedFix: null,
@@ -8,6 +9,8 @@ const initialState = {
 
 const selectedItemsReducer = (state = initialState, action) => {
   switch (action.type) {
+    case "SET_LOADER":
+      return { ...state, isLoading: action.payload };
     case "SET_SELECTED_TAB":
       return { ...state, selectedTab: action.payload };
     case "SET_SELECTED_CAR":

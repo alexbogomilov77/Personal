@@ -1,11 +1,15 @@
 import store from "../store";
 
+export const SET_LOADER = "SET_LOADER";
 export const SET_SELECTED_TAB = "SET_SELECTED_TAB";
 export const SET_SELECTED_CAR = "SET_SELECTED_CAR";
 export const SET_SELECTED_FIX = "SET_SELECTED_FIX";
 export const SET_SELECTED_PROBLEM = "SET_SELECTED_PROBLEM";
 export const SET_SELECTED_PROBLEM_DETAIL = "SET_SELECTED_PROBLEM_DETAIL";
 
+export const setLoader = (payload) => {
+  return { type: SET_LOADER, payload };
+};
 export const setSelectTab = (payload) => {
   return { type: SET_SELECTED_TAB, payload };
 };

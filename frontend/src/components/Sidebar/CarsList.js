@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 //redux
 import { changeCarStatus } from "../../redux/actions/cars.actions";
 import { fetchFixes } from "../../redux/actions/fixes.actions";
-import { selectCar } from "../../redux/actions/selectedItems.actions";
+import {
+  setLoader,
+  selectCar
+} from "../../redux/actions/selectedItems.actions";
 import { setDetails } from "../../redux/actions/problemsDetails.actions";
 //styles
 import "./Sidebar.scss";
@@ -14,6 +17,13 @@ const CarsList = (props) => {
   const cars = props.cars;
   const dispatch = useDispatch();
   const [activeLink, setActiveLink] = useState(null);
+
+  useEffect(() => {
+    dispatch(setLoader(false));
+    // setTimeout(() => {
+    //   dispatch(setLoader(false));
+    // }, 500);
+  }, [cars]);
 
   const isActive = function (id) {
     if (id === activeLink) return "active";
