@@ -4,6 +4,7 @@ import Modal from "../modals/NewCarModal";
 //redux
 import { useSelector, useDispatch } from "react-redux";
 import { fetchCars } from "../../redux/actions/cars.actions";
+import { setLoader } from "../../redux/actions/selectedItems.actions";
 //components
 import Tabs from "./Tabs";
 import CarsList from "./CarsList";
@@ -64,9 +65,7 @@ const Sidebar = () => {
       </ReactModal>
     </div>
   ) : (
-    <div>
-      <code>no cars in your garage!</code>
-    </div>
+    <div className="empty-sidebar"></div>
   );
 };
 

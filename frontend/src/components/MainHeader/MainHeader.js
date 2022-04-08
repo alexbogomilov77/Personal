@@ -5,17 +5,19 @@ import { useSelector } from "react-redux";
 import "./MainHeader.scss";
 
 const MainHeader = () => {
-  const selectedCar = useSelector((state) => state.cars.cars);
-  const selectedFix = useSelector((state) => state.fixes.cars);
-  const selectedProblem = useSelector((state) => state.selectedItems.cars);
+  const selectedCar = useSelector((state) => state.selectedItems.selectedCar);
+  const selectedFix = useSelector((state) => state.selectedItems.selectedFix);
+  const selectedProblem = useSelector(
+    (state) => state.selectedItems.selectedProblem
+  );
 
   const displayMessage = () => {
     if (!selectedCar) {
-      return "You need to selected a car from the list";
+      return "You need to select a car from sidebar.";
     } else if (selectedCar && !selectedFix) {
-      return "see previous Fixes or create a new one";
+      return "Select a fix or create a new one.";
     } else if (selectedCar && selectedFix && !selectedProblem) {
-      return "choose already existing problem or a new one";
+      return "Choose already existing problem or create a new one";
     }
   };
 

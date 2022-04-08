@@ -1,85 +1,82 @@
-
-
 .btn {
-    border: none;
-    font-size: 10px;
-    padding: 7.5px 15px;
-    border-radius: 20px;
-    box-shadow: $shadow;
-    transition: .1s ease;
-    font-family: 'Muli-Bold';
-    &:hover {
-        cursor: pointer;
-    }
+  border: none;
+  font-size: 10px;
+  padding: 7.5px 15px;
+  border-radius: 10px;
+  box-shadow: $shadow;
+  transition: 0.1s ease;
+  font-family: "Muli-Bold";
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .btnDark {
-    color: $white;
-    background-color: #383838;
-    &:hover {
-        background-color: #4e4e4e;
-    }
+  color: $white;
+  background-color: #383838;
+  &:hover {
+    background-color: #4e4e4e;
+  }
 }
 
 .btnLight {
-    color: $active;
-    background-color: transparent;
-    border: 1px solid $active;
-    &:hover {
-        color: $white;
-        background-color: $active1;
-    }
+  color: $active;
+  background-color: transparent;
+  border: 1px solid $active;
+  &:hover {
+    color: $white;
+    background-color: $active1;
+  }
 }
 
 .btnWhite {
-    color: $white;
-    background-color: transparent;
-    border: 1px solid $white;
-    &:hover {
-        color: $active;
-        background-color: $white;
-    }
+  color: $white;
+  background-color: transparent;
+  border: 1px solid $white;
+  &:hover {
+    color: $active;
+    background-color: $white;
+  }
 }
 
 .btnColor {
-    color: $white;
-    background-color: $active;
-    &:hover {
-        background-color: $active1;
-    }
+  color: $white;
+  background-color: $active;
+  &:hover {
+    background-color: $active1;
+  }
 }
 
-// .btnIcon {
-//     padding: 2px 10px;
-//     font-size: 20px;
-//     line-height: 0px;
-// }
-
 .btnSwitch {
-    width: 50px;
-    height: 20px;
-    display: flex;
-    padding: 5px;
-    font-size: 12px;
-    color: #c5c5c5;
-    align-items: center;
-    transition: .1s ease;
-    justify-content: center;
-    font-family: 'Muli-Bold';
-    background-color: #efefef;
-    &.btnSwitch-left {
-        border-radius: $radius0 0px 0px $radius0;
-    }
-    &.btnSwitch-right {
-        border-radius: 0px $radius0 $radius0 0px;
-    }
-    &.selected {
-        color: $white;
-        background: $active1;
-    }
-    &:hover {
-        color: $white;
-        cursor: pointer;
-        background-color: #c5c5c5;
-    }
+  width: 50px;
+  height: 20px;
+  display: flex;
+  padding: 5px;
+  font-size: 12px;
+  color: #c5c5c5;
+  align-items: center;
+  transition: 0.1s ease;
+  justify-content: center;
+  font-family: "Muli-Bold";
+  background-color: #efefef;
+  &.btnSwitch-left {
+    border-radius: $radius 0px 0px $radius;
+  }
+  &.btnSwitch-right {
+    border-radius: 0px $radius $radius 0px;
+  }
+  &.selected {
+    color: $white;
+    background: $active;
+  }
+  &:hover {
+    color: $white;
+    cursor: pointer;
+    background-color: #c5c5c5;
+  }
+}
+
+.disabled {
+  pointer-events: none;
+  opacity: 0.7;
 }

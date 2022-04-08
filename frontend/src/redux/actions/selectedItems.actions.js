@@ -54,11 +54,7 @@ export const emptyProblems = () => () => {
 export function emptyAllFields(car) {
   return (dispatch) => {
     return new Promise((resolve) => {
-      console.log(car);
-      console.log(store.getState().selectedItems.selectedCar);
-
       if (car !== store.getState().selectedItems.selectedCar) {
-        console.log("here");
         dispatch(selectFix(null));
         dispatch(selectProblem(null));
         dispatch(selectProblemDetail(null));

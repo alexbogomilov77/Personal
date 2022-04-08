@@ -8,13 +8,12 @@ const ProblemModal = ({ closeModal }) => {
   const dispatch = useDispatch();
   const selectedFix = useSelector((state) => state.selectedItems.selectedFix);
 
-  const problemDetailsLabels = ["name", "description"];
+  const problemDetailsLabels = ["name"];
 
   const [problem, setProblem] = useState({
     id: uuidv1(),
     fix_id: selectedFix,
-    name: "",
-    description: ""
+    name: ""
   });
 
   const handleChange = (e) => {

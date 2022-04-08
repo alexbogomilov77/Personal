@@ -12,7 +12,7 @@ import {
 //styles
 import "./Problems.scss";
 
-export default function Navigation() {
+export const Problems = () => {
   const dispatch = useDispatch();
 
   const selectedFix = useSelector((state) => state.selectedItems.selectedFix);
@@ -39,7 +39,6 @@ export default function Navigation() {
   const handleSubmit = (problem) => {
     setFetchedProblems([...fetchedProblems, problem]);
     setModal(false);
-    // setLoading(true)
   };
 
   const displayProblems = () =>
@@ -48,7 +47,7 @@ export default function Navigation() {
         <li
           key={el.id}
           onClick={() => handleClick(el)}
-          className={el.id === selectedProblem ? "selectedProblem" : ""}
+          className={el.id === selectedProblem ? "selected-problem" : ""}
         >
           {el.name}
         </li>
@@ -57,12 +56,16 @@ export default function Navigation() {
 
   return (
     <div className="problems">
-      {/* <p className="label">Problems</p> */}
-      <button onClick={() => setModal(true)} className="btn btnLight">
+      <p className="label">Problems</p>
+      <ul className="problems-list">
+        {fetchedProblems && selectedFix ? displayProblems() : ""}{" "}
+      </ul>
+      <button
+        onClick={() => setModal(true)}
+        className={"btn " + "btnLight " + (!selectedFix ? "disabled" : "")}
+      >
         new
       </button>
-
-      <ul> {fetchedProblems && selectedFix ? displayProblems() : ""} </ul>
 
       <ReactModal
         className="modal-wrapper"
@@ -83,4 +86,6 @@ export default function Navigation() {
       </ReactModal>
     </div>
   );
-}
+};
+
+export default Problems;

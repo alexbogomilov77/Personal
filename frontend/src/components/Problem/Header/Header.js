@@ -8,7 +8,7 @@ import "./Header.scss";
 
 export const Header = () => {
   const dispatch = useDispatch();
-  // const { setLoading } = useContext(LoadingContext)
+
   const selectedProblem = useSelector(
     (state) => state.selectedItems.selectedProblem
   );
@@ -33,7 +33,6 @@ export const Header = () => {
   }, [selectedProblemDetail]);
 
   const handleClick = (id) => {
-    // setLoading(true);
     setSelectedBtn(id);
     dispatch(selectProblemDetail(id));
     dispatch(fetchDetails(id, selectedProblem.id));

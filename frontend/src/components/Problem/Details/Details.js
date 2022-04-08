@@ -90,7 +90,13 @@ export const Details = () => {
         </div>
 
         <div className="submitBtn">
-          <button className="btn btnLight" type="submit" onClick={handleSubmit}>
+          <button
+            className={
+              "btn " + "btnLight " + (!selectedProblem ? "disabled" : "")
+            }
+            type="submit"
+            onClick={handleSubmit}
+          >
             add
           </button>
         </div>

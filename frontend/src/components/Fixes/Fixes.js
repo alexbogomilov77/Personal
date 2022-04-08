@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import moment from "moment";
 import { v1 as uuidv1 } from "uuid";
+import { getDate } from "../../utils/dates";
 //redux
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -53,34 +54,32 @@ const Fixes = () => {
 
   const displayFixes = () =>
     fetchedFixes.map((el) => {
-      let day = new Date(el.start_date).getUTCDate();
-      let month = new Date(el.start_date).getUTCMonth();
-      let year = new Date(el.start_date).getUTCFullYear();
-      let date = `${day}.${month}.${year}`;
       return (
         <li
           key={el.id}
           onClick={() => handleClick(el.id)}
-          className={"fix " + (el.id === selectedFix ? "selectedFix" : "")}
+          className={"fix " + (el.id === selectedFix ? "selected-fix" : "")}
         >
-          {date}
+          {getDate(el)}
         </li>
       );
     });
 
   return (
-    <div className="fixesWrapper">
-      {/* <p className="label">Fixes</p> */}
+    <div className="fixes-wrapper">
+      <p className="label">Fixes</p>
+      <ul className="fixes">{fetchedFixes ? displayFixes() : ""}</ul>
       <form className="form">
         <button
-          className="newFix btn btnWhite"
+          className={
+            "btn " + "btnWhite " + "new-fix " + (!selectedCar ? "disabled" : "")
+          }
           type="submit"
           onClick={handleSubmit}
         >
           +
         </button>
       </form>
-      <ul className="fixes">{fetchedFixes ? displayFixes() : ""}</ul>
     </div>
   );
 };

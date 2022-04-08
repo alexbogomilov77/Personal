@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { addCar } from "../../redux/actions/cars.actions";
 import { setLoader } from "../../redux/actions/selectedItems.actions";
 
-export default function Modal({ closeModal }) {
+const NewCarModal = ({ closeModal }) => {
   const dispatch = useDispatch();
 
   const carDetailsLabels = ["plate", "make", "model", "year", "engine"];
@@ -55,4 +55,6 @@ export default function Modal({ closeModal }) {
       </form>
     </div>
   );
-}
+};
+
+export default NewCarModal;
