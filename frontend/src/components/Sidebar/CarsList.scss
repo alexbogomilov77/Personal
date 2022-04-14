@@ -1,0 +1,58 @@
+@import "../../assets/styles/base/vars.scss";
+
+.cars {
+  .car {
+    margin: 5px 0;
+    padding: 13px 0;
+    font-size: 16px;
+    color: $solid-light;
+    border-left: 3px solid #303030;
+    display: flex;
+    justify-content: center;
+    transition: ease 0.1s;
+    font-family: "Muli-SemiBold";
+    &.active {
+      color: $white2;
+      position: relative;
+      border-left: 3px solid $active1;
+      background: linear-gradient(
+        90deg,
+        rgba(76, 43, 37, 1) 0%,
+        rgba(48, 48, 48, 1) 47%
+      );
+      font-family: "Muli-ExtraBold";
+      &:hover {
+        background-color: $active1;
+      }
+    }
+  }
+}
+
+.name {
+  &:hover {
+    cursor: pointer;
+    color: $white;
+  }
+  .plate {
+    font-size: 14px;
+  }
+  .make {
+    font-weight: bold;
+  }
+}
+
+.change-btn {
+  position: absolute;
+  left: 30px;
+  top: 20px;
+  font-size: 20px;
+  svg path {
+    stroke: $solid-light;
+  }
+  &:hover {
+    cursor: pointer;
+    svg path {
+      stroke: $white2;
+    }
+  }
+}

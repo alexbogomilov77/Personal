@@ -11,7 +11,7 @@ import {
 } from "../../redux/actions/selectedItems.actions";
 import { setDetails } from "../../redux/actions/problemsDetails.actions";
 //styles
-import "./Sidebar.scss";
+import "./CarsList.scss";
 
 const CarsList = (props) => {
   const cars = props.cars;
@@ -51,7 +51,7 @@ const CarsList = (props) => {
         <li key={car._id} className={"car " + isActive(car._id)}>
           {car._id === activeLink ? (
             <div
-              className="changeBtn"
+              className="change-btn"
               onClick={() => changeStatus(car._id, car.status)}
             >
               <GrSync />

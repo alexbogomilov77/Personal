@@ -7,7 +7,7 @@ import {
 } from "../../redux/actions/selectedItems.actions";
 import { fetchCars } from "../../redux/actions/cars.actions";
 //styles
-import "./Sidebar.scss";
+import "./Tabs.scss";
 
 const Tabs = () => {
   const dispatch = useDispatch();

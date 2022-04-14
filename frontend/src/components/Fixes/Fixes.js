@@ -26,8 +26,6 @@ const Fixes = () => {
 
   useEffect(() => {
     dispatch(selectFix(null));
-    //to improve method above it is clearing fixes
-    //after selecting another car and go back to previous selected
     setFetchedFixes(fixes);
     setSelectedFix(null);
     dispatch(setLoader(false));
