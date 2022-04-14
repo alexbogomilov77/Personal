@@ -1,36 +1,36 @@
 @import "../../assets/styles/base/vars.scss";
 
 .closeModal {
-    position: absolute;
-    right: -12px;
-    top: -12px;
+  position: absolute;
+  right: -12px;
+  top: -12px;
 }
 .modal-wrapper {
-    width: 25%;
-    height: 35vh;
-    padding: 20px;
-    border-radius: 5px;
-    display: flex;
-    position: relative;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(145deg, #ffffff, #eaeaea);
+  width: 25%;
+  height: 35vh;
+  padding: 20px;
+  border-radius: 5px;
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg, #ffffff, #eaeaea);
 }
 .modal-overlay {
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    position: fixed;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #41496191;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #41496191;
 }
 
-.modalHeader {
-    position: absolute;
-    top: 0;
+.modal-header {
+  position: absolute;
+  top: 0;
 }
 
 .modalForm {
@@ -40,23 +40,23 @@
   ul {
     margin-bottom: 40px;
     li {
-        display: flex;
-        margin-bottom: 20px;
-        align-items: center;
-      
-        .inputLabel {
-          margin: 0 10px -7px 0;
-          color: $unnamed;
-          font-size: 15px;
-          font-family: 'Muli-BoldItalic';
-          min-width: 70px;
-        }
-      
-        input {
-          background: none;
-          border: none;
-          border-bottom: 3px solid $active;
-        }
+      display: flex;
+      margin-bottom: 20px;
+      align-items: center;
+
+      .inputLabel {
+        margin: 0 10px -7px 0;
+        color: $unnamed;
+        font-size: 15px;
+        font-family: "Muli-BoldItalic";
+        min-width: 70px;
       }
+
+      input {
+        background: none;
+        border: none;
+        border-bottom: 3px solid $active;
+      }
+    }
   }
 }

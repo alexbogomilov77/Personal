@@ -32,7 +32,6 @@ export const Details = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // setLoading(true);
     const detail = {
       id: uuidv1(),
       problem_id: selectedProblem.id,
@@ -48,7 +47,6 @@ export const Details = () => {
   };
 
   const handleDelete = (itemId) => {
-    // setLoading(true);
     dispatch(deleteDetail(itemId, selectedProblemDetail));
     setFetchedDetails(fetchedDetails.filter((item) => item.id !== itemId));
   };

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ReactModal from "react-modal";
 import Modal from "../modals/ProblemModal";
+import { GrClose } from "react-icons/gr";
 //redux
 import { useSelector, useDispatch } from "react-redux";
 import { fetchDetails } from "../../redux/actions/problemsDetails.actions";
@@ -75,13 +76,13 @@ export const Problems = () => {
         ariaHideApp={false}
         onRequestClose={() => setModal(false)}
       >
-        <h1 className="modalHeader">Add new problem</h1>
+        <h1 className="modal-header">Add new problem</h1>
         <Modal closeModal={(problem) => handleSubmit(problem)} />
         <button
-          className="closeModal btn btnColor"
+          className="closeModal btn btn-color"
           onClick={() => setModal(false)}
         >
-          X
+          <GrClose />
         </button>
       </ReactModal>
     </div>

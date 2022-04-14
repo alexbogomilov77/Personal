@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 //redux
 import { useSelector, useDispatch } from "react-redux";
-import { selectProblemDetail } from "../../../redux/actions/selectedItems.actions";
+import {
+  setLoader,
+  selectProblemDetail
+} from "../../../redux/actions/selectedItems.actions";
 import { fetchDetails } from "../../../redux/actions/problemsDetails.actions";
 //styles
 import "./Header.scss";
@@ -33,6 +36,7 @@ export const Header = () => {
   }, [selectedProblemDetail]);
 
   const handleClick = (id) => {
+    dispatch(setLoader(true));
     setSelectedBtn(id);
     dispatch(selectProblemDetail(id));
     dispatch(fetchDetails(id, selectedProblem.id));

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import ReactModal from "react-modal";
 import Modal from "../modals/NewCarModal";
+import { GrClose } from "react-icons/gr";
 //redux
 import { useSelector, useDispatch } from "react-redux";
 import { fetchCars } from "../../redux/actions/cars.actions";
-import { setLoader } from "../../redux/actions/selectedItems.actions";
 //components
 import Tabs from "./Tabs";
 import CarsList from "./CarsList";
@@ -40,7 +40,7 @@ const Sidebar = () => {
         <p>Garage Manager</p>
       </div>
 
-      <button onClick={() => setModal(true)} className="new btn btnDark">
+      <button onClick={() => setModal(true)} className="new btn btn-dark">
         new
       </button>
 
@@ -54,13 +54,13 @@ const Sidebar = () => {
         ariaHideApp={false}
         onRequestClose={() => setModal(false)}
       >
-        <h1 className="modalHeader">Add new car</h1>
+        <h1 className="modal-header">Add new car</h1>
         <Modal closeModal={(car) => closeAndSet(car)} />
         <button
-          className="closeModal btn btnColor"
+          className="closeModal btn btn-color"
           onClick={() => setModal(false)}
         >
-          X
+          <GrClose />
         </button>
       </ReactModal>
     </div>

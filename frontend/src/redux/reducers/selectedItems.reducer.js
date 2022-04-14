@@ -1,5 +1,6 @@
 const initialState = {
   isLoading: false,
+  isSlowLoading: false,
   selectedTab: 0,
   selectedCar: null,
   selectedFix: null,
@@ -10,8 +11,9 @@ const initialState = {
 const selectedItemsReducer = (state = initialState, action) => {
   switch (action.type) {
     case "SET_LOADER":
-      if (action.payload === false) console.log("!FALSE");
       return { ...state, isLoading: action.payload };
+    case "SET_SLOW_LOADER":
+      return { ...state, isSlowLoading: action.payload };
     case "SET_SELECTED_TAB":
       return { ...state, selectedTab: action.payload };
     case "SET_SELECTED_CAR":

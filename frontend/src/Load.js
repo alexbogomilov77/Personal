@@ -6,8 +6,11 @@ import { useSelector } from "react-redux";
 
 export const Load = () => {
   const isLoading = useSelector((state) => state.selectedItems.isLoading);
+  const isSlowLoading = useSelector(
+    (state) => state.selectedItems.isSlowLoading
+  );
 
-  return isLoading ? (
+  return isLoading || isSlowLoading ? (
     <div className="loader">
       <Loader
         type="rectangular-ping"

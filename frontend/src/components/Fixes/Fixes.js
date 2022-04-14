@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import moment from "moment";
 import { v1 as uuidv1 } from "uuid";
 import { getDate } from "../../utils/dates";
+import { GrFormAdd } from "react-icons/gr";
 //redux
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -16,7 +17,7 @@ import "./Fixes.scss";
 
 const Fixes = () => {
   const dispatch = useDispatch();
-  // const { setLoading } = useContext(LoadingContext)
+
   const selectedCar = useSelector((state) => state.selectedItems.selectedCar);
   const fixes = useSelector((state) => state.fixes.fixes);
 
@@ -28,12 +29,11 @@ const Fixes = () => {
     //to improve method above it is clearing fixes
     //after selecting another car and go back to previous selected
     setFetchedFixes(fixes);
+    setSelectedFix(null);
     dispatch(setLoader(false));
   }, [fixes]);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // setLoading(true);
+  const handleAddBtn = () => {
     const fix = {
       id: uuidv1(),
       car_id: selectedCar,
@@ -69,17 +69,14 @@ const Fixes = () => {
     <div className="fixes-wrapper">
       <p className="label">Fixes</p>
       <ul className="fixes">{fetchedFixes ? displayFixes() : ""}</ul>
-      <form className="form">
-        <button
-          className={
-            "btn " + "btnWhite " + "new-fix " + (!selectedCar ? "disabled" : "")
-          }
-          type="submit"
-          onClick={handleSubmit}
-        >
-          +
-        </button>
-      </form>
+      <button
+        className={
+          "btn " + "btnWhite " + "new-fix " + (!selectedCar ? "disabled" : "")
+        }
+        onClick={handleAddBtn}
+      >
+        <GrFormAdd />
+      </button>
     </div>
   );
 };

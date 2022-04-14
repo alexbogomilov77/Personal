@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
+import { GrSync } from "react-icons/gr";
 //redux
 import { changeCarStatus } from "../../redux/actions/cars.actions";
 import { fetchFixes } from "../../redux/actions/fixes.actions";
 import {
   setLoader,
+  setSlowLoader,
   selectCar
 } from "../../redux/actions/selectedItems.actions";
 import { setDetails } from "../../redux/actions/problemsDetails.actions";
 //styles
 import "./Sidebar.scss";
-//others
-import { GrSync } from "react-icons/gr";
 
 const CarsList = (props) => {
   const cars = props.cars;
@@ -35,11 +35,14 @@ const CarsList = (props) => {
   };
 
   const handleClick = (id) => {
-    dispatch(setLoader(true));
+    dispatch(setSlowLoader(true));
     setActiveLink(id);
     dispatch(fetchFixes(id));
     dispatch(selectCar(id));
     dispatch(setDetails(null));
+    setTimeout(() => {
+      dispatch(setSlowLoader(false));
+    }, 500);
   };
 
   return (

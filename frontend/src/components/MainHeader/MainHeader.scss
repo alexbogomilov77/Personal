@@ -1,9 +1,12 @@
 @import "../../assets/styles/base/vars.scss";
 
 .mainHeader {
-    grid-column: 3;
-    grid-row: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  grid-column: 3;
+  grid-row: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  p {
+    font-family: "Muli-SemiBold";
+  }
 }

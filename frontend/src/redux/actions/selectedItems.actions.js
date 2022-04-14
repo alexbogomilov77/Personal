@@ -1,6 +1,7 @@
 import store from "../store";
 
 export const SET_LOADER = "SET_LOADER";
+export const SET_SLOW_LOADER = "SET_SLOW_LOADER";
 export const SET_SELECTED_TAB = "SET_SELECTED_TAB";
 export const SET_SELECTED_CAR = "SET_SELECTED_CAR";
 export const SET_SELECTED_FIX = "SET_SELECTED_FIX";
@@ -9,6 +10,9 @@ export const SET_SELECTED_PROBLEM_DETAIL = "SET_SELECTED_PROBLEM_DETAIL";
 
 export const setLoader = (payload) => {
   return { type: SET_LOADER, payload };
+};
+export const setSlowLoader = (payload) => {
+  return { type: SET_SLOW_LOADER, payload };
 };
 export const setSelectTab = (payload) => {
   return { type: SET_SELECTED_TAB, payload };
@@ -20,7 +24,6 @@ export const selectFix = (payload) => {
   return { type: SET_SELECTED_FIX, payload };
 };
 export const selectProblem = (payload) => {
-  console.log("selectProblem action");
   return { type: SET_SELECTED_PROBLEM, payload };
 };
 export const selectProblemDetail = (payload) => {
@@ -46,10 +49,15 @@ export function selectCar(car) {
   };
 }
 
-export const emptyProblems = () => () => {
-  selectProblem(null);
-  selectProblemDetail(null);
-};
+export function emptyProblems() {
+  return (dispatch) => {
+    return new Promise((resolve) => {
+      dispatch(selectProblem(null));
+      dispatch(selectProblemDetail(null));
+      resolve();
+    });
+  };
+}
 
 export function emptyAllFields(car) {
   return (dispatch) => {
@@ -63,11 +71,3 @@ export function emptyAllFields(car) {
     });
   };
 }
-
-// export const emptyAllFields = () => (car) => {
-//   if (car !== store.getState().selectedItems.selectedCar) {
-//     selectFix(null);
-//     selectProblem(null);
-//     selectProblemDetail(null);
-//   }
-// };

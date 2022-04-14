@@ -17,13 +17,6 @@
     margin-bottom: 10px;
   }
 
-  .new-fix {
-    padding: 0;
-    width: 60%;
-    font-size: 16px;
-    box-shadow: none;
-  }
-
   .fixes {
     height: 130px;
     max-height: 130px;
@@ -39,6 +32,27 @@
       }
       &.selected-fix {
         font-family: "Muli-ExtraBold";
+      }
+    }
+  }
+
+  .new-fix {
+    padding: 0;
+    width: 60px;
+    height: 20px;
+    display: flex;
+    margin: 0 auto;
+    font-size: 16px;
+    box-shadow: none;
+    align-items: center;
+    justify-content: center;
+    svg path {
+      stroke: white;
+    }
+    &.hover {
+      cursor: pointer;
+      svg path {
+        stroke: $active;
       }
     }
   }

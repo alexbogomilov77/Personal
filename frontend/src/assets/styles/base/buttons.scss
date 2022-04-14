@@ -6,12 +6,12 @@
   box-shadow: $shadow;
   transition: 0.1s ease;
   font-family: "Muli-Bold";
-  &:hover {
-    cursor: pointer;
-  }
+  // &:hover {
+  //   cursor: pointer;
+  // }
 }
 
-.btnDark {
+.btn-dark {
   color: $white;
   background-color: #383838;
   &:hover {
@@ -33,13 +33,13 @@
   color: $white;
   background-color: transparent;
   border: 1px solid $white;
-  &:hover {
-    color: $active;
-    background-color: $white;
-  }
+  // &:hover {
+  //   color: $active;
+  //   background-color: $white;
+  // }
 }
 
-.btnColor {
+.btn-color {
   color: $white;
   background-color: $active;
   &:hover {
