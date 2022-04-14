@@ -1,14 +1,15 @@
 .btn {
   border: none;
+  line-height: 1;
   font-size: 10px;
   padding: 7.5px 15px;
   border-radius: 10px;
   box-shadow: $shadow;
   transition: 0.1s ease;
   font-family: "Muli-Bold";
-  // &:hover {
-  //   cursor: pointer;
-  // }
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .btn-dark {
@@ -19,7 +20,7 @@
   }
 }
 
-.btnLight {
+.btn-light {
   color: $active;
   background-color: transparent;
   border: 1px solid $active;
@@ -29,14 +30,10 @@
   }
 }
 
-.btnWhite {
+.btn-white {
   color: $white;
   background-color: transparent;
   border: 1px solid $white;
-  // &:hover {
-  //   color: $active;
-  //   background-color: $white;
-  // }
 }
 
 .btn-color {
@@ -47,7 +44,7 @@
   }
 }
 
-.btnSwitch {
+.btn-switch {
   width: 50px;
   height: 20px;
   display: flex;
@@ -59,10 +56,10 @@
   justify-content: center;
   font-family: "Muli-Bold";
   background-color: #efefef;
-  &.btnSwitch-left {
+  &.btn-switch-left {
     border-radius: $radius 0px 0px $radius;
   }
-  &.btnSwitch-right {
+  &.btn-switch-right {
     border-radius: 0px $radius $radius 0px;
   }
   &.selected {
@@ -79,4 +76,17 @@
 .disabled {
   pointer-events: none;
   opacity: 0.7;
+}
+
+@media only screen and (min-width: 1600px) {
+  .btn {
+    font-size: 18px;
+    padding: 10px 22px;
+  }
+
+  .btn-switch {
+    width: 90px;
+    height: 30px;
+    font-size: 18px;
+  }
 }

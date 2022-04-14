@@ -1,34 +1,45 @@
 @import "../../assets/styles/base/vars.scss";
 
 .problems {
-  min-width: 100px;
+  width: 100px;
   padding: 0 30px;
   border-right: 2px solid #e7e7e7;
   text-align: center;
-
   .label {
     font-size: 13px;
     margin-bottom: 10px;
   }
+}
+
+.problems-list {
+  height: 310px;
+  overflow-y: scroll;
+  li {
+    font-size: 12px;
+    margin: 10px 0;
+    color: $unnamed;
+    font-family: "Muli-Bold";
+    &:hover {
+      transition: 0.1s ease;
+      cursor: pointer;
+      color: $active1;
+    }
+  }
+  .selected-problem {
+    color: $active;
+    font-family: "Muli-ExtraBold";
+  }
+}
+
+@media only screen and (min-width: 1600px) {
+  .problems {
+    width: 250px;
+    .label {
+      font-size: 22px;
+    }
+  }
 
   .problems-list {
-    height: 310px;
-    max-height: 310px;
-    overflow-y: scroll;
-    li {
-      font-size: 12px;
-      margin: 10px 0;
-      color: $unnamed;
-      font-family: "Muli-Bold";
-      &:hover {
-        transition: 0.1s ease;
-        cursor: pointer;
-        color: $active1;
-      }
-    }
-    .selected-problem {
-      color: $active;
-      font-family: "Muli-ExtraBold";
-    }
+    height: 540px;
   }
 }

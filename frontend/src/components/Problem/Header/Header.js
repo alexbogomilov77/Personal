@@ -47,8 +47,8 @@ export const Header = () => {
       return (
         <div
           className={
-            "btnSwitch " +
-            "btnSwitch-" +
+            "btn-switch " +
+            "btn-switch-" +
             item.position +
             " " +
             (item.id === selectedBtn ? "selected" : "") +

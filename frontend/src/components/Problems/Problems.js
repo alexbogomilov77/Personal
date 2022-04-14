@@ -63,7 +63,7 @@ export const Problems = () => {
       </ul>
       <button
         onClick={() => setModal(true)}
-        className={"btn " + "btnLight " + (!selectedFix ? "disabled" : "")}
+        className={"btn " + "btn-light " + (!selectedFix ? "disabled" : "")}
       >
         new
       </button>
@@ -79,7 +79,7 @@ export const Problems = () => {
         <h1 className="modal-header">Add new problem</h1>
         <Modal closeModal={(problem) => handleSubmit(problem)} />
         <button
-          className="closeModal btn btn-color"
+          className="close-modal btn btn-color"
           onClick={() => setModal(false)}
         >
           <GrClose />

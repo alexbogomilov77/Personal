@@ -34,3 +34,14 @@
     left: 0;
   }
 }
+
+@media only screen and (min-width: 1600px) {
+  .App {
+    grid-template-columns: 360px 360px min-content;
+    grid-template-rows: 185px 750px;
+  }
+
+  .dashboard {
+    width: 1200px;
+  }
+}

@@ -1,38 +1,70 @@
 @import "../../../assets/styles/base/vars.scss";
 
-.detailsWrapper {
+.details-wrapper {
   text-align: center;
+}
 
-  .form {
+.form {
+  display: grid;
+  column-gap: 40px;
+  grid-template-columns: repeat(3, 170px);
+  margin-bottom: 20px;
+  .input-block {
+    text-align: left;
+    input {
+      border: none;
+      width: 100%;
+      background: transparent;
+      border-bottom: 1px solid black;
+    }
+  }
+  .input-label {
+    display: block;
+    color: $unnamed;
+    font-size: 12px;
+    margin-bottom: 5px;
+    font-family: "Muli-BoldItalic";
+  }
+  .submit-btn {
+    display: flex;
+    align-items: flex-end;
+  }
+}
+
+.details {
+  text-align: left;
+  min-height: 150px;
+  margin-bottom: 80px;
+  .detail {
     display: grid;
-    column-gap: 40px;
+    grid-column-gap: 40px;
     grid-template-columns: repeat(3, 170px);
-    margin-bottom: 20px;
-    .inputBlock {
-      text-align: left;
-      input {
-        border: none;
-        width: 100%;
-        background: transparent;
-        border-bottom: 1px solid black;
+    font-size: 12px;
+    padding: 10px 22px;
+    color: $solid;
+    border-radius: 2.5px;
+    font-family: "Muli-Bold";
+    &:nth-child(even) {
+      background: linear-gradient(45deg, $unnamed1, transparent);
+    }
+    .delete {
+      &:hover {
+        cursor: pointer;
       }
     }
-    .inputLabel {
-      display: block;
-      color: $unnamed;
-      font-size: 12px;
-      margin-bottom: 5px;
-      font-family: "Muli-BoldItalic";
-    }
-    .submitBtn {
-      display: flex;
-      align-items: flex-end;
+  }
+}
+
+@media only screen and (min-width: 1600px) {
+  .form {
+    grid-template-columns: repeat(3, 250px);
+    .input-label {
+      font-size: 18px;
     }
   }
 
   .details {
-    text-align: left;
-    min-height: 150px;
+    min-height: 340px;
     margin-bottom: 80px;
     .detail {
       display: grid;

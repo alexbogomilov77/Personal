@@ -4,13 +4,11 @@
   .car {
     margin: 5px 0;
     padding: 13px 0;
-    font-size: 16px;
     color: $solid-light;
     border-left: 3px solid #303030;
     display: flex;
     justify-content: center;
     transition: ease 0.1s;
-    font-family: "Muli-SemiBold";
     &.active {
       color: $white2;
       position: relative;
@@ -29,15 +27,14 @@
 }
 
 .name {
+  font-size: 16px;
+  font-family: "Muli-SemiBold";
   &:hover {
     cursor: pointer;
     color: $white;
   }
   .plate {
     font-size: 14px;
-  }
-  .make {
-    font-weight: bold;
   }
 }
 
@@ -54,5 +51,18 @@
     svg path {
       stroke: $white2;
     }
+  }
+}
+
+@media only screen and (min-width: 1600px) {
+  .name {
+    font-size: 20px;
+    .plate {
+      font-size: 18px;
+    }
+  }
+
+  .change-btn {
+    font-size: 30px;
   }
 }

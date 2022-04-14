@@ -7,24 +7,25 @@
   background: linear-gradient(0deg, #2a2a2a, #1e1e1e);
   background-color: #303030;
   box-shadow: 4px 0px 9px #30303066;
-  .logo {
-    text-align: left;
-    display: flex;
-    align-items: center;
-    margin: 10px 0;
-    img {
-      padding-left: 20px;
-    }
-    p {
-      font-size: 18px;
-      color: #fbfbfb;
-      font-family: "Muli-ExtraBoldItalic";
-    }
-  }
+}
 
-  .new {
-    margin: 50px 0 40px 0;
+.logo {
+  text-align: left;
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+  img {
+    padding-left: 20px;
   }
+  p {
+    font-size: 18px;
+    color: #fbfbfb;
+    font-family: "Muli-ExtraBoldItalic";
+  }
+}
+
+.new {
+  margin: 50px 0 40px 0;
 }
 
 .empty-sidebar {
@@ -34,4 +35,15 @@
   background: linear-gradient(0deg, #2a2a2a, #1e1e1e);
   background-color: #303030;
   box-shadow: 4px 0px 9px #30303066;
+}
+
+@media only screen and (min-width: 1600px) {
+  .logo {
+    img {
+      width: 80px;
+    }
+    p {
+      font-size: 24px;
+    }
+  }
 }

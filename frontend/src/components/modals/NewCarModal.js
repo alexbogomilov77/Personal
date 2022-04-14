@@ -39,7 +39,7 @@ const NewCarModal = ({ closeModal }) => {
     carDetailsLabels.map((item) => {
       return (
         <li key={item}>
-          <p className="inputLabel">{item}:</p>
+          <p className="input-label">{item}:</p>
           <input type="text" id={item} onChange={handleChange} />
         </li>
       );
@@ -49,7 +49,7 @@ const NewCarModal = ({ closeModal }) => {
     <div className="modal">
       <form className="modalForm" onSubmit={handleSubmit}>
         <ul>{carDetailsList()}</ul>
-        <button className="btn btnLight" type="submit">
+        <button className="btn btn-light" type="submit">
           Submit
         </button>
       </form>

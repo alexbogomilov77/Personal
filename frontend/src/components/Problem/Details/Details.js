@@ -63,10 +63,10 @@ export const Details = () => {
     });
 
   return (
-    <div className="detailsWrapper">
+    <div className="details-wrapper">
       <form className="form">
-        <div className="inputBlock">
-          <label className="inputLabel" htmlFor="name">
+        <div className="input-block">
+          <label className="input-label" htmlFor="name">
             Name:
           </label>
           <input
@@ -76,8 +76,8 @@ export const Details = () => {
           />
         </div>
 
-        <div className="inputBlock">
-          <label className="inputLabel" htmlFor="value">
+        <div className="input-block">
+          <label className="input-label" htmlFor="value">
             Price:
           </label>
           <input
@@ -87,10 +87,10 @@ export const Details = () => {
           />
         </div>
 
-        <div className="submitBtn">
+        <div className="submit-btn">
           <button
             className={
-              "btn " + "btnLight " + (!selectedProblem ? "disabled" : "")
+              "btn " + "btn-light " + (!selectedProblem ? "disabled" : "")
             }
             type="submit"
             onClick={handleSubmit}
@@ -105,7 +105,7 @@ export const Details = () => {
       </ul>
 
       <div className="footer">
-        <button className="btn btnLight">complete</button>
+        <button className="btn btn-light">complete</button>
       </div>
     </div>
   );

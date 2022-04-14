@@ -1,6 +1,6 @@
 @import "../../assets/styles/base/vars.scss";
 
-.closeModal {
+.close-modal {
   position: absolute;
   right: -12px;
   top: -12px;
@@ -44,7 +44,7 @@
       margin-bottom: 20px;
       align-items: center;
 
-      .inputLabel {
+      .input-label {
         margin: 0 10px -7px 0;
         color: $unnamed;
         font-size: 15px;

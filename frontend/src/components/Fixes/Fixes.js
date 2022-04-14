@@ -69,7 +69,7 @@ const Fixes = () => {
       <ul className="fixes">{fetchedFixes ? displayFixes() : ""}</ul>
       <button
         className={
-          "btn " + "btnWhite " + "new-fix " + (!selectedCar ? "disabled" : "")
+          "btn " + "btn-white " + "new-fix " + (!selectedCar ? "disabled" : "")
         }
         onClick={handleAddBtn}
       >
