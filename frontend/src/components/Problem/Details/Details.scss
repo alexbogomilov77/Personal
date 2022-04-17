@@ -23,7 +23,6 @@
     color: $unnamed;
     font-size: 12px;
     margin-bottom: 5px;
-    font-family: "Muli-BoldItalic";
   }
   .submit-btn {
     display: flex;
@@ -34,7 +33,6 @@
 .details {
   text-align: left;
   min-height: 150px;
-  margin-bottom: 80px;
   .detail {
     display: grid;
     grid-column-gap: 40px;
@@ -57,30 +55,26 @@
 
 @media only screen and (min-width: 1600px) {
   .form {
+    margin-bottom: 40px;
     grid-template-columns: repeat(3, 250px);
     .input-label {
       font-size: 18px;
     }
+    .input-block input {
+      font-size: 20px;
+      padding: 10px 5px;
+    }
   }
 
   .details {
-    min-height: 340px;
-    margin-bottom: 80px;
+    min-height: 390px;
     .detail {
-      display: grid;
-      grid-column-gap: 40px;
-      grid-template-columns: repeat(3, 170px);
-      font-size: 12px;
-      padding: 10px 22px;
-      color: $solid;
-      border-radius: 2.5px;
-      font-family: "Muli-Bold";
-      &:nth-child(even) {
-        background: linear-gradient(45deg, $unnamed1, transparent);
-      }
-      .delete {
+      grid-template-columns: repeat(3, 256px);
+      font-size: 16px;
+      svg {
+        font-size: 19px;
         &:hover {
-          cursor: pointer;
+          fill: $active;
         }
       }
     }

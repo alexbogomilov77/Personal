@@ -1,15 +1,21 @@
 @import "../../assets/styles/base/vars.scss";
 
 .close-modal {
+  color: $solid;
+  border: none;
   position: absolute;
-  right: -12px;
-  top: -12px;
+  font-size: 20px;
+  right: 15px;
+  top: 15px;
+  &:hover {
+    cursor: pointer;
+  }
 }
 .modal-wrapper {
   width: 25%;
   height: 35vh;
   padding: 20px;
-  border-radius: 5px;
+  border-radius: 10px;
   display: flex;
   position: relative;
   align-items: center;
@@ -33,30 +39,68 @@
   top: 0;
 }
 
-.modalForm {
+.modal {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-form {
   margin-top: 30px;
   text-align: center;
-
+  &.flex-form {
+    height: unset;
+    display: flex;
+    ul {
+      margin-right: 50px;
+      margin-bottom: 0;
+      li {
+        margin-bottom: 0;
+      }
+    }
+  }
   ul {
+    min-height: 50%;
     margin-bottom: 40px;
     li {
       display: flex;
       margin-bottom: 20px;
       align-items: center;
+    }
+  }
 
-      .input-label {
-        margin: 0 10px -7px 0;
-        color: $unnamed;
-        font-size: 15px;
-        font-family: "Muli-BoldItalic";
-        min-width: 70px;
-      }
+  .input-label {
+    margin: 0 10px -7px 0;
+    color: $unnamed;
+    font-size: 15px;
+    font-family: "Muli-BoldItalic";
+    min-width: 70px;
+  }
 
-      input {
-        background: none;
-        border: none;
-        border-bottom: 3px solid $active;
-      }
+  input {
+    background: none;
+    border: none;
+    border-bottom: 2px solid $solid;
+  }
+}
+
+@media only screen and (min-width: 1600px) {
+  .close-modal {
+    font-size: 30px;
+  }
+  .modal-wrapper {
+    width: 45%;
+    height: 45vh;
+  }
+  .modal-form {
+    input {
+      font-size: 22px;
+    }
+    .input-label {
+      font-size: 20px;
     }
   }
 }

@@ -56,10 +56,7 @@ const Sidebar = () => {
       >
         <h1 className="modal-header">Add new car</h1>
         <Modal closeModal={(car) => closeAndSet(car)} />
-        <button
-          className="close-modal btn btn-color"
-          onClick={() => setModal(false)}
-        >
+        <button className="close-modal" onClick={() => setModal(false)}>
           <GrClose />
         </button>
       </ReactModal>

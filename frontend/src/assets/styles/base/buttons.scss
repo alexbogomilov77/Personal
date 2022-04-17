@@ -34,6 +34,13 @@
   color: $white;
   background-color: transparent;
   border: 1px solid $white;
+  &:hover {
+    svg path {
+      stroke: $active;
+    }
+    background: $white;
+    border: 1px solid $active;
+  }
 }
 
 .btn-color {

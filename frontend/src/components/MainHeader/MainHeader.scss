@@ -8,5 +8,12 @@
   align-items: center;
   p {
     font-family: "Muli-SemiBold";
+    color: $solid;
+  }
+}
+
+@media only screen and (min-width: 1600px) {
+  .mainHeader p {
+    font-size: 26px;
   }
 }

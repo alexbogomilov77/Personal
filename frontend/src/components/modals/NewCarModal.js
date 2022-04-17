@@ -47,7 +47,7 @@ const NewCarModal = ({ closeModal }) => {
 
   return (
     <div className="modal">
-      <form className="modalForm" onSubmit={handleSubmit}>
+      <form className="modal-form" onSubmit={handleSubmit}>
         <ul>{carDetailsList()}</ul>
         <button className="btn btn-light" type="submit">
           Submit

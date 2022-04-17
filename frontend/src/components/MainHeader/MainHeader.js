@@ -17,7 +17,7 @@ const MainHeader = () => {
     } else if (selectedCar && !selectedFix) {
       return "Select a fix or create a new one.";
     } else if (selectedCar && selectedFix && !selectedProblem) {
-      return "Choose already existing problem or create a new one";
+      return "Choose already existing problem or create a new one.";
     }
   };
 

@@ -42,7 +42,7 @@ const ProblemModal = ({ closeModal }) => {
 
   return (
     <div className="modal">
-      <form className="modalForm" onSubmit={handleSubmit}>
+      <form className="modal-form flex-form" onSubmit={handleSubmit}>
         <ul>{problemDetailsList()}</ul>
         <button className="btn btn-light" type="submit">
           Submit

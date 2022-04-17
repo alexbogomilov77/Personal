@@ -78,10 +78,7 @@ export const Problems = () => {
       >
         <h1 className="modal-header">Add new problem</h1>
         <Modal closeModal={(problem) => handleSubmit(problem)} />
-        <button
-          className="close-modal btn btn-color"
-          onClick={() => setModal(false)}
-        >
+        <button className="close-modal" onClick={() => setModal(false)}>
           <GrClose />
         </button>
       </ReactModal>

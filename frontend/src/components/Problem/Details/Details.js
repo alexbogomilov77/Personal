@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { FiTrash2 } from "react-icons/fi";
+// import { FiTrash2 } from "react-icons/fi";
+import { RiDeleteBin6Line } from "react-icons/ri";
+
 import { v1 as uuidv1 } from "uuid";
 //redux
 import { useSelector, useDispatch } from "react-redux";
@@ -57,7 +59,10 @@ export const Details = () => {
         <li key={item.id} className="detail">
           <p>{item.name}</p>
           <p>{item.price}</p>
-          <FiTrash2 className="delete" onClick={() => handleDelete(item.id)} />
+          <RiDeleteBin6Line
+            className="delete"
+            onClick={() => handleDelete(item.id)}
+          />
         </li>
       );
     });
@@ -105,7 +110,13 @@ export const Details = () => {
       </ul>
 
       <div className="footer">
-        <button className="btn btn-light">complete</button>
+        <button
+          className={
+            "btn " + "btn-light " + (!selectedProblem ? "disabled" : "")
+          }
+        >
+          export
+        </button>
       </div>
     </div>
   );
