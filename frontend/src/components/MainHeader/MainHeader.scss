@@ -1,19 +1,20 @@
 @import "../../assets/styles/base/vars.scss";
 
-.mainHeader {
+.main-header {
   grid-column: 3;
   grid-row: 1;
   display: flex;
   justify-content: center;
   align-items: center;
   p {
+    font-size: 18px;
     font-family: "Muli-SemiBold";
     color: $solid;
   }
 }
 
 @media only screen and (min-width: 1600px) {
-  .mainHeader p {
+  .main-header p {
     font-size: 26px;
   }
 }

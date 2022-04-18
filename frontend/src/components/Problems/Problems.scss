@@ -7,14 +7,14 @@
   text-align: center;
   .label {
     color: $unnamed;
-    font-size: 13px;
+    font-size: 16px;
     margin-bottom: 10px;
     font-family: "Muli";
   }
 }
 
 .problems-list {
-  height: 310px;
+  height: 340px;
   overflow-y: scroll;
   li {
     font-size: 12px;

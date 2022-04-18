@@ -22,7 +22,7 @@ const MainHeader = () => {
   };
 
   return (
-    <div className="mainHeader">
+    <div className="main-header">
       <p>{displayMessage()}</p>
     </div>
   );

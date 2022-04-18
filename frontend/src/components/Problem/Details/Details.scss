@@ -21,7 +21,7 @@
   .input-label {
     display: block;
     color: $unnamed;
-    font-size: 12px;
+    font-size: 14px;
     margin-bottom: 5px;
   }
   .submit-btn {
@@ -32,7 +32,7 @@
 
 .details {
   text-align: left;
-  min-height: 150px;
+  min-height: 240px;
   .detail {
     display: grid;
     grid-column-gap: 40px;
@@ -46,7 +46,9 @@
       background: linear-gradient(45deg, $unnamed1, transparent);
     }
     .delete {
+      font-size: 14px;
       &:hover {
+        fill: $active;
         cursor: pointer;
       }
     }
@@ -71,11 +73,8 @@
     .detail {
       grid-template-columns: repeat(3, 256px);
       font-size: 16px;
-      svg {
+      .delete {
         font-size: 19px;
-        &:hover {
-          fill: $active;
-        }
       }
     }
   }
