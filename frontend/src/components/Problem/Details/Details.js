@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
-// import { FiTrash2 } from "react-icons/fi";
+import ReactModal from "react-modal";
+import Modal from "../../modals/ExportModal";
+import { GrClose } from "react-icons/gr";
 import { RiDeleteBin6Line } from "react-icons/ri";
 
 import { v1 as uuidv1 } from "uuid";
@@ -26,6 +28,7 @@ export const Details = () => {
   const [fetchedDetails, setFetchedDetails] = useState([]);
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
+  const [showModal, setModal] = useState(false);
 
   useEffect(() => {
     setFetchedDetails(details);
@@ -111,6 +114,7 @@ export const Details = () => {
 
       <div className="footer">
         <button
+          onClick={() => setModal(true)}
           className={
             "btn " + "btn-light " + (!selectedProblem ? "disabled" : "")
           }
@@ -118,6 +122,22 @@ export const Details = () => {
           export
         </button>
       </div>
+      <ReactModal
+        className="modal-wrapper"
+        overlayClassName="modal-overlay"
+        isOpen={showModal}
+        contentLabel="onRequestClose Example"
+        ariaHideApp={false}
+        onRequestClose={() => setModal(false)}
+      >
+        <h1 className="modal-header">
+          Feature for exporting your data is under development.
+        </h1>
+        <Modal />
+        <button className="close-modal" onClick={() => setModal(false)}>
+          <GrClose />
+        </button>
+      </ReactModal>
     </div>
   );
 };

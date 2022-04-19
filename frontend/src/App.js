@@ -2,7 +2,7 @@ import React from "react";
 
 //components
 import Sidebar from "./components/Sidebar/Sidebar";
-import MainHeader from "./components/MainHeader/MainHeader";
+import Helper from "./components/Helper/Helper";
 import Fixes from "./components/Fixes/Fixes";
 import Problems from "./components/Problems/Problems";
 import Problem from "./components/Problem/Problem";
@@ -16,8 +16,8 @@ export const App = () => {
     <div className="App">
       <Load />
       <Sidebar />
-      <MainHeader />
       <div className="dashboard">
+        <Helper />
         <Fixes />
         <Problems />
         <Problem />

@@ -1,11 +1,13 @@
 @import "../../assets/styles/base/vars.scss";
 
-.main-header {
-  grid-column: 3;
-  grid-row: 1;
+.helper {
   display: flex;
-  justify-content: center;
+  position: absolute;
   align-items: center;
+  justify-content: center;
+  left: 0;
+  right: 0;
+  top: -70px;
   p {
     font-size: 18px;
     font-family: "Muli-SemiBold";
@@ -14,7 +16,10 @@
 }
 
 @media only screen and (min-width: 1600px) {
-  .main-header p {
-    font-size: 26px;
+  .helper {
+    top: -110px;
+    p {
+      font-size: 26px;
+    }
   }
 }

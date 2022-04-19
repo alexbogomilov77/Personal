@@ -2,9 +2,9 @@ import React from "react";
 //redux
 import { useSelector } from "react-redux";
 //styles
-import "./MainHeader.scss";
+import "./Helper.scss";
 
-const MainHeader = () => {
+const Helper = () => {
   const selectedCar = useSelector((state) => state.selectedItems.selectedCar);
   const selectedFix = useSelector((state) => state.selectedItems.selectedFix);
   const selectedProblem = useSelector(
@@ -22,10 +22,10 @@ const MainHeader = () => {
   };
 
   return (
-    <div className="main-header">
+    <div className="helper">
       <p>{displayMessage()}</p>
     </div>
   );
 };
 
-export default MainHeader;
+export default Helper;

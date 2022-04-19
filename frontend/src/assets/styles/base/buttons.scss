@@ -61,7 +61,7 @@
   align-items: center;
   transition: 0.1s ease;
   justify-content: center;
-  font-family: "Muli-Bold";
+  font-family: "Muli";
   background-color: #efefef;
   &.btn-switch-left {
     border-radius: $radius 0px 0px $radius;
@@ -72,11 +72,14 @@
   &.selected {
     color: $white;
     background: $active;
+    &:hover {
+      color: $white;
+    }
   }
   &:hover {
-    color: $white;
+    color: $active;
     cursor: pointer;
-    background-color: #c5c5c5;
+    font-family: "Muli-Bold";
   }
 }
 
