@@ -1,7 +1,28 @@
 .problem {
   margin: 0 30px;
-  min-width: 635px;
+  // min-width: 635px;
 }
 
-@media only screen and (min-width: 1600px) {
+@media only screen and (min-width: 1400px) {
+  .problem {
+    min-width: 635px;
+  }
+}
+
+@media only screen and (max-width: 1399px) {
+  .problem {
+    min-width: 575px;
+  }
+}
+
+@media only screen and (max-width: 1299px) {
+  .problem {
+    min-width: 525px;
+  }
+}
+
+@media only screen and (max-width: 1199px) {
+  .problem {
+    min-width: 455px;
+  }
 }
