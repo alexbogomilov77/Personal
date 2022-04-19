@@ -7,7 +7,7 @@
 .form {
   display: grid;
   column-gap: 40px;
-  grid-template-columns: repeat(3, 170px);
+  grid-template-columns: repeat(3, $grid1);
   margin-bottom: 20px;
   .input-block {
     text-align: left;
@@ -31,12 +31,15 @@
 }
 
 .details {
-  text-align: left;
   min-height: 240px;
+  max-height: 240px;
+  text-align: left;
+  overflow-y: scroll;
+  margin-bottom: 30px;
   .detail {
     display: grid;
     grid-column-gap: 40px;
-    grid-template-columns: repeat(3, 170px);
+    grid-template-columns: repeat(3, $grid1);
     font-size: 12px;
     padding: 10px 22px;
     color: $solid;
@@ -58,7 +61,7 @@
 @media only screen and (min-width: 1600px) {
   .form {
     margin-bottom: 40px;
-    grid-template-columns: repeat(3, 250px);
+    grid-template-columns: repeat(3, $grid);
     .input-label {
       font-size: 18px;
     }
@@ -69,13 +72,50 @@
   }
 
   .details {
-    min-height: 390px;
+    min-height: 370px;
+    max-height: 370px;
     .detail {
-      grid-template-columns: repeat(3, 256px);
+      grid-template-columns: repeat(3, $grid);
       font-size: 16px;
       .delete {
         font-size: 19px;
       }
+    }
+  }
+}
+
+@media only screen and (max-width: 1400px) {
+  .form {
+    grid-template-columns: repeat(3, $grid2);
+  }
+
+  .details {
+    .detail {
+      grid-template-columns: repeat(3, $grid2);
+    }
+  }
+}
+
+@media only screen and (max-width: 1300px) {
+  .form {
+    grid-template-columns: repeat(3, $grid3);
+  }
+
+  .details {
+    .detail {
+      grid-template-columns: repeat(3, $grid3);
+    }
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .form {
+    grid-template-columns: repeat(3, $grid4);
+  }
+
+  .details {
+    .detail {
+      grid-template-columns: repeat(3, $grid4);
     }
   }
 }

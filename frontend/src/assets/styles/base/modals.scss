@@ -4,6 +4,7 @@
   color: $solid;
   border: none;
   position: absolute;
+  background: transparent;
   font-size: 20px;
   right: 15px;
   top: 15px;
@@ -12,8 +13,8 @@
   }
 }
 .modal-wrapper {
-  width: 25%;
-  height: 35vh;
+  width: 35%;
+  height: 50vh;
   padding: 20px;
   border-radius: 10px;
   display: flex;
@@ -35,8 +36,9 @@
 }
 
 .modal-header {
-  position: absolute;
   top: 0;
+  font-size: 27px;
+  position: absolute;
 }
 
 .modal {
@@ -96,8 +98,11 @@
     font-size: 30px;
   }
   .modal-wrapper {
-    width: 45%;
+    width: 35%;
     height: 45vh;
+  }
+  .modal-header {
+    font-size: 38px;
   }
   .modal-form {
     input {
