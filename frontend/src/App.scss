@@ -52,10 +52,13 @@
     color: black;
   }
   img {
-    width: 500px;
+    width: 450px;
   }
 }
 @media only screen and (max-width: 1150px) {
+  .dashboard {
+    display: none;
+  }
   .mobile-view {
     display: flex;
     justify-content: center;
