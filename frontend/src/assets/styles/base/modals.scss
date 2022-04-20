@@ -22,9 +22,6 @@
   align-items: center;
   justify-content: center;
   background: linear-gradient(145deg, #ffffff, #eaeaea);
-  &.wide {
-    width: 55%;
-  }
 }
 .modal-overlay {
   top: 0;
@@ -42,9 +39,6 @@
   top: 0;
   font-size: 27px;
   position: absolute;
-  &.long-title {
-    font-size: 22px;
-  }
 }
 
 .modal {
