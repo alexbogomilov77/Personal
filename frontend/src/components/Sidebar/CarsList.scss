@@ -27,18 +27,16 @@
 }
 
 .name {
-  font-size: 16px;
-  font-family: "Muli-SemiBold";
   &:hover {
     cursor: pointer;
     color: $white;
   }
   .make {
-    font-size: 24px;
+    font-size: 20px;
   }
   .plate {
     opacity: 0.7;
-    font-size: 15px;
+    font-size: 16px;
   }
 }
 
@@ -46,7 +44,7 @@
   position: absolute;
   left: 30px;
   top: 20px;
-  font-size: 20px;
+  font-size: 24px;
   svg path {
     stroke: $solid-light;
   }
@@ -60,7 +58,9 @@
 
 @media only screen and (min-width: 1800px) {
   .name {
-    font-size: 20px;
+    .make {
+      font-size: 24px;
+    }
     .plate {
       font-size: 18px;
     }
