@@ -19,6 +19,7 @@ const CarsList = (props) => {
   const [activeLink, setActiveLink] = useState(null);
 
   useEffect(() => {
+    setActiveLink(null);
     dispatch(setLoader(false));
   }, [cars]);
 

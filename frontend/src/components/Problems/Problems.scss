@@ -20,7 +20,7 @@
     font-size: 15px;
     margin: 10px 0;
     color: $solid;
-    font-family: "Muli-Bold";
+    font-family: "Muli-SemiBold";
     &:hover {
       transition: 0.1s ease;
       cursor: pointer;
@@ -43,7 +43,7 @@
   }
 
   .problems-list {
-    height: 540px;
+    height: 570px;
     li {
       font-size: 20px;
     }

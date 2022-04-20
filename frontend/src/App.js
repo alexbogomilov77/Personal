@@ -6,6 +6,7 @@ import Helper from "./components/Helper/Helper";
 import Fixes from "./components/Fixes/Fixes";
 import Problems from "./components/Problems/Problems";
 import Problem from "./components/Problem/Problem";
+import MobileView from "./MobileView";
 import Load from "./Load";
 //styles
 import "./assets/styles/index.scss";
@@ -22,6 +23,7 @@ export const App = () => {
         <Problems />
         <Problem />
       </div>
+      <MobileView />
     </div>
   );
 };

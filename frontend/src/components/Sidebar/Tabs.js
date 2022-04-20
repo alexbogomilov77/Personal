@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 //redux
 import {
-  setLoader,
+  setSlowLoader,
   selectTab
 } from "../../redux/actions/selectedItems.actions";
 import { fetchCars } from "../../redux/actions/cars.actions";
@@ -15,9 +15,12 @@ const Tabs = () => {
   const selectedTab = useSelector((state) => state.selectedItems.selectedTab);
 
   const handleClick = async (tab) => {
-    dispatch(setLoader(true));
+    dispatch(setSlowLoader(true));
     await dispatch(selectTab(tab));
     await dispatch(fetchCars());
+    setTimeout(() => {
+      dispatch(setSlowLoader(false));
+    }, 500);
   };
 
   return (

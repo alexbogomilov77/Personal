@@ -1,9 +1,14 @@
 .problem {
   margin: 0 30px;
-  // min-width: 635px;
 }
 
-@media only screen and (min-width: 1400px) {
+@media only screen and (min-width: 1800px) {
+  .problem {
+    min-width: 875px;
+  }
+}
+
+@media only screen and (max-width: 1599px) {
   .problem {
     min-width: 635px;
   }

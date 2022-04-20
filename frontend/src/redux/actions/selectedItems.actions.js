@@ -1,4 +1,7 @@
 import store from "../store";
+import { setFixes } from "../actions/fixes.actions";
+import { setProblems } from "../actions/problems.actions";
+import { setDetails } from "../actions/problemsDetails.actions";
 
 export const SET_LOADER = "SET_LOADER";
 export const SET_SLOW_LOADER = "SET_SLOW_LOADER";
@@ -33,6 +36,8 @@ export const selectProblemDetail = (payload) => {
 export function selectTab(tab) {
   return (dispatch) => {
     return new Promise((resolve) => {
+      dispatch(emptyAllFields());
+      dispatch(resetSelectedFields());
       dispatch(setSelectTab(tab));
       resolve();
     });
@@ -42,7 +47,7 @@ export function selectTab(tab) {
 export function selectCar(car) {
   return (dispatch) => {
     return new Promise((resolve) => {
-      dispatch(emptyAllFields(car));
+      dispatch(resetSelectedFields(car));
       dispatch(setSelectedCar(car));
       resolve();
     });
@@ -59,15 +64,27 @@ export function emptyProblems() {
   };
 }
 
-export function emptyAllFields(car) {
+export function resetSelectedFields(car) {
   return (dispatch) => {
     return new Promise((resolve) => {
-      if (car !== store.getState().selectedItems.selectedCar) {
+      if (!car || car !== store.getState().selectedItems.selectedCar) {
+        dispatch(setSelectedCar(null));
         dispatch(selectFix(null));
         dispatch(selectProblem(null));
         dispatch(selectProblemDetail(null));
         resolve();
       }
+    });
+  };
+}
+
+export function emptyAllFields(car) {
+  return (dispatch) => {
+    return new Promise((resolve) => {
+      dispatch(setFixes(null));
+      dispatch(setProblems(null));
+      dispatch(setDetails(null));
+      resolve();
     });
   };
 }
