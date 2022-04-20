@@ -130,7 +130,7 @@ export const Details = () => {
         ariaHideApp={false}
         onRequestClose={() => setModal(false)}
       >
-        <h1 className="modal-header">
+        <h1 className="modal-header long-title">
           Feature for exporting your data is under development.
         </h1>
         <Modal />

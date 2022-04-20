@@ -60,10 +60,10 @@ const CarsList = (props) => {
             ""
           )}
           <div className="name" onClick={() => handleClick(car._id)}>
-            <p className="plate">{car.plate}</p>
             <p className="make">
               {car.make} {car.model}
             </p>
+            <p className="plate">{car.plate}</p>
           </div>
         </li>
       ))}
