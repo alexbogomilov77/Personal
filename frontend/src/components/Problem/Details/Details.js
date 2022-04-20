@@ -123,7 +123,7 @@ export const Details = () => {
         </button>
       </div>
       <ReactModal
-        className="modal-wrapper"
+        className="modal-wrapper wide"
         overlayClassName="modal-overlay"
         isOpen={showModal}
         contentLabel="onRequestClose Example"
