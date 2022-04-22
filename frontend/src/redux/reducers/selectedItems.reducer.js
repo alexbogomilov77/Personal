@@ -1,4 +1,5 @@
 const initialState = {
+  isInitLoading: true,
   isLoading: false,
   isSlowLoading: false,
   selectedTab: 0,
@@ -10,6 +11,8 @@ const initialState = {
 
 const selectedItemsReducer = (state = initialState, action) => {
   switch (action.type) {
+    case "SET_INIT_LOADER":
+      return { ...state, isInitLoading: action.payload };
     case "SET_LOADER":
       return { ...state, isLoading: action.payload };
     case "SET_SLOW_LOADER":

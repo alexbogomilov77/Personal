@@ -5,6 +5,7 @@ import { GrSync } from "react-icons/gr";
 import { changeCarStatus } from "../../redux/actions/cars.actions";
 import { fetchFixes } from "../../redux/actions/fixes.actions";
 import {
+  setInitLoader,
   setLoader,
   setSlowLoader,
   selectCar
@@ -17,6 +18,14 @@ const CarsList = (props) => {
   const cars = props.cars;
   const dispatch = useDispatch();
   const [activeLink, setActiveLink] = useState(null);
+
+  useEffect(() => {
+    if (cars)
+      setTimeout(() => {
+        console.log("INIT LOADER");
+        dispatch(setInitLoader(false));
+      }, 500);
+  }, []);
 
   useEffect(() => {
     setActiveLink(null);

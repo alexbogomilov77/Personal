@@ -3,6 +3,7 @@ import { setFixes } from "../actions/fixes.actions";
 import { setProblems } from "../actions/problems.actions";
 import { setDetails } from "../actions/problemsDetails.actions";
 
+export const SET_INIT_LOADER = "SET_INIT_LOADER";
 export const SET_LOADER = "SET_LOADER";
 export const SET_SLOW_LOADER = "SET_SLOW_LOADER";
 export const SET_SELECTED_TAB = "SET_SELECTED_TAB";
@@ -11,6 +12,9 @@ export const SET_SELECTED_FIX = "SET_SELECTED_FIX";
 export const SET_SELECTED_PROBLEM = "SET_SELECTED_PROBLEM";
 export const SET_SELECTED_PROBLEM_DETAIL = "SET_SELECTED_PROBLEM_DETAIL";
 
+export const setInitLoader = (payload) => {
+  return { type: SET_INIT_LOADER, payload };
+};
 export const setLoader = (payload) => {
   return { type: SET_LOADER, payload };
 };
