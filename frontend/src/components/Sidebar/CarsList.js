@@ -22,7 +22,6 @@ const CarsList = (props) => {
   useEffect(() => {
     if (cars)
       setTimeout(() => {
-        console.log("INIT LOADER");
         dispatch(setInitLoader(false));
       }, 500);
   }, []);
