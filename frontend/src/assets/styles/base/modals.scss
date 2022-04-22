@@ -22,6 +22,9 @@
   align-items: center;
   justify-content: center;
   background: linear-gradient(145deg, #ffffff, #eaeaea);
+  &.wide {
+    width: 45%;
+  }
 }
 .modal-overlay {
   top: 0;
@@ -39,6 +42,10 @@
   top: 0;
   font-size: 27px;
   position: absolute;
+  &.long-title {
+    margin: 20px 0;
+    font-size: 18px;
+  }
 }
 
 .modal {
@@ -90,7 +97,7 @@
 }
 
 .modalImage {
-  width: 450px;
+  width: 380px;
 }
 
 @media only screen and (min-width: 1800px) {
@@ -106,6 +113,9 @@
     &.long-title {
       font-size: 28px;
     }
+  }
+  .modalImage {
+    width: 450px;
   }
   .modal-form {
     input {
