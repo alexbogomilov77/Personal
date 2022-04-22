@@ -20,7 +20,7 @@ const CarsList = (props) => {
   const [activeLink, setActiveLink] = useState(null);
 
   useEffect(() => {
-    if (cars)
+    if (cars.length > 0)
       setTimeout(() => {
         dispatch(setInitLoader(false));
       }, 500);
