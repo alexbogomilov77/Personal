@@ -80,6 +80,7 @@ export const Details = () => {
           <input
             type="text"
             value={name}
+            data-testid="name-input"
             onChange={(e) => setName(e.target.value)}
           />
         </div>
@@ -91,6 +92,7 @@ export const Details = () => {
           <input
             type="text"
             value={price}
+            data-testid="price-input"
             onChange={(e) => setPrice(e.target.value)}
           />
         </div>
