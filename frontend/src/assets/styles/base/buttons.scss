@@ -63,10 +63,10 @@
   justify-content: center;
   font-family: "Muli";
   background-color: #efefef;
-  &.btn-switch-left {
+  &.left {
     border-radius: $radius 0px 0px $radius;
   }
-  &.btn-switch-right {
+  &.right {
     border-radius: 0px $radius $radius 0px;
   }
   &.selected {

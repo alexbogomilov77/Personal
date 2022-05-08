@@ -20,47 +20,17 @@ export const Header = () => {
   );
 
   const [selectedBtn, setSelectedBtn] = useState(null);
-  const buttons = [
-    {
-      id: "actions",
-      position: "left"
-    },
-    {
-      id: "parts",
-      position: "right"
-    }
-  ];
 
   useEffect(() => {
     setSelectedBtn(selectedProblemDetail);
   }, [selectedProblemDetail]);
 
-  const handleClick = (id) => {
+  const handleClick = (type) => {
     dispatch(setLoader(true));
-    setSelectedBtn(id);
-    dispatch(selectProblemDetail(id));
-    dispatch(fetchDetails(id, selectedProblem.id));
+    setSelectedBtn(type);
+    dispatch(selectProblemDetail(type));
+    dispatch(fetchDetails(type, selectedProblem.id));
   };
-
-  const displayToggleButtons = () =>
-    buttons.map((item) => {
-      return (
-        <div
-          className={
-            "btn-switch " +
-            "btn-switch-" +
-            item.position +
-            " " +
-            (item.id === selectedBtn ? "selected" : "") +
-            (!selectedProblem ? "disabled" : "")
-          }
-          key={item.id}
-          onClick={() => handleClick(item.id)}
-        >
-          {item.id}
-        </div>
-      );
-    });
 
   return (
     <div className="header">
@@ -68,7 +38,26 @@ export const Header = () => {
         {selectedProblem ? selectedProblem.name : ""}
       </span>
 
-      <div className="switchBtns">{displayToggleButtons()}</div>
+      <div className={"switch-btns " + (!selectedProblem ? "disabled" : "")}>
+        <div
+          className={
+            "btn-switch left " + (selectedBtn === "actions" ? "selected" : "")
+          }
+          data-testid="actions-btn"
+          onClick={() => handleClick("actions")}
+        >
+          actions
+        </div>
+        <div
+          className={
+            "btn-switch right " + (selectedBtn === "parts" ? "selected" : "")
+          }
+          data-testid="parts-btn"
+          onClick={() => handleClick("parts")}
+        >
+          parts
+        </div>
+      </div>
     </div>
   );
 };
