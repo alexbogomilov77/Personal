@@ -64,6 +64,7 @@ export const Details = () => {
           <p>{item.price}</p>
           <RiDeleteBin6Line
             className="delete"
+            data-testid="delete-button"
             onClick={() => handleDelete(item.id)}
           />
         </li>
