@@ -8,8 +8,6 @@ const ProblemModal = ({ closeModal }) => {
   const dispatch = useDispatch();
   const selectedFix = useSelector((state) => state.selectedItems.selectedFix);
 
-  const problemDetailsLabels = ["name"];
-
   const [problem, setProblem] = useState({
     id: uuidv1(),
     fix_id: selectedFix,
@@ -30,21 +28,23 @@ const ProblemModal = ({ closeModal }) => {
     closeModal(problem);
   };
 
-  const problemDetailsList = () =>
-    problemDetailsLabels.map((item) => {
-      return (
-        <li key={item}>
-          <p className="input-label">{item}:</p>
-          <input type="text" id={item} onChange={handleChange} />
-        </li>
-      );
-    });
-
   return (
-    <div className="modal">
+    <div className="modal" data-testid="modal-body">
       <form className="modal-form flex-form" onSubmit={handleSubmit}>
-        <ul>{problemDetailsList()}</ul>
-        <button className="btn btn-light" type="submit">
+        <div>
+          <p className="input-label">name:</p>
+          <input
+            type="text"
+            id="name"
+            data-testid="name-input"
+            onChange={handleChange}
+          />
+        </div>
+        <button
+          className="btn btn-light"
+          type="submit"
+          data-testid="submit-button"
+        >
           Submit
         </button>
       </form>

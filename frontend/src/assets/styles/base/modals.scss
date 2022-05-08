@@ -63,12 +63,10 @@
   &.flex-form {
     height: unset;
     display: flex;
-    ul {
+    div {
+      display: flex;
       margin-right: 50px;
-      margin-bottom: 0;
-      li {
-        margin-bottom: 0;
-      }
+      align-items: center;
     }
   }
   ul {

@@ -1,9 +1,9 @@
 import React from "react";
 import * as redux from "react-redux";
 import { render, screen, fireEvent } from "@testing-library/react";
-import Details from "../Details/Details";
+import Details from "../components/Problem/Details/Details";
 import { Provider } from "react-redux";
-import store from "../../../redux/store";
+import store from "../redux/store";
 
 const MockDetails = () => {
   return (

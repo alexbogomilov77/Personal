@@ -1,9 +1,9 @@
 import React from "react";
 import * as redux from "react-redux";
 import { render, screen, fireEvent } from "@testing-library/react";
-import Problem from "../Problem";
+import Problem from "../components/Problem/Problem";
 import { Provider } from "react-redux";
-import store from "../../../redux/store";
+import store from "../redux/store";
 
 const MockProblem = () => {
   return (
@@ -62,7 +62,7 @@ describe("Action buttons", () => {
     expect(partsBtn).not.toHaveClass("selected");
   });
 
-  it("should switch active button on click", async () => {
+  it("should switch active button on click", () => {
     jest
       .spyOn(redux, "useSelector")
       .mockImplementation((callback) => callback(state));

@@ -47,6 +47,7 @@ export const Problems = () => {
       return (
         <li
           key={el.id}
+          data-testid="problems-list-item"
           onClick={() => handleClick(el)}
           className={el.id === selectedProblem ? "selected-problem" : ""}
         >
@@ -62,6 +63,7 @@ export const Problems = () => {
         {fetchedProblems && selectedFix ? displayProblems() : ""}{" "}
       </ul>
       <button
+        data-testid="new-problem"
         onClick={() => setModal(true)}
         className={"btn " + "btn-light " + (!selectedFix ? "disabled" : "")}
       >
