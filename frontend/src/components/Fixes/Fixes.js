@@ -55,6 +55,7 @@ const Fixes = () => {
       return (
         <li
           key={el.id}
+          data-testid="fixes-list-item"
           onClick={() => handleClick(el.id)}
           className={"fix " + (el.id === selectedFix ? "selected-fix" : "")}
         >
@@ -71,6 +72,7 @@ const Fixes = () => {
         className={
           "btn " + "btn-white " + "new-fix " + (!selectedCar ? "disabled" : "")
         }
+        data-testid="add-btn"
         onClick={handleAddBtn}
       >
         <GrFormAdd />
