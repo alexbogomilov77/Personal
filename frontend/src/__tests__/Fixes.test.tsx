@@ -1,4 +1,3 @@
-import React from "react";
 import * as redux from "react-redux";
 import { render, screen, fireEvent } from "@testing-library/react";
 import Fixes from "../components/Fixes/Fixes";
@@ -22,12 +21,12 @@ const fixes = {
       car_id: "625fca335773ce002341039d",
       price: "23",
       start_date: "2022-04-20T09:21:49.590Z",
-      __v: 0
-    }
-  ]
+      __v: 0,
+    },
+  ],
 };
 const selectedItems = {
-  selectedCar: "625fca335773ce002341039d"
+  selectedCar: "625fca335773ce002341039d",
 };
 
 const state = { fixes, selectedItems };

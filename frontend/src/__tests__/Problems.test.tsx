@@ -1,4 +1,3 @@
-import React from "react";
 import * as redux from "react-redux";
 import { render, screen, fireEvent } from "@testing-library/react";
 import Problems from "../components/Problems/Problems";
@@ -24,7 +23,7 @@ const MockProblemModal = () => {
 
 // Mock useSelector's
 const selectedItems = {
-  selectedFix: "4ec0d450-c08b-11ec-a540-6706cb8d7e80"
+  selectedFix: "4ec0d450-c08b-11ec-a540-6706cb8d7e80",
 };
 const problems = {
   problems: [
@@ -33,9 +32,9 @@ const problems = {
       id: "5212be71-c08b-11ec-a540-6706cb8d7e80",
       fix_id: "4ec0d450-c08b-11ec-a540-6706cb8d7e80",
       name: "Change brakes",
-      __v: 0
-    }
-  ]
+      __v: 0,
+    },
+  ],
 };
 
 const state = { selectedItems, problems };

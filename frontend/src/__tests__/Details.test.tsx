@@ -1,4 +1,3 @@
-import React from "react";
 import * as redux from "react-redux";
 import { render, screen, fireEvent } from "@testing-library/react";
 import Details from "../components/Problem/Details/Details";
@@ -20,9 +19,9 @@ const selectedItems = {
     id: "5212be71-c08b-11ec-a540-6706cb8d7e80",
     fix_id: "4ec0d450-c08b-11ec-a540-6706cb8d7e80",
     name: "Change brakes",
-    __v: 0
+    __v: 0,
   },
-  selectedProblemDetail: "actions"
+  selectedProblemDetail: "actions",
 };
 const problemsDetails = {
   details: [
@@ -32,7 +31,7 @@ const problemsDetails = {
       problem_id: "5212be71-c08b-11ec-a540-6706cb8d7e80",
       name: "remove old brakes",
       price: "35",
-      __v: 0
+      __v: 0,
     },
     {
       _id: "625fd79c5773ce00234103ba",
@@ -40,9 +39,9 @@ const problemsDetails = {
       problem_id: "5212be71-c08b-11ec-a540-6706cb8d7e80",
       name: "setup new brakes",
       price: "20",
-      __v: 0
-    }
-  ]
+      __v: 0,
+    },
+  ],
 };
 const problemsDetailsSingle = {
   details: [
@@ -52,9 +51,9 @@ const problemsDetailsSingle = {
       problem_id: "5212be71-c08b-11ec-a540-6706cb8d7e80",
       name: "clean exterior",
       price: "12",
-      __v: 0
-    }
-  ]
+      __v: 0,
+    },
+  ],
 };
 
 const state = { selectedItems, problemsDetails };
@@ -62,7 +61,7 @@ const state = { selectedItems, problemsDetails };
 // For testing delete button
 const stateSingleDetail = {
   selectedItems,
-  problemsDetails: problemsDetailsSingle
+  problemsDetails: problemsDetailsSingle,
 };
 
 describe("Details", () => {
