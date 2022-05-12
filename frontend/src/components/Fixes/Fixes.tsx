@@ -8,7 +8,7 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   setLoader,
   selectFix,
-  emptyProblems
+  emptyProblems,
 } from "../../redux/actions/selectedItems.actions";
 import { addFix } from "../../redux/actions/fixes.actions";
 import { fetchProblems } from "../../redux/actions/problems.actions";
@@ -35,7 +35,7 @@ const Fixes = () => {
     const fix = {
       id: uuidv1(),
       car_id: selectedCar,
-      start_date: moment().utc().toDate()
+      start_date: moment().utc().toDate(),
     };
 
     setFetchedFixes([...fetchedFixes, fix]);

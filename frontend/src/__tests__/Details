@@ -80,8 +80,10 @@ describe("Details", () => {
   it("inputs should be functional", () => {
     render(<MockDetails />);
 
-    const nameInput = screen.getByTestId("name-input");
-    const priceInput = screen.getByTestId("price-input");
+    // const nameInput = screen.getByTestId("name-input");
+    const nameInput = (screen.getByTestId("name-input") as HTMLInputElement).value;
+    // const priceInput = screen.getByTestId("price-input");
+    const priceInput = (screen.getByTestId("price-input") as HTMLInputElement).value;
 
     fireEvent.change(nameInput, { target: { value: "turbo" } });
     fireEvent.change(priceInput, { target: { value: "45" } });
