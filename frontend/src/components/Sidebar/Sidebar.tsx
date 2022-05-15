@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import ReactModal from "react-modal";
 import Modal from "../modals/NewCarModal";
 import { GrClose } from "react-icons/gr";
