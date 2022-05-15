@@ -3,6 +3,7 @@ import ReactModal from "react-modal";
 import Modal from "../modals/NewCarModal";
 import { GrClose } from "react-icons/gr";
 //redux
+import { AppState } from "../../redux/store";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchCars } from "../../redux/actions/cars.actions";
 //components
@@ -15,10 +16,10 @@ import logo from "../../assets/images/logo.png";
 const Sidebar = () => {
   const dispatch = useDispatch();
 
-  const cars = useSelector((state) => state.cars.cars);
+  const cars = useSelector((state: AppState) => state.cars.cars);
 
-  const [fetchedCars, setFetchedCars] = useState([]);
-  const [showModal, setModal] = useState(false);
+  const [fetchedCars, setFetchedCars] = useState<Array<object>>([]);
+  const [showModal, setModal] = useState<boolean>(false);
 
   useEffect(() => {
     dispatch(fetchCars());
@@ -56,7 +57,7 @@ const Sidebar = () => {
         onRequestClose={() => setModal(false)}
       >
         <h1 className="modal-header">Add new car</h1>
-        <Modal closeModal={(car) => closeAndSet(car)} />
+        <Modal closeModal={(car: object) => closeAndSet(car)} />
         <button className="close-modal" onClick={() => setModal(false)}>
           <GrClose />
         </button>

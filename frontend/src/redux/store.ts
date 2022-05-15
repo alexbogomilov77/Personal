@@ -13,3 +13,4 @@ const store = createStore(
 );
 
 export default store;
+export type AppState = ReturnType<typeof combinedReducers>;
